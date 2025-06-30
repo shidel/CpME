@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="CpME.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="28" Y="20"/>
+        <UsageCount Value="82"/>
+      </Unit>
+      <Unit>
+        <Filename Value="umain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="184"/>
+        <CursorPos X="3" Y="187"/>
+        <FoldState Value=" T6j001 T3mB03011 PL92 TLlI0Sb"/>
+        <UsageCount Value="82"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="doscp.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DOScp"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="22"/>
+        <CursorPos X="90" Y="45"/>
+        <UsageCount Value="82"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ulog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fLog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLog"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="22"/>
+        <CursorPos X="18" Y="41"/>
+        <UsageCount Value="66"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cpext.pas"/>
+        <UnitName Value="CPext"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="601"/>
+        <CursorPos X="75" Y="634"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pasext.pas"/>
+        <UnitName Value="PasExt"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="25" Y="23"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="version.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="dosfont.pas"/>
+        <UnitName Value="DOSfont"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="230"/>
+        <CursorPos X="57" Y="265"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/Applications/Lazarus/lcl/comctrls.pp"/>
+        <UnitName Value="ComCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="924"/>
+        <CursorPos X="3" Y="944"/>
+        <UsageCount Value="11"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="9" Column="41"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="22" Column="18" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="121" Column="21" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="9" Column="41"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="156" Column="7" TopLine="124"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="149" Column="26" TopLine="129"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="277" TopLine="225"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="300" Column="46" TopLine="280"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="319" Column="18" TopLine="293"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="8" Column="33"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="9" Column="32"/>
+      </Position>
+      <Position>
+        <Filename Value="pasext.pas"/>
+        <Caret Line="90" Column="14" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="9" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="46" Column="19" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="62" Column="25" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="263" Column="69" TopLine="234"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="264" Column="69" TopLine="235"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="265" Column="69" TopLine="236"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="266" Column="69" TopLine="237"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="267" Column="69" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="268" Column="69" TopLine="239"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="269" Column="69" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="270" Column="69" TopLine="241"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="9" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="99" TopLine="70"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="114" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="172" TopLine="137"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="189" TopLine="167"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="279" TopLine="235"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="63" Column="17" TopLine="43"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
