@@ -1,0 +1,6 @@
+# Version Control System file timestamp preservation file
+# Timestamps can be saved and restored using the fdvcs.sh utility
+# which can be found in the 'Package Development Kit' project
+# https://gitlab.com/FDOS/devel/pkgdevel
+
+1751322270 6559b7016198212634fe96a89a2c40db9ef96f934718d3ac11599674721ccc5efba1ea85c33c84595ac862128504b78a8f22dacc9725b31f83a58e5427fcef61 LICENSE
