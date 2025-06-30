@@ -75,7 +75,7 @@ const
 
 {$I version.inc}
 
-{$I country.inc}
+{ I country.inc}
 
 var
   PathDelimiter : String;
@@ -2330,8 +2330,6 @@ begin
   FileCaseMatch:=O;
 end;
 
-{$IFDEF Country}
-
 function StringClip(Str: String; Len: integer; Elipsis: String): String;
 begin
   StringClip:=Str;
@@ -2342,6 +2340,8 @@ begin
   end;
   StringClip:=Copy(Str, 1, Len - Length(Elipsis)) + Elipsis;
 end;
+
+{$IFDEF Country}
 
 function TimeZoneOffset(TZ: String): String;
 var

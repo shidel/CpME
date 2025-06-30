@@ -8,7 +8,7 @@
         <Filename Value="CpME.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="28" Y="20"/>
+        <CursorPos X="22" Y="13"/>
         <UsageCount Value="82"/>
       </Unit>
       <Unit>
@@ -17,8 +17,7 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="184"/>
+        <TopLine Value="185"/>
         <CursorPos X="3" Y="187"/>
         <FoldState Value=" T6j001 T3mB03011 PL92 TLlI0Sb"/>
         <UsageCount Value="82"/>
@@ -29,9 +28,10 @@
         <Filename Value="doscp.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DOScp"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="22"/>
-        <CursorPos X="90" Y="45"/>
+        <TopLine Value="23"/>
+        <CursorPos X="71" Y="31"/>
         <UsageCount Value="82"/>
         <Loaded Value="True"/>
       </Unit>
@@ -59,7 +59,8 @@
         <Filename Value="pasext.pas"/>
         <UnitName Value="PasExt"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="25" Y="23"/>
+        <TopLine Value="2310"/>
+        <CursorPos Y="2343"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
@@ -87,22 +88,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="9" Column="41"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="22" Column="18" TopLine="12"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="121" Column="21" TopLine="107"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="9" Column="41"/>
-      </Position>
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="156" Column="7" TopLine="124"/>
@@ -206,6 +191,22 @@
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="63" Column="17" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="187" Column="3" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="pasext.pas"/>
+        <Caret Line="78" Column="3" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="pasext.pas"/>
+        <Caret Line="321" Column="18" TopLine="301"/>
+      </Position>
+      <Position>
+        <Filename Value="pasext.pas"/>
+        <Caret Line="2343" TopLine="2310"/>
       </Position>
     </JumpHistory>
     <RunParams>
