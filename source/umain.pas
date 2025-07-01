@@ -406,6 +406,8 @@ end;
 procedure TfMain.lvCodePageChange(Sender: TObject; Item: TListItem;
   Change: TItemChange);
 begin
+  if not Assigned(Item) then Exit;
+  if not Item.Selected then Exit;
   SelectChar(Item.Index);
 end;
 

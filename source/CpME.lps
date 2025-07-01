@@ -17,9 +17,10 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="405"/>
-        <CursorPos X="39" Y="463"/>
-        <FoldState Value=" T4602 TLpV0S T3j40B113 pl1iM2Q53523 Pkbob0 T6j50191312 PRqG]I1j7081184511[M4lY[N50jJZ3A pidl5R38 PglTBA"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="359"/>
+        <CursorPos X="30" Y="410"/>
+        <FoldState Value=" T4602 TLpV0S T3j40B113 pl1iM2Q53422 Pl4od0 T6j5019131]JRqI]I1j708118442121]f7[N50jJZ3A pidl5R36]klVBr"/>
         <UsageCount Value="104"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -28,10 +29,9 @@
         <Filename Value="doscp.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DOScp"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="216"/>
-        <CursorPos X="75" Y="240"/>
+        <TopLine Value="299"/>
+        <CursorPos X="53" Y="309"/>
         <FoldState Value=" T3j403B21 Pibk50?"/>
         <UsageCount Value="104"/>
         <Loaded Value="True"/>
