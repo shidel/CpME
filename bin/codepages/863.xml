@@ -137,47 +137,47 @@
     <ASCII_131 CODE="x00e2" HTML="acirc" UTF8="195 162"/>
     <ASCII_132 CODE="x00e4" HTML="auml" UTF8="195 164"/>
     <ASCII_133 CODE="x00e0" HTML="agrave" UTF8="195 160"/>
-    <ASCII_134 CODE="x00e5" UTF8="195 165"/>
+    <ASCII_134 CODE="x00b6" HTML="para" UTF8="194 182"/>
     <ASCII_135 CODE="x00e7" HTML="ccedil" UTF8="195 167"/>
     <ASCII_136 CODE="x00ea" HTML="ecirc" UTF8="195 170"/>
     <ASCII_137 CODE="x00eb" HTML="euml" UTF8="195 171"/>
     <ASCII_138 CODE="x00e8" HTML="egrave" UTF8="195 168"/>
     <ASCII_139 CODE="x00ef" HTML="iuml" UTF8="195 175"/>
     <ASCII_140 CODE="x00ee" HTML="icirc" UTF8="195 174"/>
-    <ASCII_141 CODE="x00ec" UTF8="195 172"/>
-    <ASCII_142 CODE="x00c4" HTML="Auml" UTF8="195 132"/>
-    <ASCII_143 CODE="x00c5" UTF8="195 133"/>
+    <ASCII_141 CODE="x0347" UTF8="204 179"/>
+    <ASCII_142 CODE="x00c0" HTML="Agrave" UTF8="195 128"/>
+    <ASCII_143 CODE="x00a7" HTML="sect" UTF8="194 167"/>
     <ASCII_144 CODE="x00c9" HTML="Eacute" UTF8="195 137"/>
-    <ASCII_145 CODE="x00e6" UTF8="195 166"/>
-    <ASCII_146 CODE="x00c6" UTF8="195 134"/>
+    <ASCII_145 CODE="x00c8" HTML="Egrave" UTF8="195 136"/>
+    <ASCII_146 CODE="x00ca" HTML="Ecirc" UTF8="195 138"/>
     <ASCII_147 CODE="x00f4" HTML="ocirc" UTF8="195 180"/>
-    <ASCII_148 CODE="x00f6" UTF8="195 182"/>
-    <ASCII_149 CODE="x00f2" UTF8="195 178"/>
+    <ASCII_148 CODE="x00cb" HTML="Euml" UTF8="195 139"/>
+    <ASCII_149 CODE="x00cf" HTML="Iuml" UTF8="195 143"/>
     <ASCII_150 CODE="x00fb" HTML="ucirc" UTF8="195 187"/>
     <ASCII_151 CODE="x00f9" HTML="ugrave" UTF8="195 185"/>
-    <ASCII_152 CODE="x00ff" UTF8="195 191"/>
-    <ASCII_153 CODE="x00d6" HTML="Ouml" UTF8="195 150"/>
+    <ASCII_152 CODE="x00a4" HTML="curren" UTF8="194 164"/>
+    <ASCII_153 CODE="x00d4" HTML="Ocirc" UTF8="195 148"/>
     <ASCII_154 CODE="x00dc" HTML="Uuml" UTF8="195 156"/>
-    <ASCII_155 CODE="x00f8" UTF8="195 184"/>
+    <ASCII_155 CODE="x00a2" HTML="cent" UTF8="194 162"/>
     <ASCII_156 CODE="x00a3" HTML="pound" UTF8="194 163"/>
-    <ASCII_157 CODE="x00d8" UTF8="195 152"/>
-    <ASCII_158 CODE="x00d7" UTF8="195 151"/>
+    <ASCII_157 CODE="x00f9" HTML="ugrave" UTF8="195 185"/>
+    <ASCII_158 CODE="x00fb" HTML="ucirc" UTF8="195 187"/>
     <ASCII_159 CODE="x0192" HTML="fnof" UTF8="198 146"/>
-    <ASCII_160 CODE="x00e1" UTF8="195 161"/>
-    <ASCII_161 CODE="x00ed" UTF8="195 173"/>
+    <ASCII_160 CODE="x00a6" HTML="brvbar" UTF8="194 166"/>
+    <ASCII_161 CODE="x00b4" HTML="acute" MORE="DiacriticalAcute" UTF8="194 180"/>
     <ASCII_162 CODE="x00f3" HTML="oacute" UTF8="195 179"/>
     <ASCII_163 CODE="x00fa" HTML="uacute" UTF8="195 186"/>
-    <ASCII_164 CODE="x00f1" UTF8="195 177"/>
-    <ASCII_165 CODE="x00d1" UTF8="195 145"/>
-    <ASCII_166 CODE="x00aa" UTF8="194 170"/>
-    <ASCII_167 CODE="x00ba" UTF8="194 186"/>
+    <ASCII_164 CODE="x00a8" HTML="uml" UTF8="194 168"/>
+    <ASCII_165 CODE="x00b8" HTML="cedil" MORE="Cedilla" UTF8="194 184"/>
+    <ASCII_166 CODE="x00b3" HTML="sup3" UTF8="194 179"/>
+    <ASCII_167 CODE="x00af" HTML="macr" MORE="strns,OverBar" UTF8="194 175"/>
     <!-- possibly deg -->
-    <ASCII_168 CODE="x00bf" UTF8="194 191"/>
+    <ASCII_168 CODE="x00ce" HTML="Icirc" UTF8="195 142"/>
     <ASCII_169 CODE="x2310" UTF8="226 140 144"/>
     <ASCII_170 CODE="x00ac" HTML="not" UTF8="194 172"/>
     <ASCII_171 CODE="x00bd" HTML="frac12" UTF8="194 189"/>
     <ASCII_172 CODE="x00bc" HTML="frac14" UTF8="194 188"/>
-    <ASCII_173 CODE="x0190" HTML="frac34" UTF8="194 190"/>
+    <ASCII_173 CODE="x00be" HTML="frac34" UTF8="194 190"/>
     <ASCII_174 CODE="x00ab" HTML="laquo" UTF8="194 171"/>
     <ASCII_175 CODE="x00bb" HTML="raquo" UTF8="194 187"/>
     <ASCII_176 CODE="x2591" HTML="blk14" UTF8="226 150 145"/>
@@ -266,6 +266,6 @@
     <ASCII_253 CODE="x00b2" HTML="sup2" UTF8="194 178"/>
     <ASCII_254 CODE="x25fc" HTML="FilledSmallSquare" UTF8="226 150 160"/>
     <!-- CODE="x25aa" HTML="blacksquare" -->
-    <ASCII_255 CODE="x00A0" HTML="nbsp" UTF8="63"/>
+    <ASCII_255 CODE="x00A0" HTML="nbsp"/>
   </CODEPAGE>
 </CONFIG>

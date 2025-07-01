@@ -179,7 +179,8 @@ end;
 
 procedure TCodePage.SetUTF8(Index : integer; AValue: String);
 begin
-  AValue:=Trim(AValue);
+  if AValue <> SPACE then
+    AValue:=Trim(AValue);
   if AValue = ASCII[Index] then AValue:='';
   if AValue <> '' then AValue:=StrToInts(AValue);
   if AValue = '' then

@@ -245,7 +245,7 @@
     <ASCII_234 CODE="x03a9" HTML="Omega" UTF8="206 169"/>
     <ASCII_235 CODE="x03b4" HTML="delta" UTF8="206 180"/>
     <ASCII_236 CODE="x221e" HTML="infin" UTF8="226 136 158"/>
-    <ASCII_237 CODE="x03c6" HTML="phi" UTF8="207 134"/>
+    <ASCII_237 CODE="x00f8" HTML="oslash" UTF8="195 184"/>
     <ASCII_238 CODE="x03b5" HTML="epsilon" UTF8="206 181"/>
     <!-- epsiv, varepsilon -->
     <ASCII_239 CODE="x2229" HTML="cap" UTF8="226 136 169"/>

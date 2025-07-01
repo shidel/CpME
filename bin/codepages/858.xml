@@ -267,5 +267,11 @@
     <ASCII_254 CODE="x25fc" HTML="FilledSmallSquare" UTF8="226 150 160"/>
     <!-- CODE="x25aa" HTML="blacksquare" -->
     <ASCII_255 CODE="x00A0" HTML="nbsp" UTF8="32"/>
+    <MAP_256 CODE="x0131" HTML="inodot" UTF8="196 177"/>
+    <MAP_257 CODE="x0152" HTML="OElig" UTF8="197 146"/>
+    <MAP_258 CODE="x0153" HTML="oelig" UTF8="197 147"/>
+    <MAP_259 CODE="x0178" HTML="Yuml" UTF8="197 184"/>
+    <MAP_260 CODE="x0132" HTML="IJlig" UTF8="196 178"/>
+    <MAP_261 CODE="x0133" HTML="ijlig" UTF8="196 179"/>
   </CODEPAGE>
 </CONFIG>
