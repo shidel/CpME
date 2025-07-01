@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  Menus, ActnList, ExtCtrls, PASext, DOScp;
+  Menus, ActnList, ExtCtrls, fpImage, PASext, DOScp;
 
 type
 
@@ -52,6 +52,7 @@ type
     tbAddChar: TToolButton;
     tbDeleteChar: TToolButton;
     udIndex: TUpDown;
+    procedure aPreviewExecute(Sender: TObject);
     procedure eCodeChange(Sender: TObject);
     procedure eEntityChange(Sender: TObject);
     procedure eIndexChange(Sender: TObject);
@@ -136,6 +137,102 @@ begin
   I:=lvCodePage.ItemIndex;
   CodePages.Active.Code[I] := eCode.Text;
   lvCodePage.Items[I].SubItems[2]:=CodePages.Active.Code[I];
+end;
+
+procedure TfMain.aPreviewExecute(Sender: TObject);
+var
+  B : TBitmap;
+  G : TPicture;
+  P : String;
+  F : String;
+  S : String;
+  M : String;
+  T : String;
+  C, X, Y, Z, R, N : integer;
+begin
+  P := UserHomePath + 'CpME_preview';
+  F := P + '.html';
+  P := IncludeTrailingPathDelimiter(P);
+  if Not DirectoryExists(P) then
+    if not CreateDir(P) then begin
+      aPreview.Enabled:=False;
+      Exit;
+    end;
+  S := '<!DOCTYPE html>' + LF + '<html>' + LF +
+    '<head>' + LF +
+    '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>' + LF +
+    '<title>CpME Character Preview</title>' + LF +
+    '<style>' + LF +
+    'div { display:inline-block; }' + LF +
+    'body, table { text-align:center; }' + LF +
+    // 'tr.spaced { background:#777; }'  + LF +
+    'div.section { width:90%; font-size:175%; font-weight:bolder; }' + LF +
+    'div.chart { font-size:100%; font-weight:normal; }' + LF +
+    'img { width:0.5em; height:1em; }' + LF +
+    '</style>' + LF +
+    '<body>' + LF;
+  for C := 0 to CodePages.Count - 1 do begin
+    if C > 0 then S := S + '<hr>' + LF;
+    Codepages[C].FontFile.Background:=clWhite;
+    Codepages[C].FontFile.Foreground:=0;
+    S := S + '<div class="section">Codepage ' + CodePages[C].ID + '</div>' + LF;
+    S := S + '<div class="chart"><table><tr>' ;
+    Z := WhenTrue(CodePages[C].Count > 256, 3, 2);
+    R := CodePages[C].Count div 16;
+    if CodePages[C].Count mod 16 <> 0 then Inc(R);
+    for X := -1 to 15 do
+      S := S + '<th>' + WhenTrue(X >= 0, '0x' + HexStr(X, Z)) + '</th>';
+    S := S + '</tr>' + LF;
+    for Y := 0 to R - 1 do begin
+      S := S + '<tr class="spaced"><td>&nbsp;</td></tr>' + LF;
+      S := S + '<tr><th>0x' + HexStr(Y * 16, Z) + '<br>UTF-8<br>Code<br>HTML<br>more</th>' + LF;
+      for X := 0 to 15 do begin
+        N := Y * 16 + X;
+        S := S + '<!-- ASCII #' + INtToStr(N) + ' --><td>';
+        S := S + '<span class="' + WhenTrue(N > 255, 'extra', 'ascii') +'">';
+        if N <= 255 then begin
+          try
+            G := TPicture.Create;
+            B := CodePages[C].FontFile.Characters[N].asBitMap;
+            G.Assign(B);
+            M :=P + 'CP' + CodePages[C].ID + '_A' + IntToStr(N) + '.png';
+            G.SaveToFile(M, ExtractFileExt(M));
+            S := S + '<img src="CpME_preview/' + ExtractFileName(M) + '">';
+          finally
+            B.Free;
+            G.Free;
+          end;
+        end;
+        S := S + '</span><br>';
+        M := CodePages[C].UTF8[N];
+        S := S + '<span class="utf8">' + WhenTrue(M, M, Char(N)) + '</span><br>';
+        M := CodePages[C].Code[N];
+        if M <> '' then M := '&#' + M + ';';
+        S := S + '<span class="code">' + WhenTrue(M, M, '&nbsp;')+ '</span><br>';
+        M := CodePages[C].Entity[N];
+        if M <> '' then M := '&' + M + ';';
+        S := S + '<span class="entity">' + WhenTrue(M, M, '&nbsp;')+ '</span><br>';
+
+        S := S + '<span class="additional">';
+        M := CodePages[C].Additional[N];
+        if M = '' then
+          S := S + '&nbsp;'
+        else while M <> '' do begin
+          T:=Trim(PopDelim(M, COMMA));
+          S := S + '&' + T + ';';
+          if M <> '' then S := S + '&nbsp;&nbsp;';
+        end;
+        S := S + '</span></td>' + LF;
+      end;
+      S := S + '</tr>' + LF;
+    end;
+    S := S + '</table></div>' + LF;
+  end;
+  S := S + '</body>' + LF + '</html>' + LF;
+  if SaveBinary(F, S, false) <> 0 then begin
+    aPreview.Enabled:=False;
+    Exit;
+  end;
 end;
 
 procedure TfMain.eEntityChange(Sender: TObject);

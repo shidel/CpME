@@ -1,7 +1,7 @@
 object fMain: TfMain
-  Left = 722
+  Left = 721
   Height = 452
-  Top = 572
+  Top = 571
   Width = 774
   Caption = 'Codepage Mapping Editor'
   ClientHeight = 452
@@ -366,6 +366,7 @@ object fMain: TfMain
     object aPreview: TAction
       Caption = 'Preview'
       ImageIndex = 0
+      OnExecute = aPreviewExecute
     end
     object aAddChar: TAction
       Caption = 'aAddChar'
