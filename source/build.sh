@@ -46,11 +46,7 @@ function lines () {
 	echo
 }
 
-[[ -e ../bin/fdrepo ]] && rm ../bin/fdrepo
-build_app CPEditor
-[[ -e fdrepo ]] && cp fdrepo ../bin/fdrepo
-
-# build_app nls4fdrepo
+build_app CpME
 
 lines
 
