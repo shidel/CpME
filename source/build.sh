@@ -8,12 +8,17 @@ function build_default () {
 	local app="${1}"
 	local cpu=$(uname -m)
 	local os=$(uname -s)
-	[[ -f "${app}" ]] && rm "${app}"
-	[[ "${os}" == "Darwin" ]] && os=macOS
-	cp ${app}.ver ${app}.lpi
-	[[ -e ${app} ]] && rm ${app}
-	lazbuild -B -r ${app}.lpr
-	if [[ -e ${app} ]] ; then
+
+	# [[ -f "${app}".app ]] && rm "${app}".app
+	# [[ -f "${app}" ]] && rm "${app}"
+	# [[ "${os}" == "Darwin" ]] && os=macOS
+	# cp ${app}.ver ${app}.lpi
+	# [[ -e ${app} ]] && rm ${app}
+	# lazbuild -B -r ${app}.lpr
+	if [[ -e ${app}.app ]] then
+		mkdir -p ../binaries/${cpu}/${os}
+		cp -fav ${app}.app ../binaries/${cpu}/${app}.app
+	elif [[ -e ${app} ]] ; then
 		mkdir -p ../binaries/${cpu}/${os}
 		cp ${app} ../binaries/${cpu}/${os}/
 	else
