@@ -18,9 +18,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="359"/>
-        <CursorPos X="30" Y="410"/>
-        <FoldState Value=" T4602 TLpV0S T3j40B113 pl1iM2Q53422 Pl4od0 T6j5019131]JRqI]I1j708118442121]f7[N50jJZ3A pidl5R36]klVBr"/>
+        <TopLine Value="253"/>
+        <CursorPos X="78" Y="277"/>
+        <FoldState Value=" T4602 TLpX0S T3j40B415 pjVla09A]9Oje2L2 PXiU0 T6j50191311 PQoX]x1j708117542]Kk0pX]d0jJZ3D piXmYh3]-Fk4Bj"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,7 +32,6 @@
         <EditorIndex Value="1"/>
         <TopLine Value="299"/>
         <CursorPos X="53" Y="309"/>
-        <FoldState Value=" T3j403B21 Pibk50?"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>

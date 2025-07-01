@@ -261,15 +261,17 @@ begin
     '<title>CpME Character Preview</title>' + LF +
     '<style>' + LF +
     'div { display:inline-block; }' + LF +
+    'body { margin-bottom:2em; }' + LF +
     'body, table { text-align:center; }' + LF +
     // 'tr.spaced { background:#777; }'  + LF +
-    'div.section { width:90%; font-size:175%; font-weight:bolder; }' + LF +
+    'div.section { width:90%; font-size:175%; font-weight:bolder; padding:2em; }' + LF +
     'div.chart { font-size:100%; font-weight:normal; }' + LF +
     'img { width:0.5em; height:1em; }' + LF +
     '</style>' + LF +
     '<body>' + LF;
-  for C := 0 to CodePages.Count - 1 do begin
-    if C > 0 then S := S + '<hr>' + LF;
+  C := lbCodePages.ItemIndex;
+  // for C := 0 to CodePages.Count - 1 do begin
+  //  if C > 0 then S := S + '<hr>' + LF;
     Codepages[C].FontFile.Background:=clWhite;
     Codepages[C].FontFile.Foreground:=0;
     S := S + '<div class="section">Codepage ' + CodePages[C].ID + '</div>' + LF;
@@ -286,7 +288,7 @@ begin
     end;
 
     S := S + '</table></div>' + LF;
-  end;
+  // end;
   S := S + '</body>' + LF + '</html>' + LF;
   if SaveBinary(F, S, false) <> 0 then begin
     aPreview.Enabled:=False;
