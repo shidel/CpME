@@ -52,6 +52,10 @@ type
     tbAddChar: TToolButton;
     tbDeleteChar: TToolButton;
     udIndex: TUpDown;
+    procedure aAddCharExecute(Sender: TObject);
+    procedure aAddCharUpdate(Sender: TObject);
+    procedure aDeleteCharExecute(Sender: TObject);
+    procedure aDeleteCharUpdate(Sender: TObject);
     procedure aPreviewExecute(Sender: TObject);
     procedure eCodeChange(Sender: TObject);
     procedure eEntityChange(Sender: TObject);
@@ -290,6 +294,35 @@ begin
   end;
 end;
 
+procedure TfMain.aAddCharExecute(Sender: TObject);
+var
+  I : Integer;
+begin
+  if Not Assigned(Codepages.Active) then Exit;
+  I := Codepages.Active.AddMap;
+  SelectCodePage(Codepages.Active.ID);
+  if lvCodePage.Items.Count > I then
+    lvCodePage.Items[I].Selected:=True;
+end;
+
+procedure TfMain.aAddCharUpdate(Sender: TObject);
+begin
+  aAddChar.Enabled:=Assigned(Codepages.Active);
+end;
+
+procedure TfMain.aDeleteCharExecute(Sender: TObject);
+begin
+  if Not Assigned(Codepages.Active) then Exit;
+  if lvCodePage.ItemIndex < 256 then Exit;
+  CodePages.Active.DeleteMap(lvCodepage.ItemIndex);
+  SelectCodePage(Codepages.Active.ID);
+end;
+
+procedure TfMain.aDeleteCharUpdate(Sender: TObject);
+begin
+  aDeleteChar.Enabled := lvCodePage.ItemIndex > 255;
+end;
+
 procedure TfMain.eEntityChange(Sender: TObject);
 var
   I : Integer;
@@ -383,7 +416,7 @@ end;
 
 procedure TfMain.SelectCodePage(CP: String);
 var
-  J : integer;
+  J, X : integer;
 
   procedure AddItem;
   var
@@ -412,6 +445,8 @@ begin
   if CP = '' then Exit;
   FRecentCP:=CP;
   CodePages.Select(CP);
+  X := lvCodePage.ItemIndex;
+  if X < 0 then X := 0;
   CodePages.Active.FontFile.Background:=clGray;
   CodePages.Active.FontFile.Foreground:=clWhite;
   lvCodePage.BeginUpdate;
@@ -422,7 +457,10 @@ begin
     lvCodePage.Items[J].Delete;
   lvCodePage.SmallImages:=ilFont;
   lvCodePage.EndUpdate;
-  SelectChar(lvCodePage.ItemIndex);
+  if X >= lvCodepage.Items.Count then
+    X := lvCodepage.Items.Count - 1;
+  if X >= 0 then
+    lvCodePage.Items[X].Selected:=True;
 end;
 
 procedure TfMain.SelectChar(Index: Integer);

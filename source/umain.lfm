@@ -371,10 +371,14 @@ object fMain: TfMain
     object aAddChar: TAction
       Caption = 'aAddChar'
       ImageIndex = 1
+      OnExecute = aAddCharExecute
+      OnUpdate = aAddCharUpdate
     end
     object aDeleteChar: TAction
       Caption = 'aDeleteChar'
       ImageIndex = 2
+      OnExecute = aDeleteCharExecute
+      OnUpdate = aDeleteCharUpdate
     end
   end
   object ilFont: TImageList

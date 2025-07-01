@@ -30,7 +30,7 @@ type
     procedure SetFontFile(AValue: TFontFile);
     procedure SetUTF8(Index : integer; AValue: String);
   protected
-
+    function GetKey(Index : Integer; Attribute : String) : String;
   public
     constructor Create(AFileName : String);
     destructor Destroy; override;
@@ -43,6 +43,8 @@ type
     property Code[Index : integer] : String read GetCode write SetCode;
     property Entity[Index : integer] : String read GetEntity Write SetEntity;
     property Additional[Index : integer] : String read GetAdditional Write SetAdditional;
+    function AddMap : integer;
+    procedure DeleteMap (Index:Integer);
   published
   end;
 
@@ -101,22 +103,22 @@ end;
 
 function TCodePage.GetAdditional(Index : integer): String;
 begin
-  GetAdditional:=FXML.GetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/MORE', '');
+  GetAdditional:=FXML.GetValue(GetKey(Index, 'MORE'), '');
 end;
 
 function TCodePage.GetCode(Index : integer): String;
 begin
-  GetCode:=FXML.GetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/CODE', '');
+  GetCode:=FXML.GetValue(GetKey(Index, 'CODE'), '');
 end;
 
 function TCodePage.GetEntity(Index : integer): String;
 begin
-  GetEntity:=FXML.GetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/HTML', '');
+  GetEntity:=FXML.GetValue(GetKey(Index, 'HTML'), '');
 end;
 
 function TCodePage.GetUTF8(Index : integer): String;
 begin
-  GetUTF8:=FXML.GetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/UTF8', '');
+  GetUTF8:=FXML.GetValue(GetKey(Index, 'UTF8'), '');
   if GetUTF8 = '' then
     GetUTF8:='' // ASCII[Index]
   else
@@ -131,9 +133,9 @@ begin
   AValue:=ExcludeTrailing(',', AValue);
   AValue:=Trim(AValue);
   if AValue = '' then
-    FXML.DeleteValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/MORE')
+    FXML.DeleteValue(GetKey(Index, 'MORE'))
   else
-    FXML.SetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/MORE', AValue);
+    FXML.SetValue(GetKey(Index, 'MORE'), AValue);
 end;
 
 procedure TCodePage.SetCode(Index : integer; AValue: String);
@@ -145,9 +147,9 @@ begin
   AValue:=ExcludeTrailing(',', AValue);
   AValue:=Trim(AValue);
   if AValue = '' then
-    FXML.DeleteValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/CODE')
+    FXML.DeleteValue(GetKey(Index, 'CODE'))
   else
-    FXML.SetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/CODE', AValue);
+    FXML.SetValue(GetKey(Index, 'CODE'), AValue);
 end;
 
 procedure TCodePage.SetEntity(Index : integer; AValue: String);
@@ -158,9 +160,9 @@ begin
   AValue:=ExcludeTrailing(',', AValue);
   AValue:=Trim(AValue);
   if AValue = '' then
-    FXML.DeleteValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/HTML')
+    FXML.DeleteValue(GetKey(Index, 'HTML'))
   else
-    FXML.SetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/HTML', AValue);
+    FXML.SetValue(GetKey(Index, 'HTML'), AValue);
 end;
 
 procedure TCodePage.SetFileName(AValue: String);
@@ -181,9 +183,15 @@ begin
   if AValue = ASCII[Index] then AValue:='';
   if AValue <> '' then AValue:=StrToInts(AValue);
   if AValue = '' then
-    FXML.DeleteValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/UTF8')
+    FXML.DeleteValue(GetKey(Index, 'UTF8'))
   else
-    FXML.SetValue('CODEPAGE/ASCII_' + IntToStr(Index) + '/UTF8', AValue);
+    FXML.SetValue(GetKey(Index, 'UTF8'), AValue);
+end;
+
+function TCodePage.GetKey(Index: Integer; Attribute : String): String;
+begin
+  GetKey:='CODEPAGE/' + WhenTrue(Index > 255, 'MAP', 'ASCII') + '_' +
+    IntToStr(Index) + '/' + Attribute;
 end;
 
 constructor TCodePage.Create(AFileName : String);
@@ -203,7 +211,10 @@ begin
       if S <> ID then
         FXML.SetValue('CODEPAGE/IDENTIFIER',ID);
       FCount:=256;
-      While FXML.GetValue('CODEPAGE/ASCII_' + IntToStr(FCount) + '/UTF8', '') <> '' do
+      While (FXML.GetValue(GetKey(FCount, 'UTF8'), '') <> '') or
+      (FXML.GetValue(GetKey(FCount, 'CODE'), '') <> '') or
+      (FXML.GetValue(GetKey(FCount, 'HTML'), '') <> '') or
+      (FXML.GetValue(GetKey(FCount, 'MORE'), '') <> '') do
         Inc(FCount);
     except
       FreeAndNil(FXML);
@@ -218,6 +229,31 @@ begin
   if Assigned(FFontFile) then
     FreeAndNil(FFontFile);
   inherited Destroy;
+end;
+
+function TCodePage.AddMap: integer;
+begin
+  SetUTF8(FCount, Char(0));
+  AddMap := FCount;
+  Inc(FCount);
+end;
+
+procedure TCodePage.DeleteMap(Index: Integer);
+var
+  I : Integer;
+begin
+  if Index < 256 then Exit;
+  for I := Index to FCount - 1 do begin
+    UTF8[I] := UTF8[I+1];
+    CODE[I] := CODE[I+1];
+    Entity[I] := Entity[I+1];
+    Additional[I] := Additional[I+1];
+  end;
+  Dec(FCount);
+  FXML.DeleteValue(GetKey(FCount, 'UTF8'));
+  FXML.DeleteValue(GetKey(FCount, 'CODE'));
+  FXML.DeleteValue(GetKey(FCount, 'HTML'));
+  FXML.DeleteValue(GetKey(FCount, 'MORE'));
 end;
 
 {$POP}
