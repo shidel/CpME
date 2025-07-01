@@ -147,8 +147,101 @@ var
   F : String;
   S : String;
   M : String;
-  T : String;
   C, X, Y, Z, R, N : integer;
+
+  function RowASCII : String;
+  var
+    X : Integer;
+    S : String;
+  begin
+    S := '<tr><th>0x' + HexStr(Y * 16, Z) + '</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      S := S + '<!-- ASCII #' + IntToStr(N) + ' -->';
+      S := S + '<td class="' + WhenTrue(N > 255, 'extra', 'ascii') +'">';
+      if N <= 255 then begin
+        try
+          G := TPicture.Create;
+          B := CodePages[C].FontFile.Characters[N].asBitMap;
+          G.Assign(B);
+          M :=P + 'CP' + CodePages[C].ID + '_A' + IntToStr(N) + '.png';
+          G.SaveToFile(M, ExtractFileExt(M));
+          S := S + '<img src="CpME_preview/' + ExtractFileName(M) + '">';
+        finally
+          B.Free;
+          G.Free;
+        end;
+      end;
+      S := S + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
+  function RowUTF8 : String;
+  var
+    X : Integer;
+    S : String;
+  begin
+    S := '<tr><th>UTF-8</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      M := CodePages[C].UTF8[N];
+      S := S + '<td class="utf8">' + WhenTrue(M, M, Char(N)) + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
+  function RowCode : String;
+  var
+    X : Integer;
+    S : String;
+  begin
+    S := '<tr><th>Code</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      M := CodePages[C].Code[N];
+      S := S + '<td class="Code">' + WhenTrue(M, '&#' + M + ';', '&nbsp;') + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
+  function RowEntity : String;
+  var
+    X : Integer;
+    S : String;
+  begin
+    S := '<tr><th>Entity</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      M := CodePages[C].Entity[N];
+      S := S + '<td class="Entity">' + WhenTrue(M, '&' + M + ';', '&nbsp;') + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
+  function RowMore : String;
+  var
+    X : Integer;
+    S : String;
+    T : String;
+  begin
+    S := '<tr><th>More</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      M := CodePages[C].Additional[N];
+      S := S + '<td class="additional">';
+      if M = '' then
+        S := S + '&nbsp;'
+      else while M <> '' do begin
+        T:=Trim(PopDelim(M, COMMA));
+        S := S + '&' + T + ';';
+        if M <> '' then S := S + '&nbsp;&nbsp;';
+      end;
+      S := S + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
 begin
   P := UserHomePath + 'CpME_preview';
   F := P + '.html';
@@ -185,47 +278,9 @@ begin
     S := S + '</tr>' + LF;
     for Y := 0 to R - 1 do begin
       S := S + '<tr class="spaced"><td>&nbsp;</td></tr>' + LF;
-      S := S + '<tr><th>0x' + HexStr(Y * 16, Z) + '<br>UTF-8<br>Code<br>HTML<br>more</th>' + LF;
-      for X := 0 to 15 do begin
-        N := Y * 16 + X;
-        S := S + '<!-- ASCII #' + INtToStr(N) + ' --><td>';
-        S := S + '<span class="' + WhenTrue(N > 255, 'extra', 'ascii') +'">';
-        if N <= 255 then begin
-          try
-            G := TPicture.Create;
-            B := CodePages[C].FontFile.Characters[N].asBitMap;
-            G.Assign(B);
-            M :=P + 'CP' + CodePages[C].ID + '_A' + IntToStr(N) + '.png';
-            G.SaveToFile(M, ExtractFileExt(M));
-            S := S + '<img src="CpME_preview/' + ExtractFileName(M) + '">';
-          finally
-            B.Free;
-            G.Free;
-          end;
-        end;
-        S := S + '</span><br>';
-        M := CodePages[C].UTF8[N];
-        S := S + '<span class="utf8">' + WhenTrue(M, M, Char(N)) + '</span><br>';
-        M := CodePages[C].Code[N];
-        if M <> '' then M := '&#' + M + ';';
-        S := S + '<span class="code">' + WhenTrue(M, M, '&nbsp;')+ '</span><br>';
-        M := CodePages[C].Entity[N];
-        if M <> '' then M := '&' + M + ';';
-        S := S + '<span class="entity">' + WhenTrue(M, M, '&nbsp;')+ '</span><br>';
-
-        S := S + '<span class="additional">';
-        M := CodePages[C].Additional[N];
-        if M = '' then
-          S := S + '&nbsp;'
-        else while M <> '' do begin
-          T:=Trim(PopDelim(M, COMMA));
-          S := S + '&' + T + ';';
-          if M <> '' then S := S + '&nbsp;&nbsp;';
-        end;
-        S := S + '</span></td>' + LF;
-      end;
-      S := S + '</tr>' + LF;
+      S := S + RowASCII + RowUTF8 + RowCode + RowEntity + RowMore;
     end;
+
     S := S + '</table></div>' + LF;
   end;
   S := S + '</body>' + LF + '</html>' + LF;

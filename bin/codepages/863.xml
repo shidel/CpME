@@ -97,7 +97,7 @@
     <ASCII_91 HTML="lsqb" MORE="lbrack"/>
     <ASCII_92 HTML="bsol"/>
     <ASCII_93 HTML="rsqb" MORE="rbrack"/>
-    <ASCII_94 HTML="hat" MORE="Hat"/>
+    <ASCII_94 HTML="Hat"/>
     <ASCII_95 HTML="lowbar" MORE="UnderBar"/>
     <ASCII_96 HTML="grave" MORE="DiacriticalGrave"/>
     <ASCII_97/>
@@ -129,7 +129,7 @@
     <ASCII_123 HTML="lbrace" MORE="lcub"/>
     <ASCII_124 HTML="vert" MORE="verbar,VerticalLine"/>
     <ASCII_125 HTML="rbrace" MORE="rcub"/>
-    <ASCII_126 CODE="x02dc" HTML="tilde" MORE="DiacriticalTilde"/>
+    <ASCII_126 CODE="x02dc" HTML="tilde" MORE="DiacriticalTilde" UTF8="203 156"/>
     <ASCII_127 CODE="x2302" UTF8="127 226 140 130"/>
     <ASCII_128 CODE="x00c7" HTML="Ccedil" UTF8="195 135"/>
     <ASCII_129 CODE="x00fc" HTML="uuml" UTF8="195 188"/>

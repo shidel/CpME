@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="13"/>
-        <UsageCount Value="87"/>
+        <UsageCount Value="102"/>
       </Unit>
       <Unit>
         <Filename Value="umain.pas"/>
@@ -18,10 +18,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="201"/>
-        <CursorPos X="51" Y="223"/>
-        <FoldState Value=" T6j101 T3oM03011 PL92 TLnT0Sb"/>
-        <UsageCount Value="87"/>
+        <TopLine Value="256"/>
+        <CursorPos X="56" Y="281"/>
+        <FoldState Value=" T6j101 T3l72C26111 Pi5la2 TLof0SH"/>
+        <UsageCount Value="102"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -32,7 +32,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="16"/>
         <CursorPos X="24" Y="45"/>
-        <UsageCount Value="87"/>
+        <UsageCount Value="102"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -45,7 +45,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="18" Y="41"/>
-        <UsageCount Value="71"/>
+        <UsageCount Value="86"/>
       </Unit>
       <Unit>
         <Filename Value="cpext.pas"/>
@@ -53,7 +53,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="601"/>
         <CursorPos X="75" Y="634"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="pasext.pas"/>
@@ -61,13 +61,13 @@
         <EditorIndex Value="3"/>
         <TopLine Value="64"/>
         <CursorPos Y="2343"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="version.inc"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="dosfont.pas"/>
@@ -75,7 +75,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="61"/>
         <CursorPos X="3" Y="250"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -84,18 +84,10 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="924"/>
         <CursorPos X="3" Y="944"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="9" Column="43"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="99" TopLine="70"/>
-      </Position>
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="114" TopLine="91"/>
@@ -207,6 +199,14 @@
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="150" Column="14" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="255" Column="56" TopLine="232"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="212" TopLine="191"/>
       </Position>
     </JumpHistory>
     <RunParams>
