@@ -279,7 +279,7 @@
     <MAP_262 CODE="x0394" HTML="Delta" UTF8="206 148"/>
     <MAP_263 CODE="x03b4" HTML="delta" UTF8="206 180"/>
     <MAP_264 CODE="x0395" HTML="Epsilon" UTF8="206 149"/>
-    <MAP_265 CODE="x03b5" HTML="epsilon" UTF8="206 181"/>
+    <MAP_265 CODE="x03b5" HTML="epsilon" MORE="epsiv,varepsilon" UTF8="206 181"/>
     <MAP_266 CODE="x0396" HTML="Zeta" UTF8="206 150"/>
     <MAP_267 CODE="x03b6" HTML="zeta" UTF8="206 182"/>
     <MAP_268 CODE="x0397" HTML="Eta" UTF8="206 151"/>
@@ -305,22 +305,34 @@
     <MAP_288 CODE="x03a1" HTML="Rho" UTF8="206 161"/>
     <MAP_289 CODE="x03c1" HTML="rho" UTF8="207 129"/>
     <MAP_290 CODE="x03a3" HTML="Sigma" UTF8="206 163"/>
-    <MAP_291 CODE="x03c2" HTML="sigmaf" UTF8="207 130"/>
+    <MAP_291 CODE="x03c2" HTML="sigmaf" MORE="sigmav,varsigma" UTF8="207 130"/>
     <MAP_292 CODE="x03c3" HTML="sigma" UTF8="207 131"/>
     <MAP_293 CODE="x03a4" HTML="Tau" UTF8="206 164"/>
     <MAP_294 CODE="x03c4" HTML="tau" UTF8="207 132"/>
     <MAP_295 CODE="x03a5" HTML="Upsilon" UTF8="206 165"/>
-    <MAP_296 CODE="x03c5" HTML="upsilon" UTF8="207 133"/>
+    <MAP_296 CODE="x03c5" HTML="upsilon" MORE="upsi" UTF8="207 133"/>
     <MAP_297 CODE="x03a6" HTML="Phi" UTF8="206 166"/>
-    <MAP_298 CODE="x03c6" HTML="phi" UTF8="207 134"/>
+    <MAP_298 CODE="x03c6" HTML="phi" MORE="phiv,varphi" UTF8="207 134"/>
     <MAP_299 CODE="x03a7" HTML="Chi" UTF8="206 167"/>
     <MAP_300 CODE="x03c7" HTML="chi" UTF8="207 135"/>
     <MAP_301 CODE="x03a8" HTML="Psi" UTF8="206 168"/>
     <MAP_302 CODE="x03c8" HTML="psi" UTF8="207 136"/>
     <MAP_303 CODE="x03a9" HTML="Omega" UTF8="206 169"/>
     <MAP_304 CODE="x03c9" HTML="omega" UTF8="207 137"/>
-    <MAP_305 CODE="x03d1" HTML="thetasym" UTF8="207 145"/>
-    <MAP_306 CODE="x03d2" HTML="upsih" UTF8="207 146"/>
-    <MAP_307 CODE="x03d6" HTML="piv" UTF8="207 150"/>
+    <MAP_305 CODE="x03d1" HTML="thetasym" MORE="thetav,vartheta" UTF8="207 145"/>
+    <MAP_306 CODE="x03d2" HTML="upsih" MORE="Upsi" UTF8="207 146"/>
+    <MAP_307 CODE="x03d6" HTML="piv" MORE="varphi" UTF8="207 150"/>
+    <MAP_308 CODE="x03dc" HTML="Gammad" UTF8="207 156"/>
+    <MAP_309 CODE="x03dd" HTML="gammad" MORE="digamma" UTF8="207 157"/>
+    <MAP_310 CODE="x03f0" HTML="kappav" MORE="varkappa" UTF8="207 176"/>
+    <MAP_311 CODE="x03f1" HTML="rhov" MORE="varrho" UTF8="207 177"/>
+    <MAP_312 CODE="x03f5" HTML="epsi" MORE="straightepsilon" UTF8="207 181"/>
+    <MAP_313 CODE="x03f6" HTML="bepsi" MORE="backepsilon" UTF8="207 182"/>
+    <MAP_314 CODE="x00a9" HTML="copy" UTF8="194 169"/>
+    <MAP_315 CODE="x2117" HTML="copysr" UTF8="226 132 151"/>
+    <MAP_316 CODE="x00ae" HTML="reg" MORE="circledR,REG" UTF8="194 174"/>
+    <MAP_317 CODE="x24c8" HTML="oS" MORE="circledS" UTF8="226 147 136"/>
+    <MAP_318 CODE="x29be" HTML="olcir" UTF8="226 166 190"/>
+    <MAP_319 CODE="x2122" HTML="trade" MORE="TRADE" UTF8="226 132 162"/>
   </CODEPAGE>
 </CONFIG>

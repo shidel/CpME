@@ -174,6 +174,11 @@ var
           B.Free;
           G.Free;
         end;
+      end else begin
+        M := CodePages[C].Entity[N];
+        if M = '' then
+          M := CodePages[C].Code[N];
+        S:= S + M;
       end;
       S := S + '</td>';
     end;
@@ -263,7 +268,7 @@ begin
     'div { display:inline-block; }' + LF +
     'body { margin-bottom:2em; }' + LF +
     'body, table { text-align:center; }' + LF +
-    // 'tr.spaced { background:#777; }'  + LF +
+    'td.extra { color:#633; font-style:italic }'  + LF +
     'div.section { width:90%; font-size:175%; font-weight:bolder; padding:2em; }' + LF +
     'div.chart { font-size:100%; font-weight:normal; }' + LF +
     'img { width:0.5em; height:1em; }' + LF +
