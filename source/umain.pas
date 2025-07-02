@@ -148,10 +148,9 @@ var
   B : TBitmap;
   G : TPicture;
   P : String;
-  F : String;
   S : String;
   M : String;
-  C, X, Y, Z, R, N : integer;
+  C, X, Y, Z, R, N, SR : integer;
 
   function RowASCII : String;
   var
@@ -170,7 +169,7 @@ var
           G.Assign(B);
           M :=P + 'CP' + CodePages[C].ID + '_A' + IntToStr(N) + '.png';
           G.SaveToFile(M, ExtractFileExt(M));
-          S := S + '<img src="CpME_preview/' + ExtractFileName(M) + '">';
+          S := S + '<img src="CpME_Images/' + ExtractFileName(M) + '">';
         finally
           B.Free;
           G.Free;
@@ -248,8 +247,7 @@ var
   end;
 
 begin
-  P := UserHomePath + 'CpME_preview';
-  F := P + '.html';
+  P := UserHomePath + 'CpME_Images';
   P := IncludeTrailingPathDelimiter(P);
   if Not DirectoryExists(P) then
     if not CreateDir(P) then begin
@@ -283,7 +281,13 @@ begin
     for X := -1 to 15 do
       S := S + '<th>' + WhenTrue(X >= 0, '0x' + HexStr(X, Z)) + '</th>';
     S := S + '</tr>' + LF;
-    for Y := 0 to R - 1 do begin
+    case CodePages[C].ID of
+      '437' : SR := 0;
+      '999999' : SR :=16;
+    else
+      SR := 8;
+    end;
+    for Y := SR to R - 1 do begin
       S := S + '<tr class="spaced"><td>&nbsp;</td></tr>' + LF;
       S := S + RowASCII + RowUTF8 + RowCode + RowEntity + RowMore;
     end;
@@ -291,7 +295,7 @@ begin
     S := S + '</table></div>' + LF;
   // end;
   S := S + '</body>' + LF + '</html>' + LF;
-  if SaveBinary(F, S, false) <> 0 then begin
+  if SaveBinary(UserHomePath+'CpME_'+CodePages[C].ID+'.html', S, false) <> 0 then begin
     aPreview.Enabled:=False;
     Exit;
   end;

@@ -14,9 +14,9 @@ const
 
   { Source & Subversion Last Changed Commit }
   SOURCE_VERSION='1.0.0';
-  SOURCE_REVISION='15';
+  SOURCE_REVISION='16';
   SOURCE_URL='http://github.com/shidel/CpME';
-  SOURCE_COMMIT='f795f3985321f18e86506e72ddc2657287e39f20';
+  SOURCE_COMMIT='73e864c90db71476b64d865fc59a822b0aa1001f';
 
   { Version Build Atributes } 
   BUILD_DEBUG=False;
@@ -24,7 +24,7 @@ const
   BUILD_PATCHED=False;
   BUILD_PRIVATE=False;
   BUILD_SPECIAL=False;
-  BUILD_DATE='2025-07-02 10:26:03';
+  BUILD_DATE='2025-07-02 10:44:16';
 
   { General Application Information }
   APP_IDENTIFIER='com.company.';

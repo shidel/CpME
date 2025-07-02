@@ -135,7 +135,7 @@
     <ASCII_129 CODE="x00fc" HTML="uuml" UTF8="195 188"/>
     <ASCII_130 CODE="x00e9" HTML="eacute" UTF8="195 169"/>
     <ASCII_131 CODE="x00e2" HTML="acirc" UTF8="195 162"/>
-    <ASCII_132 CODE="x00e4" HTML="auml" UTF8="195 164"/>
+    <ASCII_132 CODE="x00c2" HTML="Acirc" UTF8="195 130"/>
     <ASCII_133 CODE="x00e0" HTML="agrave" UTF8="195 160"/>
     <ASCII_134 CODE="x00b6" HTML="para" UTF8="194 182"/>
     <ASCII_135 CODE="x00e7" HTML="ccedil" UTF8="195 167"/>
