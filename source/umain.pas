@@ -254,10 +254,11 @@ begin
       aPreview.Enabled:=False;
       Exit;
     end;
+  C := lbCodePages.ItemIndex;
   S := '<!DOCTYPE html>' + LF + '<html>' + LF +
     '<head>' + LF +
     '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>' + LF +
-    '<title>CpME Character Preview</title>' + LF +
+    '<title>CpME ' + CodePages[C].ID + ' Preview</title>' + LF +
     '<style>' + LF +
     'div { display:inline-block; }' + LF +
     'body { margin-bottom:2em; }' + LF +
@@ -268,7 +269,6 @@ begin
     'img { width:0.5em; height:1em; }' + LF +
     '</style>' + LF +
     '<body>' + LF;
-  C := lbCodePages.ItemIndex;
   // for C := 0 to CodePages.Count - 1 do begin
   //  if C > 0 then S := S + '<hr>' + LF;
     Codepages[C].FontFile.Background:=clWhite;
