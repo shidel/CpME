@@ -366,11 +366,19 @@ object fMain: TfMain
     object aPreview: TAction
       Caption = 'Preview'
       ImageIndex = 0
+      SecondaryShortCuts.Strings = (
+        'Ctrl+P'
+      )
+      ShortCut = 4176
       OnExecute = aPreviewExecute
     end
     object aAddChar: TAction
       Caption = 'aAddChar'
       ImageIndex = 1
+      SecondaryShortCuts.Strings = (
+        'Ctrl+A'
+      )
+      ShortCut = 4161
       OnExecute = aAddCharExecute
       OnUpdate = aAddCharUpdate
     end

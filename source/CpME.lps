@@ -18,9 +18,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="164"/>
-        <CursorPos X="73" Y="173"/>
-        <FoldState Value=" T4602 TLpc0S T3j40B427 pjOmM03612 PjCkK0 T6j501315]41 PIoc]t1j708112235421]hDpF]h0jJZ313516 PiEpLHC"/>
+        <TopLine Value="293"/>
+        <CursorPos X="19" Y="313"/>
+        <FoldState Value=" T4602 TLpe0S T3j40B4242811 Pl1oe]S6j50131513[L4I[K51j70]a223542]MjD[N50jJZ31351115 PiEodD,"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -85,10 +85,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="92" Column="57" TopLine="73"/>
-      </Position>
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="158" Column="51" TopLine="139"/>
@@ -204,6 +200,10 @@
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="320" Column="14" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="313" Column="24" TopLine="274"/>
       </Position>
     </JumpHistory>
     <RunParams>

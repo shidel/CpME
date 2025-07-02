@@ -308,8 +308,10 @@ begin
   if Not Assigned(Codepages.Active) then Exit;
   I := Codepages.Active.AddMap;
   SelectCodePage(Codepages.Active.ID);
-  if lvCodePage.Items.Count > I then
+  if lvCodePage.Items.Count > I then begin
     lvCodePage.Items[I].Selected:=True;
+    eUTF8.SetFocus;
+  end;
 end;
 
 procedure TfMain.aAddCharUpdate(Sender: TObject);
