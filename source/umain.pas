@@ -190,7 +190,8 @@ var
     for X := 0 to 15 do begin
       N := Y * 16 + X;
       M := CodePages[C].UTF8[N];
-      S := S + '<td class="utf8">' + WhenTrue(M, M, Char(N)) + '</td>';
+      if (N < 256) and (M='') then M:= Char(N);
+      S := S + '<td class="utf8">' + M + '</td>';
     end;
     Result:=S + '</tr>' + LF;
   end;
@@ -463,8 +464,10 @@ begin
   lvCodePage.EndUpdate;
   if X >= lvCodepage.Items.Count then
     X := lvCodepage.Items.Count - 1;
-  if X >= 0 then
+  if X >= 0 then begin
     lvCodePage.Items[X].Selected:=True;
+    SelectChar(X);
+  end;
 end;
 
 procedure TfMain.SelectChar(Index: Integer);

@@ -266,6 +266,6 @@
     <ASCII_253 CODE="x00b2" HTML="sup2" UTF8="194 178"/>
     <ASCII_254 CODE="x25fc" HTML="FilledSmallSquare" UTF8="226 150 160"/>
     <!-- CODE="x25aa" HTML="blacksquare" -->
-    <ASCII_255 CODE="x00A0" HTML="nbsp"/>
+    <ASCII_255 CODE="x00A0" HTML="nbsp" UTF8="32"/>
   </CODEPAGE>
 </CONFIG>
