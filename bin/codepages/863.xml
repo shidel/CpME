@@ -18,8 +18,8 @@
     <ASCII_13 CODE="x266a" HTML="sung" UTF8="226 153 170"/>
     <ASCII_14 CODE="x266b" UTF8="226 153 171"/>
     <ASCII_15 CODE="x263c" UTF8="226 152 188"/>
-    <ASCII_16 CODE="x25b8" HTML="rtrif" MORE="blacktriangleright" UTF8="226 150 186"/>
-    <ASCII_17 CODE="x25c2" HTML="ltrif" MORE="blacktriangleleft" UTF8="226 151 128"/>
+    <ASCII_16 CODE="x25ba" UTF8="226 150 186"/>
+    <ASCII_17 CODE="x25c0" UTF8="226 151 128"/>
     <ASCII_18 CODE="x2195" HTML="varr" MORE="UpDownArrow" UTF8="226 134 149"/>
     <ASCII_19 CODE="x203c" UTF8="226 128 188"/>
     <ASCII_20 CODE="x00b6" HTML="para" UTF8="194 182"/>
@@ -258,7 +258,7 @@
     <ASCII_246 CODE="x00f7" HTML="divide" UTF8="195 183"/>
     <ASCII_247 CODE="x2248" HTML="asymp" UTF8="226 137 136"/>
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
-    <ASCII_249 CODE="x22c5" HTML="sdot" UTF8="226 136 153"/>
+    <ASCII_249 CODE="x2219" UTF8="226 136 153"/>
     <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot" UTF8="194 183"/>
     <!-- middot -->
     <ASCII_251 CODE="x221a" HTML="radic" UTF8="226 136 154"/>
