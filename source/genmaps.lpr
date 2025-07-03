@@ -6,6 +6,7 @@ uses Classes, SysUtils, XMLConf, PASext;
 
 var
   UTF8, HTML, Show : TStringList;
+  Data : String;
 
 type
   TEntry = record
@@ -55,7 +56,7 @@ begin
   Entry.UTF8:=X.GetValue(Key(Index, 'UTF8'),'');
   Entry.CODE:=X.GetValue(Key(Index, 'CODE'),'');
   if Entry.CODE <> '' then
-    Entry.Code := '&#' + Entry.Code + ';';
+    Entry.CODE:='&#' + Entry.CODE + ';';
   T:=Trim(X.GetValue(Key(Index, 'HTML'),''));
   if T <> '' then
     AddToArray(Entry.HTML, '&' + T + ';');
@@ -119,7 +120,6 @@ begin
       AddUTF8(E);
       AddHTML(E);
       AddShow(E);
-      Inc(I);
     end;
   finally
     X.Free;
@@ -136,17 +136,97 @@ begin
     ReadXML('codepages/' + D[I]);
 end;
 
+function EntryTypeDef : String;
+begin
+  EntryTypeDef := LF +
+  '{$IFNDEF TextRemapEntries}' + LF +
+  '{$DEFINE TextRemapEntries}' + LF +
+  'type' + LF +
+  '  TTextRemapEntry = record' + LF +
+  '    Original, Converted : String;' + LF +
+  '  end;' + LF +
+  '  TTextRemapEntries = array of TTextRemapEntry;' + LF +
+  '{$ENDIF}' + LF + LF;
+end;
+
+procedure AddItem(M : String);
+var
+  T, S, C : String;
+begin
+  if M = '' then exit;
+  T := PopDelim(M, '/');
+  C := PopDelim(M, '/');
+  M := PopDelim(M, '/'); // this will discard any remaining delimited fields
+  S := '    (Original:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
+  'Converted:' + QUOTE + C + WhenTrue(M, '/' + M) + QUOTE + ')';
+  if Data <> '' then
+    Data := Data + ',' + LF + S
+  else
+    Data:=S;
+end;
+
+procedure ItemsUTF8(L, H : integer);
+var
+  M : integer;
+begin
+  if H < L then Exit;
+  M := L + (H - L) div 2;
+  AddItem(UTF8[M]);
+  if L = H then Exit;
+  if L < M then ItemsUTF8(L, M-1);
+  if M < H then ItemsUTF8(M + 1, H);
+end;
+
+procedure ItemsHTML(L, H : integer);
+var
+  M : integer;
+begin
+  if H < L then Exit;
+  M := L + (H - L) div 2;
+  AddItem(HTML[M]);
+  if L = H then Exit;
+  if L < M then ItemsHTML(L, M-1);
+  if M < H then ItemsHTML(M + 1, H);
+end;
+
+procedure SaveUTF8(Filename : String);
+begin
+  Data := '';
+  ItemsUTF8(0, UTF8.Count - 1);
+  Data := '// UTF-8 to HTML conversion map' + LF + EntryTypeDef +
+  'const' + LF +
+  '  UTF8toHTMLRemapList : TTextRemapEntries = (' + LF +
+  Data + LF +
+  '  );' + LF + LF;
+  SaveBinary(Filename, Data);
+end;
+
+procedure SaveHTML(Filename : String);
+begin
+  Data := '';
+  ItemsHTML(0, HTML.Count - 1);
+  Data := '// HTML to UTF-8 conversion map' + LF + EntryTypeDef +
+  'const' + LF +
+  '  HTMLtoUTF8RemapList : TTextRemapEntries = (' + LF +
+  Data + LF +
+  '  );' + LF + LF;
+  SaveBinary(Filename, Data);
+end;
+
 procedure SaveMaps;
 begin
+  SaveUTF8('map_utf8.inc');
+  SaveHTML('map_html.inc');
 end;
 
 procedure Summary;
-var
-  I : Integer;
+//var
+//  I : Integer;
 begin
-  for I := 0 to Show.Count - 1 do
-    WriteLn(Show[I]);
-  WriteLn(UTF8.Count, '/', HTML.Count, '/', Show.Count);
+//  for I := 0 to Show.Count - 1 do
+//    WriteLn(Show[I]);
+  WriteLn('UTF-8 to HTML Entries: ', UTF8.Count);
+  WriteLn('HTML to UTF-8 Entries: ', HTML.Count);
 end;
 
 begin
