@@ -129,6 +129,7 @@ end;
 procedure ReadAllData;
 var
   D : TArrayOfStrings;
+  I : integer;
 begin
   DirScanByName(D, 'codepages/' + DirWildCard);
   for I := 0 to Length(D) - 1 do
