@@ -8,9 +8,10 @@
         <Filename Value="genmaps.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="86"/>
-        <CursorPos X="50" Y="98"/>
-        <UsageCount Value="39"/>
+        <TopLine Value="134"/>
+        <CursorPos X="56" Y="142"/>
+        <FoldState Value=" TM0012 TCEB5 T3L0E726 pkJmL0B1]QPOi30 T1M0D728[H4kBnQ]I6]O1516 PElS]G0iRJ4114 PRmS0l"/>
+        <UsageCount Value="45"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,7 +19,7 @@
         <UnitName Value="DOSfont"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="8"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="doscp.pas"/>
@@ -26,7 +27,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="220"/>
         <CursorPos X="11" Y="243"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="pasext.pas"/>
@@ -34,28 +35,16 @@
         <EditorIndex Value="1"/>
         <TopLine Value="25"/>
         <CursorPos X="8" Y="52"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="map_utf8.inc"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="genmaps.lpr"/>
-        <Caret Line="138" Column="47" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="genmaps.lpr"/>
-        <Caret Line="165" Column="61" TopLine="131"/>
-      </Position>
-      <Position>
-        <Filename Value="genmaps.lpr"/>
-        <Caret Line="145" Column="38" TopLine="126"/>
-      </Position>
       <Position>
         <Filename Value="genmaps.lpr"/>
         <Caret Line="147" Column="16" TopLine="129"/>
@@ -163,6 +152,18 @@
       <Position>
         <Filename Value="genmaps.lpr"/>
         <Caret Line="203" Column="23" TopLine="194"/>
+      </Position>
+      <Position>
+        <Filename Value="genmaps.lpr"/>
+        <Caret Line="143" Column="37" TopLine="57"/>
+      </Position>
+      <Position>
+        <Filename Value="genmaps.lpr"/>
+        <Caret Line="153" Column="3" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="genmaps.lpr"/>
+        <Caret Line="134" Column="17" TopLine="113"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -129,12 +129,18 @@ var
 begin
   C := ExtractFileBase(FileName);
   if C = '999999' then C:='SUP';
+  Data := '// DOS Codepage to UTF-8 conversion map' + LF +
+  '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
+  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfStrings = (' + LF;
   WriteLn('Reading Codepage ', C, ' XML mapping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
     I := 0;
     while ReadEntry(X, I, E) do begin
+      if I < 256 then
+        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
+          QUOTE + WhenTrue(I<255, ',') + LF;
       Inc(I);
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
       AddUTF8(E);
@@ -142,6 +148,9 @@ begin
       AddASCII(E, C);
       AddInfo(E);
     end;
+    Data:=Data+ '  );' + LF + LF;
+    if C <> 'SUP' then
+      SaveBinary('map_' + C + '.inc', Data);
   finally
     X.Free;
   end;
