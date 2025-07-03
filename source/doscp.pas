@@ -5,7 +5,7 @@ unit DOScp;
 interface
 
 uses
-  Classes, SysUtils, XMLConf, PASext, DOSfont;
+  Classes, SysUtils, XMLConf, PASext {$IFDEF LCL}, DOSfont {$ENDIF};
 
 type
 
@@ -16,7 +16,9 @@ type
     FCount: integer;
     FXML : TXMLConfig;
     FFileName : String;
+    {$IFDEF LCL}
     FFontFile : TFontFile;
+    {$ENDIF}
     function GetAdditional(Index : integer): String;
     function GetASCII(Index : integer): String;
     function GetCode(Index : integer): String;
@@ -27,7 +29,9 @@ type
     procedure SetCode(Index : integer; AValue: String);
     procedure SetEntity(Index : integer; AValue: String);
     procedure SetFileName(AValue: String);
+    {$IFDEF LCL}
     procedure SetFontFile(AValue: TFontFile);
+    {$ENDIF}
     procedure SetUTF8(Index : integer; AValue: String);
   protected
     function GetKey(Index : Integer; Attribute : String) : String;
@@ -36,7 +40,9 @@ type
     destructor Destroy; override;
     property FileName : String read FFileName write SetFileName;
     property ID : String read GetID;
+    {$IFDEF LCL}
     property FontFile : TFontFile read FFontFile write SetFontFile;
+    {$ENDIF}
     property Count : integer read FCount;
     property ASCII[Index : integer] : String read GetASCII;
     property UTF8[Index : integer] : String read GetUTF8 write SetUTF8;
@@ -45,6 +51,7 @@ type
     property Additional[Index : integer] : String read GetAdditional Write SetAdditional;
     function AddMap : integer;
     procedure DeleteMap (Index:Integer);
+    procedure Flush;
   published
   end;
 
@@ -71,6 +78,7 @@ type
     function Find(ACodePage : String) : TCodePage; overload;
     function Select(ACodePage : integer) : TCodePage; overload;
     function Select(ACodePage : String) : TCodePage; overload;
+    procedure Flush;
   published
   end;
 
@@ -171,11 +179,13 @@ begin
   FFileName:=AValue;
 end;
 
+{$IFDEF LCL}
 procedure TCodePage.SetFontFile(AValue: TFontFile);
 begin
   if FFontFile=AValue then Exit;
   FFontFile:=AValue;
 end;
+{$ENDIF}
 
 procedure TCodePage.SetUTF8(Index : integer; AValue: String);
 begin
@@ -202,7 +212,9 @@ begin
   inherited Create;
   FCount := 0;
   FFileName:=CodePageFilePath + AFileName;
+  {$IFDEF LCL}
   FFontFile:=TFontFile.Create(FileChangeExt(AFileName, '.fnt'));
+  {$ENDIF}
   FXML:=Nil;
   if FileExists(FFileName) then begin
     FXML:=TXMLConfig.Create(nil);
@@ -227,8 +239,10 @@ destructor TCodePage.Destroy;
 begin
   if Assigned(FXML) then
     FreeAndNil(FXML);
+  {$IFDEF LCL}
   if Assigned(FFontFile) then
     FreeAndNil(FFontFile);
+  {$ENDIF}
   inherited Destroy;
 end;
 
@@ -255,6 +269,11 @@ begin
   FXML.DeleteValue(GetKey(FCount, 'CODE'));
   FXML.DeleteValue(GetKey(FCount, 'HTML'));
   FXML.DeleteValue(GetKey(FCount, 'MORE'));
+end;
+
+procedure TCodePage.Flush;
+begin
+  FXML.Flush;
 end;
 
 {$POP}
@@ -349,6 +368,14 @@ begin
   if (not Assigned(FActive)) and (Count > 0) then
     FActive:=FCodePages[0];
   Select:=FActive;
+end;
+
+procedure TCodePages.Flush;
+var
+  I : integer;
+begin
+  for I := 0 to Count - 1 do
+    FCodePages[I].Flush;
 end;
 
 initialization

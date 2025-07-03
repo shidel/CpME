@@ -251,7 +251,7 @@
     <ASCII_251 CODE="x221a" HTML="radic" UTF8="226 136 154"/>
     <ASCII_252 CODE="8470" HTML="numero" UTF8="226 132 150"/>
     <ASCII_253 CODE="x00a4" HTML="curren" UTF8="194 164"/>
-    <ASCII_254 CODE="x25fc" HTML="FilledSmallSquare" UTF8="226 150 160"/>
+    <ASCII_254 CODE="x25a0" UTF8="226 150 160"/>
     <!-- CODE="x25aa" HTML="blacksquare" -->
     <ASCII_255 CODE="x00A0" HTML="nbsp" UTF8="32"/>
     <ASCII_156 CODE="x042c" HTML="SOFTcy" UTF8="208 172"/>

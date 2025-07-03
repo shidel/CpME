@@ -259,6 +259,7 @@ begin
       aPreview.Enabled:=False;
       Exit;
     end;
+  CodePages.Flush;
   C := lbCodePages.ItemIndex;
   S := '<!DOCTYPE html>' + LF + '<html>' + LF +
     '<head>' + LF +

@@ -95,6 +95,7 @@ type
   TArrayOfIntegers = array of Integer;
   TArrayOfChars = TCharArray; // Same as: array of Char;
   TArrayOfStrings = TStringArray; // Same as: array of String;
+  TArrayOfUnicode = array of UnicodeString; // Same as: array of String;
   TArrayOfPointers = array of Pointer;
 
   // dsEverything can include both viable and dead links.
@@ -107,6 +108,7 @@ function VerifiedPath (Parent, SubDir : String) : string;
 function LastPos(Sub, Str : String) : integer; overload;
 
 function PopDelim(var AStr : String; ADelim: String = SPACE): String; overload;
+function PopDelim(var AStr : UnicodeString; ADelim: UnicodeString = ' '): UnicodeString; overload;
 function FieldStr(AStr : String; AField : integer = 0; ADelim : String = SPACE) : String; overload;
 function FieldStr(AStr : String; AField, ACount : integer; ADelim : String = SPACE) : String; overload;
 
@@ -149,6 +151,10 @@ function WhenTrue(AStr : String; ATrue : String;  AFalse : String = '') : String
 function WhenTrue(AStr : String; ATrue : integer; AFalse : integer = 0) : integer; overload;
 function WhenTrue(AStr : String; ATrue : pointer; AFalse : pointer = nil) : pointer; overload;
 
+function WhenTrue(AStr : UnicodeString; ATrue : UnicodeString;  AFalse : UnicodeString = '') : UnicodeString; overload;
+function WhenTrue(AStr : UnicodeString; ATrue : integer; AFalse : integer = 0) : integer; overload;
+function WhenTrue(AStr : UnicodeString; ATrue : pointer; AFalse : pointer = nil) : pointer; overload;
+
 function WhenTrue(AInt : Integer; ATrue : String;  AFalse : String = '') : String; overload;
 function WhenTrue(AInt : Integer; ATrue : integer; AFalse : integer = 0) : integer; overload;
 function WhenTrue(AInt : Integer; ATrue : pointer; AFalse : pointer = nil) : pointer; overload;
@@ -184,6 +190,7 @@ function AddToArray(var A : TArrayOfWords; W : Word) : integer; overload;
 function AddToArray(var A : TArrayOfIntegers; I : Integer) : integer; overload;
 function AddToArray(var A : TArrayOfChars; C : Char) : integer; overload;
 function AddToArray(var A : TArrayOfStrings; S : String) : integer; overload;
+function AddToArray(var A : TArrayOfUnicode; S : UnicodeString) : integer; overload;
 function AddToArray(var A : TArrayOfPointers; P : Pointer) : integer; overload;
 
 function AppendArray(var A : TArrayOfStrings; B : TArrayOfStrings) : integer; overload;
@@ -211,6 +218,9 @@ function LoadBinary(AFileName: String; out AValue : String; ARaise : boolean = t
 
 function StrToInts(const S : UTF8String) : string; overload;
 function IntsToStr(S : String): UTF8String;  overload;
+
+function UnicodeToInts(const S : UnicodeString) : UnicodeString; overload;
+function IntsToUnicode(S : UnicodeString): UnicodeString;  overload;
 
 function WordCase(S : String; Allowable : String = '') : String;
 function RandomStr(ALength : Integer; AChars : String = '') : String;
@@ -624,6 +634,17 @@ begin
   Delete(AStr, 1, P - 1 + Length(ADelim));
 end;
 
+function PopDelim(var AStr : UnicodeString; ADelim: UnicodeString = ' '): UnicodeString; overload;
+var
+  P : integer;
+begin
+  P := Pos(ADelim, AStr);
+  if P <= 0 then P := Length(AStr) + 1;
+  Result := Copy(AStr, 1, P - 1);
+  Delete(AStr, 1, P - 1 + Length(ADelim));
+end;
+
+
 function FieldStr(AStr: String; AField: integer; ADelim: String): String;
 begin
   Result := '';
@@ -945,6 +966,30 @@ begin
     Result := AFalse;
 end;
 
+function WhenTrue(AStr: UnicodeString; ATrue: UnicodeString; AFalse: UnicodeString): UnicodeString;
+begin
+  if AStr <> '' then
+    Result := ATrue
+  else
+    Result := AFalse;
+end;
+
+function WhenTrue(AStr: UnicodeString; ATrue: integer; AFalse: integer): integer;
+begin
+  if AStr <> '' then
+    Result := ATrue
+  else
+    Result := AFalse;
+end;
+
+function WhenTrue(AStr: UnicodeString; ATrue: pointer; AFalse: pointer): pointer;
+begin
+  if AStr <> '' then
+    Result := ATrue
+  else
+    Result := AFalse;
+end;
+
 function WhenTrue(AInt: Integer; ATrue: String; AFalse: String): String;
 begin
   if AInt <> 0 then
@@ -1197,6 +1242,14 @@ begin
   A[High(A)] := S;
   Result := Length(A);
 end;
+
+function AddToArray(var A : TArrayOfUnicode; S : UnicodeString) : integer;
+begin
+  SetLength(A, Length(A) + 1);
+  A[High(A)] := S;
+  Result := Length(A);
+end;
+
 
 function AddToArray(var A: TArrayOfPointers; P: Pointer): integer;
 begin
@@ -1722,6 +1775,37 @@ begin
     Result := Result + char(V);
   end;
 end;
+
+function UnicodeToInts(const S : UnicodeString) : UnicodeString; overload;
+var
+  I : integer;
+begin
+  Result := '';
+  for I := 1 to length(S) do begin
+    Result := Result + UnicodeString(IntToStr(Word(S[I])));
+    if I < length(S) then Result := Result + ' ';
+  end;
+end;
+
+function IntsToUnicode(S : UnicodeString): UnicodeString;  overload;
+var
+  T : AnsiString;
+  C : UnicodeString;
+  V, E : integer;
+begin
+  Result := '';
+  While S <> '' do begin
+    C := PopDelim(S, SPACE);
+    Val(C, V, E);
+    if E <> 0 then begin
+      Result := '';
+      Break;
+    end;
+    T := Char(V);
+    Result := Result + UnicodeString(T);
+  end;
+end;
+
 
 function WordCase(S: String; Allowable : String): String;
 var
