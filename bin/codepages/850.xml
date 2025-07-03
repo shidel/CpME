@@ -194,7 +194,7 @@
     <ASCII_193 CODE="x2534" HTML="boxhu" UTF8="226 148 180"/>
     <ASCII_194 CODE="x252c" HTML="boxhd" UTF8="226 148 172"/>
     <ASCII_195 CODE="x251c" HTML="boxvr" UTF8="226 148 156"/>
-    <ASCII_196 CODE="x2500" HTML="boxh" UTF8="226 148 128"/>
+    <ASCII_196 CODE="x2500" HTML="boxh" UTF8="226 148 128"  MORE="HorizontalLine"/>
     <ASCII_197 CODE="x253c" HTML="boxvh" UTF8="226 148 188"/>
     <ASCII_198 CODE="x00e3" HTML="atilde" UTF8="195 163"/>
     <ASCII_199 CODE="x00c3" HTML="Atilde" UTF8="195 131"/>
@@ -251,7 +251,7 @@
     <ASCII_247 CODE="x00b8" HTML="cedil" UTF8="194 184"/>
     <!-- Cedilla, cedilla -->
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
-    <ASCII_249 CODE="x00a8" HTML="uml" UTF8="194 168" MORE="Dot,DoubleDot" />
+    <ASCII_249 CODE="x00a8" HTML="uml" UTF8="194 168" MORE="Dot,DoubleDot,die" />
     <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
     <!-- middot -->
     <ASCII_251 CODE="x00b9" HTML="sup1" UTF8="194 185"/>
