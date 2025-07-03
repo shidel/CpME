@@ -8,7 +8,7 @@ program genmaps;
 uses Classes, SysUtils, XMLConf, PASext;
 
 var
-  UTF8, HTML, Show : TStringList;
+  UTF8, HTML, ASCII, Info : TStringList;
   Data : String;
 
 type
@@ -27,14 +27,18 @@ begin
   HTML:=TStringList.Create;
   HTML.Duplicates:=dupIgnore;
   HTML.Sorted:=True;
-  Show:=TStringList.Create;
-  Show.Duplicates:=dupIgnore;
-  Show.Sorted:=True;
+  ASCII:=TStringList.Create;
+  ASCII.Duplicates:=dupIgnore;
+  ASCII.Sorted:=True;
+  Info:=TStringList.Create;
+  Info.Duplicates:=dupIgnore;
+  Info.Sorted:=True;
 end;
 
 procedure Finish;
 begin
-  Show.Free;
+  Info.Free;
+  ASCII.Free;
   HTML.Free;
   UTF8.Free;
 end;
@@ -86,6 +90,16 @@ begin
   UTF8.Add(AnsiString(S));
 end;
 
+procedure AddASCII(const Entry : TEntry; CodePage : String);
+var
+  S : AnsiString;
+begin
+  S := AnsiString(Entry.UTF8);
+  if (Entry.ASCII < 256) and (CodePage <> 'SUP')  then
+    S := S + '/' + CodePage + ',' + IntToStr(Entry.ASCII);
+  ASCII.Add(S);
+end;
+
 procedure AddHTML(const Entry : TEntry);
 var
   I : Integer;
@@ -96,14 +110,14 @@ begin
     HTML.Add(AnsiString(Entry.HTML[I] + '/' + Entry.UTF8));
 end;
 
-procedure AddShow(const Entry : TEntry);
+procedure AddInfo(const Entry : TEntry);
 var
   I : Integer;
 begin
   if Entry.Code <> '' then
-    Show.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.Code));
+    Info.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.Code));
   for I := 0 to Length(Entry.HTML) - 1 do
-    Show.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.HTML[I]));
+    Info.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.HTML[I]));
 end;
 
 procedure ReadXML(FileName : String);
@@ -111,8 +125,11 @@ var
   X : TXMLConfig;
   I : Integer;
   E : TEntry;
+  C : String;
 begin
-  WriteLn('Read Codepage XML: ', FileName);
+  C := ExtractFileBase(FileName);
+  if C = '999999' then C:='SUP';
+  WriteLn('Reading Codepage ', C, ' XML mapping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
@@ -122,7 +139,8 @@ begin
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
       AddUTF8(E);
       AddHTML(E);
-      AddShow(E);
+      AddASCII(E, C);
+      AddInfo(E);
     end;
   finally
     X.Free;
@@ -139,6 +157,29 @@ begin
     ReadXML('codepages/' + D[I]);
 end;
 
+procedure ShrinkASCII;
+var
+  I : integer;
+  L, T, D : String;
+begin
+  ASCII.Sorted:=False;
+  I := 0;
+  L := '';
+  while I < ASCII.Count do begin
+    D := ASCII[I];
+    T := PopDelim(D, '/');
+    if T = L then begin
+      if D <> '' then
+        ASCII[I-1] := ASCII[I-1] + '/' + D;
+      ASCII.Delete(I);
+    end else begin
+      L := T;
+      Inc(I);
+    end;
+  end;
+  ASCII.Sorted:=True;
+end;
+
 function EntryTypeDef : String;
 begin
   EntryTypeDef := LF +
@@ -152,14 +193,15 @@ begin
   '{$ENDIF}' + LF + LF;
 end;
 
-procedure AddItem(M : String);
+procedure AddItem(M : String; AllData : boolean = false);
 var
   T, S, C : String;
 begin
   if M = '' then exit;
   T := PopDelim(M, '/');
   C := PopDelim(M, '/');
-  M := PopDelim(M, '/'); // this will discard any remaining delimited fields
+  if Not AllData then
+    M := PopDelim(M, '/'); // this will discard any remaining delimited fields
   S := '    (Original:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
   'Converted:' + QUOTE + C + WhenTrue(M, '/' + M) + QUOTE + ')';
   if Data <> '' then
@@ -192,11 +234,24 @@ begin
   if M < H then ItemsHTML(M + 1, H);
 end;
 
+procedure ItemsASCII(L, H : integer);
+var
+  M : integer;
+begin
+  if H < L then Exit;
+  M := L + (H - L) div 2;
+  AddItem(ASCII[M], True);
+  if L = H then Exit;
+  if L < M then ItemsASCII(L, M-1);
+  if M < H then ItemsASCII(M + 1, H);
+end;
+
 procedure SaveUTF8(Filename : String);
 begin
   Data := '';
   ItemsUTF8(0, UTF8.Count - 1);
-  Data := '// UTF-8 to HTML conversion map' + LF + EntryTypeDef +
+  Data := '// UTF-8 to HTML conversion map' + LF + EntryTypeDef + LF +
+  '{$DEFINE UTF8toHTMLRemap}' + LF +
   'const' + LF +
   '  UTF8toHTMLRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
@@ -208,9 +263,23 @@ procedure SaveHTML(Filename : String);
 begin
   Data := '';
   ItemsHTML(0, HTML.Count - 1);
-  Data := '// HTML to UTF-8 conversion map' + LF + EntryTypeDef +
+  Data := '// HTML to UTF-8 conversion map' + LF + EntryTypeDef + LF +
+  '{$DEFINE HTMLtoUTF8Remap}' + LF +
   'const' + LF +
   '  HTMLtoUTF8RemapList : TTextRemapEntries = (' + LF +
+  Data + LF +
+  '  );' + LF + LF;
+  SaveBinary(Filename, Data);
+end;
+
+procedure SaveASCII(Filename : String);
+begin
+  Data := '';
+  ItemsASCII(0, ASCII.Count - 1);
+  Data := '// UTF-8 to ASCII conversion map' + LF + EntryTypeDef + LF +
+  '{$DEFINE UTF8toASCIIRemap}' + LF +
+  'const' + LF +
+  '  UTF8toASCIIRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
   '  );' + LF + LF;
   SaveBinary(Filename, Data);
@@ -220,14 +289,15 @@ procedure SaveMaps;
 begin
   SaveUTF8('map_utf8.inc');
   SaveHTML('map_html.inc');
+  SaveASCII('map_uasc.inc');
 end;
 
 procedure Summary;
 //var
 //  I : Integer;
 begin
-//  for I := 0 to Show.Count - 1 do
-//    WriteLn(Show[I]);
+//  for I := 0 to Info.Count - 1 do
+//    WriteLn(Info[I]);
   WriteLn('UTF-8 to HTML Entries: ', UTF8.Count);
   WriteLn('HTML to UTF-8 Entries: ', HTML.Count);
 end;
@@ -235,6 +305,7 @@ end;
 begin
   Prepare;
   ReadAllData;
+  ShrinkASCII;
   SaveMaps;
   Summary;
   Finish;
