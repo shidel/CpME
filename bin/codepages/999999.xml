@@ -26,9 +26,9 @@
     <ASCII_21 CODE="x00a7" HTML="sect" UTF8="194 167"/>
     <ASCII_22 CODE="x25ac" UTF8="226 150 172"/>
     <ASCII_23 CODE="x21a8" UTF8="226 134 168"/>
-    <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow" UTF8="226 134 145"/>
+    <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow, uparrow" UTF8="226 134 145"/>
     <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow" UTF8="226 134 147"/>
-    <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr" UTF8="226 134 146"/>
+    <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr, rightarrow" UTF8="226 134 146"/>
     <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
     <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow" UTF8="226 134 148"/>
@@ -262,7 +262,7 @@
     <ASCII_247 CODE="x2248" HTML="asymp" UTF8="226 137 136"/>
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
     <ASCII_249 CODE="x2219" UTF8="226 136 153"/>
-    <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot" UTF8="194 183"/>
+    <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
     <!-- middot -->
     <ASCII_251 CODE="x221a" HTML="radic" UTF8="226 136 154"/>
     <ASCII_252 CODE="x207f" UTF8="226 129 191"/>
@@ -328,7 +328,7 @@
     <MAP_311 CODE="x03f1" HTML="rhov" MORE="varrho" UTF8="207 177"/>
     <MAP_312 CODE="x03f5" HTML="epsi" MORE="straightepsilon" UTF8="207 181"/>
     <MAP_313 CODE="x03f6" HTML="bepsi" MORE="backepsilon" UTF8="207 182"/>
-    <MAP_314 CODE="x00a9" HTML="copy" UTF8="194 169"/>
+    <MAP_314 CODE="x00a9" HTML="copy" UTF8="194 169" MORE="COPY"/>
     <MAP_315 CODE="x2117" HTML="copysr" UTF8="226 132 151"/>
     <MAP_316 CODE="x00ae" HTML="reg" MORE="circledR,REG" UTF8="194 174"/>
     <MAP_317 CODE="x24c8" HTML="oS" MORE="circledS" UTF8="226 147 136"/>

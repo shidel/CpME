@@ -24,15 +24,19 @@ begin
   UTF8:=TStringList.Create;
   UTF8.Duplicates:=dupIgnore;
   UTF8.Sorted:=True;
+  UTF8.CaseSensitive:=True;
   HTML:=TStringList.Create;
   HTML.Duplicates:=dupIgnore;
   HTML.Sorted:=True;
+  HTML.CaseSensitive:=True;
   ASCII:=TStringList.Create;
   ASCII.Duplicates:=dupIgnore;
   ASCII.Sorted:=True;
+  ASCII.CaseSensitive:=True;
   Info:=TStringList.Create;
   Info.Duplicates:=dupIgnore;
   Info.Sorted:=True;
+  Info.CaseSensitive:=True;
 end;
 
 procedure Finish;
@@ -139,7 +143,7 @@ begin
     I := 0;
     while ReadEntry(X, I, E) do begin
       if I < 256 then
-        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8[I]) +
+        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
           QUOTE + WhenTrue(I<255, ',') + LF;
       Inc(I);
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;

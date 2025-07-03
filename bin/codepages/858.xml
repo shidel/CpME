@@ -26,9 +26,9 @@
     <ASCII_21 CODE="x00a7" HTML="sect" UTF8="194 167"/>
     <ASCII_22 CODE="x25ac" UTF8="226 150 172"/>
     <ASCII_23 CODE="x21a8" UTF8="226 134 168"/>
-    <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow" UTF8="226 134 145"/>
+    <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow, uparrow" UTF8="226 134 145"/>
     <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow" UTF8="226 134 147"/>
-    <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr" UTF8="226 134 146"/>
+    <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr, rightarrow" UTF8="226 134 146"/>
     <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
     <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow" UTF8="226 134 148"/>
@@ -188,7 +188,7 @@
     <ASCII_181 CODE="x00c1" HTML="Aacute" UTF8="195 129"/>
     <ASCII_182 CODE="x00c2" HTML="Acirc" UTF8="195 130"/>
     <ASCII_183 CODE="x00c0" HTML="Agrave" UTF8="195 128"/>
-    <ASCII_184 CODE="x00a9" HTML="copy" UTF8="194 169"/>
+    <ASCII_184 CODE="x00a9" HTML="copy" UTF8="194 169" MORE="COPY"/>
     <ASCII_185 CODE="x2563" HTML="boxVL" UTF8="226 149 163"/>
     <ASCII_186 CODE="x2551" HTML="boxV" UTF8="226 149 145"/>
     <ASCII_187 CODE="x2557" HTML="boxDL" UTF8="226 149 151"/>
@@ -257,9 +257,8 @@
     <ASCII_247 CODE="x00b8" HTML="cedil" UTF8="194 184"/>
     <!-- Cedilla, cedilla -->
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
-    <ASCII_249 CODE="x00a8" HTML="uml" UTF8="194 168"/>
-    <!-- Dot, DoubleDot, die -->
-    <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot" UTF8="194 183"/>
+    <ASCII_249 CODE="x00a8" HTML="uml" UTF8="194 168" MORE="Dot,DoubleDot"/>
+    <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
     <!-- middot -->
     <ASCII_251 CODE="x00b9" HTML="sup1" UTF8="194 185"/>
     <ASCII_252 CODE="x00b3" HTML="sup3" UTF8="194 179"/>
