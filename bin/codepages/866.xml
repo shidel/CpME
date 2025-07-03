@@ -27,11 +27,11 @@
     <ASCII_22 CODE="x25ac" UTF8="226 150 172"/>
     <ASCII_23 CODE="x21a8" UTF8="226 134 168"/>
     <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow, uparrow" UTF8="226 134 145"/>
-    <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow" UTF8="226 134 147"/>
+    <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow, downarrow" UTF8="226 134 147"/>
     <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr, rightarrow" UTF8="226 134 146"/>
-    <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr" UTF8="226 134 144"/>
+    <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr, leftarrow" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
-    <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow" UTF8="226 134 148"/>
+    <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow, leftrightarrow" UTF8="226 134 148"/>
     <ASCII_30 CODE="x25b4" HTML="utrif" MORE="blacktriangle" UTF8="226 150 178"/>
     <ASCII_31 CODE="x25be" HTML="dtrif" MORE="blacktriangledown" UTF8="226 150 188"/>
     <ASCII_32/>

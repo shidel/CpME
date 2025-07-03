@@ -27,11 +27,11 @@
     <ASCII_22 CODE="x25ac" UTF8="226 150 172"/>
     <ASCII_23 CODE="x21a8" UTF8="226 134 168"/>
     <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow, uparrow" UTF8="226 134 145"/>
-    <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow" UTF8="226 134 147"/>
+    <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow, downarrow" UTF8="226 134 147"/>
     <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr, rightarrow" UTF8="226 134 146"/>
-    <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr" UTF8="226 134 144"/>
+    <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr, leftarrow" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
-    <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow" UTF8="226 134 148"/>
+    <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow, leftrightarrow" UTF8="226 134 148"/>
     <ASCII_30 CODE="x25b4" HTML="utrif" MORE="blacktriangle" UTF8="226 150 178"/>
     <ASCII_31 CODE="x25be" HTML="dtrif" MORE="blacktriangledown" UTF8="226 150 188"/>
     <ASCII_32/>
@@ -175,7 +175,7 @@
     <ASCII_168 CODE="x00ce" HTML="Icirc" UTF8="195 142"/>
     <ASCII_169 CODE="x2310" UTF8="226 140 144"/>
     <ASCII_170 CODE="x00ac" HTML="not" UTF8="194 172"/>
-    <ASCII_171 CODE="x00bd" HTML="frac12" UTF8="194 189"/>
+    <ASCII_171 CODE="x00bd" HTML="frac12" UTF8="194 189" MORE="half"/>
     <ASCII_172 CODE="x00bc" HTML="frac14" UTF8="194 188"/>
     <ASCII_173 CODE="x00be" HTML="frac34" UTF8="194 190"/>
     <ASCII_174 CODE="x00ab" HTML="laquo" UTF8="194 171"/>
@@ -239,7 +239,7 @@
     <ASCII_231 CODE="x03c4" HTML="tau" UTF8="207 132"/>
     <ASCII_232 CODE="x03a6" HTML="Phi" UTF8="206 166"/>
     <ASCII_233 CODE="x0398" HTML="Theta" UTF8="206 152"/>
-    <ASCII_234 CODE="x03a9" HTML="Omega" UTF8="206 169"/>
+    <ASCII_234 CODE="x03a9" HTML="Omega" UTF8="206 169" MORE="ohm"/>
     <ASCII_235 CODE="x03b4" HTML="delta" UTF8="206 180"/>
     <ASCII_236 CODE="x221e" HTML="infin" UTF8="226 136 158"/>
     <ASCII_237 CODE="x00f8" HTML="oslash" UTF8="195 184"/>
@@ -253,7 +253,7 @@
     <ASCII_243 CODE="x2264" HTML="le" UTF8="226 137 164" MORE="leq"/>
     <ASCII_244 CODE="x2320" UTF8="226 140 160"/>
     <ASCII_245 CODE="x2321" UTF8="226 140 161"/>
-    <ASCII_246 CODE="x00f7" HTML="divide" UTF8="195 183"/>
+    <ASCII_246 CODE="x00f7" HTML="divide" UTF8="195 183" MORE="div" />
     <ASCII_247 CODE="x2248" HTML="asymp" UTF8="226 137 136" MORE="thickapprox, thkap, approx, ap, TildeTilde"/>
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
     <ASCII_249 CODE="x2219" UTF8="226 136 153"/>
