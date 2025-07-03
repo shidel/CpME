@@ -139,7 +139,7 @@ begin
     I := 0;
     while ReadEntry(X, I, E) do begin
       if I < 256 then
-        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
+        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8[I]) +
           QUOTE + WhenTrue(I<255, ',') + LF;
       Inc(I);
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
