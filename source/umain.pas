@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Jerome Shidel
+// BSD-3-Clause license
+
 unit umain;
 
 {$mode objfpc}{$H+}

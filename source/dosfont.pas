@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Jerome Shidel
+// BSD-3-Clause license
+
 unit DOSfont;
 
 {$mode ObjFPC}{$H+}
