@@ -32,8 +32,8 @@
     <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr, leftarrow" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
     <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow, leftrightarrow" UTF8="226 134 148"/>
-    <ASCII_30 CODE="x25b4" HTML="utrif" MORE="blacktriangle" UTF8="226 150 178"/>
-    <ASCII_31 CODE="x25be" HTML="dtrif" MORE="blacktriangledown" UTF8="226 150 188"/>
+    <ASCII_30 CODE="x25b2" UTF8="226 150 178"/>
+    <ASCII_31 CODE="x25bc" UTF8="226 150 188"/>
     <ASCII_33 HTML="excl"/>
     <ASCII_34 HTML="quot" MORE="QUOT"/>
     <ASCII_35 HTML="num"/>
@@ -571,7 +571,7 @@
     <MAP_403 EMPTY="True"/>
     <MAP_427 EMPTY="True"/>
     <MAP_437 EMPTY="True"/>
-    <MAP_458 EMPTY="True"/>
+    <MAP_458 CODE="x00af" HTML="macr" MORE="strns,OverBar" UTF8="194 175"/>/>
     <MAP_473 EMPTY="True"/>
     <MAP_499 EMPTY="True"/>
     <MAP_525 EMPTY="True"/>

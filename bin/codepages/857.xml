@@ -32,9 +32,8 @@
     <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr, leftarrow" UTF8="226 134 144"/>
     <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
     <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow, leftrightarrow" UTF8="226 134 148"/>
-    <ASCII_30 CODE="x25b4" HTML="utrif" MORE="blacktriangle" UTF8="226 150 178"/>
-    <ASCII_31 CODE="x25be" HTML="dtrif" MORE="blacktriangledown" UTF8="226 150 188"/>
-    <ASCII_32/>
+    <ASCII_30 CODE="x25b2" UTF8="226 150 178"/>
+    <ASCII_31 CODE="x25bc" UTF8="226 150 188"/>
     <ASCII_33 HTML="excl"/>
     <ASCII_34 HTML="quot" MORE="QUOT"/>
     <ASCII_35 HTML="num"/>
@@ -51,16 +50,10 @@
     <!-- like dash better -->
     <ASCII_46 HTML="period"/>
     <ASCII_47 HTML="sol"/>
-    <ASCII_48/>
     <ASCII_49 UTF8=""/>
-    <ASCII_50/>
     <ASCII_51 HTML="" UTF8=""/>
     <ASCII_52 CODE="" HTML="" UTF8=""/>
     <ASCII_53 UTF8=""/>
-    <ASCII_54/>
-    <ASCII_55/>
-    <ASCII_56/>
-    <ASCII_57/>
     <ASCII_58 HTML="colon"/>
     <ASCII_59 HTML="semi"/>
     <ASCII_60 CODE="60" HTML="lt"/>
@@ -68,64 +61,12 @@
     <ASCII_62 CODE="62" HTML="gt"/>
     <ASCII_63 HTML="quest"/>
     <ASCII_64 HTML="commat"/>
-    <ASCII_65/>
-    <ASCII_66/>
-    <ASCII_67/>
-    <ASCII_68/>
-    <ASCII_69/>
-    <ASCII_70/>
-    <ASCII_71/>
-    <ASCII_72/>
-    <ASCII_73/>
-    <ASCII_74/>
-    <ASCII_75/>
-    <ASCII_76/>
-    <ASCII_77/>
-    <ASCII_78/>
-    <ASCII_79/>
-    <ASCII_80/>
-    <ASCII_81/>
-    <ASCII_82/>
-    <ASCII_83/>
-    <ASCII_84/>
-    <ASCII_85/>
-    <ASCII_86/>
-    <ASCII_87/>
-    <ASCII_88/>
-    <ASCII_89/>
-    <ASCII_90/>
     <ASCII_91 HTML="lsqb" MORE="lbrack"/>
     <ASCII_92 HTML="bsol"/>
     <ASCII_93 HTML="rsqb" MORE="rbrack"/>
     <ASCII_94 HTML="Hat"/>
     <ASCII_95 HTML="lowbar" MORE="UnderBar"/>
     <ASCII_96 HTML="grave" MORE="DiacriticalGrave"/>
-    <ASCII_97/>
-    <ASCII_98/>
-    <ASCII_99/>
-    <ASCII_100/>
-    <ASCII_101/>
-    <ASCII_102/>
-    <ASCII_103/>
-    <ASCII_104/>
-    <ASCII_105/>
-    <ASCII_106/>
-    <ASCII_107/>
-    <ASCII_108/>
-    <ASCII_109/>
-    <ASCII_110/>
-    <ASCII_111/>
-    <ASCII_112/>
-    <ASCII_113/>
-    <ASCII_114/>
-    <ASCII_115/>
-    <ASCII_116/>
-    <ASCII_117/>
-    <ASCII_118/>
-    <ASCII_119/>
-    <ASCII_120/>
-    <ASCII_121/>
-    <ASCII_122/>
     <ASCII_123 HTML="lbrace" MORE="lcub"/>
     <ASCII_124 HTML="vert" MORE="verbar,VerticalLine"/>
     <ASCII_125 HTML="rbrace" MORE="rcub"/>
@@ -144,9 +85,9 @@
     <ASCII_138 CODE="x00e8" HTML="egrave" UTF8="195 168"/>
     <ASCII_139 CODE="x00ef" HTML="iuml" UTF8="195 175"/>
     <ASCII_140 CODE="x00ee" HTML="icirc" UTF8="195 174"/>
-    <ASCII_141 CODE="x0131" HTML="inodot" UTF8="196 177" MORE="imath"/>
+    <ASCII_141 CODE="x0131" HTML="inodot" MORE="imath" UTF8="196 177"/>
     <ASCII_142 CODE="x00c4" HTML="Auml" UTF8="195 132"/>
-    <ASCII_143 CODE="x00c5" HTML="Aring" UTF8="195 133" MORE="angst"/>
+    <ASCII_143 CODE="x00c5" HTML="Aring" MORE="angst" UTF8="195 133"/>
     <ASCII_144 CODE="x00c9" HTML="Eacute" UTF8="195 137"/>
     <ASCII_145 CODE="x00e6" HTML="aelig" UTF8="195 166"/>
     <ASCII_146 CODE="x00c6" HTML="AElig" UTF8="195 134"/>
@@ -174,7 +115,7 @@
     <ASCII_168 CODE="x00bf" HTML="iquest" UTF8="194 191"/>
     <ASCII_169 CODE="x00ae" HTML="reg" UTF8="194 174"/>
     <ASCII_170 CODE="x00ac" HTML="not" UTF8="194 172"/>
-    <ASCII_171 CODE="x00bd" HTML="frac12" UTF8="194 189"  MORE="half"/>
+    <ASCII_171 CODE="x00bd" HTML="frac12" MORE="half" UTF8="194 189"/>
     <ASCII_172 CODE="x00bc" HTML="frac14" UTF8="194 188"/>
     <ASCII_173 CODE="x00a1" HTML="iexcl" UTF8="194 161"/>
     <ASCII_174 CODE="x00ab" HTML="laquo" UTF8="194 171"/>
@@ -187,7 +128,7 @@
     <ASCII_181 CODE="x00c1" HTML="Aacute" UTF8="195 129"/>
     <ASCII_182 CODE="x00c2" HTML="Acirc" UTF8="195 130"/>
     <ASCII_183 CODE="x00c0" HTML="Agrave" UTF8="195 128"/>
-    <ASCII_184 CODE="x00a9" HTML="copy" UTF8="194 169" MORE="COPY"/>
+    <ASCII_184 CODE="x00a9" HTML="copy" MORE="COPY" UTF8="194 169"/>
     <ASCII_185 CODE="x2563" HTML="boxVL" UTF8="226 149 163"/>
     <ASCII_186 CODE="x2551" HTML="boxV" UTF8="226 149 145"/>
     <ASCII_187 CODE="x2557" HTML="boxDL" UTF8="226 149 151"/>
@@ -199,7 +140,7 @@
     <ASCII_193 CODE="x2534" HTML="boxhu" UTF8="226 148 180"/>
     <ASCII_194 CODE="x252c" HTML="boxhd" UTF8="226 148 172"/>
     <ASCII_195 CODE="x251c" HTML="boxvr" UTF8="226 148 156"/>
-    <ASCII_196 CODE="x2500" HTML="boxh" UTF8="226 148 128" MORE="HorizontalLine"/>
+    <ASCII_196 CODE="x2500" HTML="boxh" MORE="HorizontalLine" UTF8="226 148 128"/>
     <ASCII_197 CODE="x253c" HTML="boxvh" UTF8="226 148 188"/>
     <ASCII_198 CODE="x00e3" HTML="atilde" UTF8="195 163"/>
     <ASCII_199 CODE="x00c3" HTML="Atilde" UTF8="195 131"/>
@@ -253,11 +194,11 @@
     <ASCII_243 CODE="x00be" HTML="frac34" UTF8="194 190"/>
     <ASCII_244 CODE="x00b6" HTML="para" UTF8="194 182"/>
     <ASCII_245 CODE="x00a7" HTML="sect" UTF8="194 167"/>
-    <ASCII_246 CODE="x00f7" HTML="divide" UTF8="195 183" MORE="div"/>
+    <ASCII_246 CODE="x00f7" HTML="divide" MORE="div" UTF8="195 183"/>
     <ASCII_247 CODE="x00b8" HTML="cedil" UTF8="194 184"/>
     <!-- Cedilla, cedilla -->
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
-    <ASCII_249 CODE="x00a8" HTML="uml" UTF8="194 168" MORE="Dot,DoubleDot,die" />
+    <ASCII_249 CODE="x00a8" HTML="uml" MORE="Dot,DoubleDot,die" UTF8="194 168"/>
     <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
     <!-- middot -->
     <ASCII_251 CODE="x00b9" HTML="sup1" UTF8="194 185"/>
