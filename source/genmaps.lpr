@@ -77,8 +77,10 @@ begin
     if T <> '' then
       AddToArray(Entry.HTML, '&' + T + ';');
   end;
+  if (Entry.UTF8 = '') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)) and (Index < 256) then
+    Entry.UTF8:=UnicodeString(IntToStr(Index));
   ReadEntry:=((Entry.UTF8<>'') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)))
-    or (Index <= 255);
+    or (Index < 256);
 end;
 
 procedure AddUTF8(const Entry : TEntry);
