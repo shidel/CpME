@@ -13,6 +13,7 @@ var
 
 type
   TEntry = record
+    Empty : Boolean;
     ASCII : Integer;
     OKDOS : boolean;
     UTF8 : UnicodeString;
@@ -64,8 +65,9 @@ var
   L, T : UnicodeString;
 begin
   Entry.ASCII:=Index;
-  ENtry.OKDOS:=False;
+  Entry.OKDOS:=False;
   Entry.HTML:=[];
+  Entry.Empty:=X.GetValue(Key(Index, 'EMPTY'),'') <> '';
   Entry.UTF8:=X.GetValue(Key(Index, 'UTF8'),'');
   Entry.CODE:=X.GetValue(Key(Index, 'CODE'),'');
   if Entry.CODE <> '' then
@@ -84,8 +86,8 @@ begin
     Entry.OKDOS:=TRUE;
     Entry.UTF8:=UnicodeString(IntToStr(Index));
   end;
-  ReadEntry:=((Entry.UTF8<>'') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)))
-    or (Index < 256);
+  ReadEntry:=(Entry.UTF8<>'') or (Entry.Code<>'') or (Length(Entry.HTML)>0)
+    or (Index < 256) or (Entry.Empty);
 end;
 
 procedure AddUTF8(const Entry : TEntry);
@@ -153,6 +155,7 @@ begin
         Data:=Data + '    ' + QUOTE + WhenTrue(E.OKDOS, '', AnsiString(E.UTF8)) +
           QUOTE + WhenTrue(I<255, ',') + LF;
       Inc(I);
+      if (E.Empty) then Continue;
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
       AddUTF8(E);
       AddHTML(E);
