@@ -14,6 +14,7 @@ var
 type
   TEntry = record
     ASCII : Integer;
+    OKDOS : boolean;
     UTF8 : UnicodeString;
     CODE : UnicodeString;
     HTML : TArrayOfUnicode;
@@ -63,6 +64,7 @@ var
   L, T : UnicodeString;
 begin
   Entry.ASCII:=Index;
+  ENtry.OKDOS:=False;
   Entry.HTML:=[];
   Entry.UTF8:=X.GetValue(Key(Index, 'UTF8'),'');
   Entry.CODE:=X.GetValue(Key(Index, 'CODE'),'');
@@ -78,7 +80,10 @@ begin
       AddToArray(Entry.HTML, '&' + T + ';');
   end;
   if (Entry.UTF8 = '') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)) and (Index < 256) then
+  begin
+    Entry.OKDOS:=TRUE;
     Entry.UTF8:=UnicodeString(IntToStr(Index));
+  end;
   ReadEntry:=((Entry.UTF8<>'') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)))
     or (Index < 256);
 end;
@@ -145,7 +150,7 @@ begin
     I := 0;
     while ReadEntry(X, I, E) do begin
       if I < 256 then
-        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
+        Data:=Data + '    ' + QUOTE + WhenTrue(E.OKDOS, '', AnsiString(E.UTF8)) +
           QUOTE + WhenTrue(I<255, ',') + LF;
       Inc(I);
       if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
