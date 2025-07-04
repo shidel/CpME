@@ -39,7 +39,7 @@
     <ASCII_35 HTML="num"/>
     <ASCII_36 HTML="dollar"/>
     <ASCII_37 HTML="percnt"/>
-    <ASCII_38 CODE="38" HTML="amp"/>
+    <ASCII_38 CODE="38" HTML="amp" MORE="AMP"/>
     <ASCII_39 HTML="apos"/>
     <ASCII_40 HTML="lpar"/>
     <ASCII_41 HTML="rpar"/>
@@ -571,7 +571,7 @@
     <MAP_403 EMPTY="True"/>
     <MAP_427 EMPTY="True"/>
     <MAP_437 EMPTY="True"/>
-    <MAP_458 CODE="x00af" HTML="macr" MORE="strns,OverBar" UTF8="194 175"/>/>
+    <MAP_458 CODE="x00af" HTML="macr" MORE="strns,OverBar" UTF8="194 175"/>
     <MAP_473 EMPTY="True"/>
     <MAP_499 EMPTY="True"/>
     <MAP_525 EMPTY="True"/>

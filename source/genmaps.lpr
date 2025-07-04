@@ -310,16 +310,53 @@ begin
   SaveBinary(Filename, Data);
 end;
 
+procedure SaveInfo(Filename : String);
+var
+  I : Integer;
+  S : String;
+  L, D : String;
+  C, X, E : String;
+begin
+  S :='<!DOCTYPE html>' + LF +
+  '<html lang="en">' + LF +
+  '<head>' + LF +
+  '<title>Codepage Map Summary</title>' + LF +
+  '<meta http-equiv="content-type" content="text/html; charset=utf-8">' + LF +
+  '<style>' + LF +
+  'body { white-space:pre; font-size:500%; }' + LF +
+  'span.names { white-space:default; font-size:20%; }' + LF +
+  '</style>' + LF +
+  '</head>' + LF +
+  '<body>' + LF;
+  L := '';
+  D := '';
+  E := '';
+  for I := 0 to Info.Count - 1 do begin
+    X:=Info[I];
+    C := PopDelim(X, TAB);
+    if C <> L then begin
+      S := S + D + LF; // + '<span class="names">' + E + '</span>' + LF;
+      D := C;
+      L := C;
+      E := '';
+    end;
+    D := D + TAB + X;
+    E := Trim(E + ' &amp' + ExcludeLeading('&', X));
+  end;
+  S := S + D + LF; // + '<span class="names">' + E + '</span>' + LF;
+  S := S + '</body>' + LF;
+  SaveBinary(Filename, S);
+end;
+
 procedure SaveMaps;
 begin
   SaveUTF8('map_utf8.inc');
   SaveHTML('map_html.inc');
   SaveASCII('map_uasc.inc');
+  SaveInfo('summary.html');
 end;
 
 procedure Summary;
-//var
-//  I : Integer;
 begin
 //  for I := 0 to Info.Count - 1 do
 //    WriteLn(Info[I]);

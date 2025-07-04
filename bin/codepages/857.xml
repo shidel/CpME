@@ -39,7 +39,7 @@
     <ASCII_35 HTML="num"/>
     <ASCII_36 HTML="dollar"/>
     <ASCII_37 HTML="percnt"/>
-    <ASCII_38 CODE="38" HTML="amp"/>
+    <ASCII_38 CODE="38" HTML="amp" MORE="AMP"/>
     <ASCII_39 HTML="apos"/>
     <ASCII_40 HTML="lpar"/>
     <ASCII_41 HTML="rpar"/>
