@@ -139,9 +139,11 @@ var
   I : Integer;
   E : TEntry;
   C : String;
+  V, T : Integer;
 begin
   C := ExtractFileBase(FileName);
-  if C = '999999' then C:='SUP';
+  Val(C, V, T);
+  if (V >= 900000) or (T <> 0) then C:='SUP';
   Data := '// DOS Codepage to UTF-8 conversion map' + LF +
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
   'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfStrings = (' + LF;

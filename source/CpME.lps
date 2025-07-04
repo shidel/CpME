@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="13"/>
-        <UsageCount Value="109"/>
+        <UsageCount Value="110"/>
       </Unit>
       <Unit>
         <Filename Value="umain.pas"/>
@@ -17,9 +17,10 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="330"/>
-        <CursorPos X="18" Y="355"/>
-        <UsageCount Value="109"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="298"/>
+        <CursorPos X="9" Y="329"/>
+        <UsageCount Value="110"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -27,12 +28,11 @@
         <Filename Value="doscp.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DOScp"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="198"/>
-        <CursorPos X="77" Y="318"/>
-        <FoldState Value=" TM001 T49[648iP26 T3jK0331518 pk6lF0H01E PiWk80 T1jL02012117111122[R4XoP]R6mU01024 T0qOq3I"/>
-        <UsageCount Value="109"/>
+        <TopLine Value="293"/>
+        <CursorPos Y="313"/>
+        <FoldState Value=" TM001 T49[648iP26 T3jK0331518 pk6lF0HC piYjc032 PCD0 T1jL02012117111122E PiXoP]R6mU01024 T0qOq3Y"/>
+        <UsageCount Value="110"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -45,7 +45,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="18" Y="41"/>
-        <UsageCount Value="93"/>
+        <UsageCount Value="94"/>
       </Unit>
       <Unit>
         <Filename Value="cpext.pas"/>
@@ -92,18 +92,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="313" Column="24" TopLine="274"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="261" Column="40" TopLine="249"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="59" Column="21" TopLine="38"/>
-      </Position>
       <Position>
         <Filename Value="doscp.pas"/>
         <Caret Line="51" Column="12" TopLine="45"/>
@@ -211,6 +199,18 @@
       <Position>
         <Filename Value="doscp.pas"/>
         <Caret Line="329" Column="48" TopLine="287"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="165" Column="29" TopLine="155"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="309" Column="3" TopLine="286"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="299" Column="11" TopLine="275"/>
       </Position>
     </JumpHistory>
     <RunParams>

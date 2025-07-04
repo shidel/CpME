@@ -162,9 +162,9 @@ var
   P : String;
   S : String;
   M : String;
-  C, X, Y, Z, R, N, SR : integer;
+  C, X, Y, Z, R, N, SR, V, T : integer;
 
-  function RowASCII : String;
+  function RowName : String;
   var
     X : Integer;
     S : String;
@@ -172,8 +172,27 @@ var
     S := '<tr><th>0x' + HexStr(Y * 16, Z) + '</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      S := S + '<!-- ASCII #' + IntToStr(N) + ' -->';
-      S := S + '<td class="' + WhenTrue(N > 255, 'extra', 'ascii') +'">';
+      M := CodePages[C].Entity[N];
+      if M = '' then begin
+        M := CodePages[C].Code[N];
+        S := S + '<td class="unnamed">';
+      end else
+        S := S + '<td class="named">';
+      S:= S + M;
+      S := S + '</td>';
+    end;
+    Result:=S + '</tr>' + LF;
+  end;
+
+  function RowASCII : String;
+  var
+    X : Integer;
+    S : String;
+  begin
+    S := '<tr><th>ASCII</th>' + LF;
+    for X := 0 to 15 do begin
+      N := Y * 16 + X;
+      S := S + '<td class="ascii">';
       if N <= 255 then begin
         try
           G := TPicture.Create;
@@ -186,11 +205,6 @@ var
           B.Free;
           G.Free;
         end;
-      end else begin
-        M := CodePages[C].Entity[N];
-        if M = '' then
-          M := CodePages[C].Code[N];
-        S:= S + M;
       end;
       S := S + '</td>';
     end;
@@ -281,7 +295,8 @@ begin
     'div { display:inline-block; }' + LF +
     'body { margin-bottom:2em; }' + LF +
     'body, table { text-align:center; }' + LF +
-    'td.extra { color:#633; font-style:italic }'  + LF +
+    'td.named { color:#633; font-style:italic }'  + LF +
+    'td.unnamed { color:#411; font-style:italic }'  + LF +
     'div.section { width:90%; font-size:175%; font-weight:bolder; padding:2em; }' + LF +
     'div.chart { font-size:100%; font-weight:normal; }' + LF +
     'img { width:0.5em; height:1em; }' + LF +
@@ -299,15 +314,19 @@ begin
     for X := -1 to 15 do
       S := S + '<th>' + WhenTrue(X >= 0, '0x' + HexStr(X, Z)) + '</th>';
     S := S + '</tr>' + LF;
-    case CodePages[C].ID of
-      '437' : SR := 0;
-      '999999' : SR :=16;
-    else
-      SR := 8;
+    if CodePages[C].ID = '437' then
+      SR := 0
+    else begin
+      Val(CodePages[C].ID, V, T);
+      if (T <> 0) or (V >= 900000) then
+        SR :=16
+      else
+        SR := 8;
     end;
     for Y := SR to R - 1 do begin
       S := S + '<tr class="spaced"><td>&nbsp;</td></tr>' + LF;
-      S := S + RowASCII + RowUTF8 + RowCode + RowEntity + RowMore;
+      S := S + RowName + WhenTrue(Y <16, RowASCII) + RowUTF8 + RowCode +
+        RowEntity + RowMore;
     end;
 
     S := S + '</table></div>' + LF;
