@@ -149,7 +149,7 @@
     <ASCII_140 CODE="x00ee" HTML="icirc" UTF8="195 174"/>
     <ASCII_141 CODE="x00ec" HTML="igrave" UTF8="195 172"/>
     <ASCII_142 CODE="x00c4" HTML="Auml" UTF8="195 132"/>
-    <ASCII_143 CODE="x00c5" HTML="Aring" UTF8="195 133" MORE="angst"/>
+    <ASCII_143 CODE="x00c5" HTML="Aring" MORE="angst" UTF8="195 133"/>
     <ASCII_144 CODE="x00c9" HTML="Eacute" UTF8="195 137"/>
     <ASCII_145 CODE="x00e6" HTML="aelig" UTF8="195 166"/>
     <ASCII_146 CODE="x00c6" HTML="AElig" UTF8="195 134"/>
@@ -178,7 +178,7 @@
     <ASCII_168 CODE="x00bf" HTML="iquest" UTF8="194 191"/>
     <ASCII_169 CODE="x2310" UTF8="226 140 144"/>
     <ASCII_170 CODE="x00ac" HTML="not" UTF8="194 172"/>
-    <ASCII_171 CODE="x00bd" HTML="frac12" UTF8="194 189" MORE="half"/>
+    <ASCII_171 CODE="x00bd" HTML="frac12" MORE="half" UTF8="194 189"/>
     <ASCII_172 CODE="x00bc" HTML="frac14" UTF8="194 188"/>
     <ASCII_173 CODE="x00a1" HTML="iexcl" UTF8="194 161"/>
     <ASCII_174 CODE="x00ab" HTML="laquo" UTF8="194 171"/>
@@ -203,7 +203,7 @@
     <ASCII_193 CODE="x2534" HTML="boxhu" UTF8="226 148 180"/>
     <ASCII_194 CODE="x252c" HTML="boxhd" UTF8="226 148 172"/>
     <ASCII_195 CODE="x251c" HTML="boxvr" UTF8="226 148 156"/>
-    <ASCII_196 CODE="x2500" HTML="boxh" UTF8="226 148 128" MORE="HorizontalLine"/>
+    <ASCII_196 CODE="x2500" HTML="boxh" MORE="HorizontalLine" UTF8="226 148 128"/>
     <ASCII_197 CODE="x253c" HTML="boxvh" UTF8="226 148 188"/>
     <ASCII_198 CODE="x255e" HTML="boxvR" UTF8="226 149 158"/>
     <ASCII_199 CODE="x255f" HTML="boxVr" UTF8="226 149 159"/>
@@ -242,26 +242,26 @@
     <ASCII_231 CODE="x03c4" HTML="tau" UTF8="207 132"/>
     <ASCII_232 CODE="x03a6" HTML="Phi" UTF8="206 166"/>
     <ASCII_233 CODE="x0398" HTML="Theta" UTF8="206 152"/>
-    <ASCII_234 CODE="x03a9" HTML="Omega" UTF8="206 169" MORE="ohm"/>
+    <ASCII_234 CODE="x03a9" HTML="Omega" MORE="ohm" UTF8="206 169"/>
     <ASCII_235 CODE="x03b4" HTML="delta" UTF8="206 180"/>
     <ASCII_236 CODE="x221e" HTML="infin" UTF8="226 136 158"/>
     <ASCII_237 CODE="x00f8" HTML="oslash" UTF8="195 184"/>
     <ASCII_238 CODE="x03b5" HTML="epsilon" UTF8="206 181"/>
     <!-- epsiv, varepsilon -->
     <ASCII_239 CODE="x2229" HTML="cap" UTF8="226 136 169"/>
-    <ASCII_240 CODE="x2261" HTML="equiv" UTF8="226 137 161" MORE="Congruent"/>
+    <ASCII_240 CODE="x2261" HTML="equiv" MORE="Congruent" UTF8="226 137 161"/>
     <ASCII_241 CODE="x00b1" HTML="plusmn" MORE="PlusMinus, pm" UTF8="194 177"/>
-    <ASCII_242 CODE="x2265" HTML="ge" UTF8="226 137 165" MORE="geq, GreaterEqual"/>
-    <ASCII_243 CODE="x2264" HTML="le" UTF8="226 137 164" MORE="leq"/>
+    <ASCII_242 CODE="x2265" HTML="ge" MORE="geq, GreaterEqual" UTF8="226 137 165"/>
+    <ASCII_243 CODE="x2264" HTML="le" MORE="leq" UTF8="226 137 164"/>
     <ASCII_244 CODE="x2320" UTF8="226 140 160"/>
     <ASCII_245 CODE="x2321" UTF8="226 140 161"/>
-    <ASCII_246 CODE="x00f7" HTML="divide" UTF8="195 183" MORE="div"/>
-    <ASCII_247 CODE="x2248" HTML="asymp" UTF8="226 137 136" MORE="thickapprox, thkap, approx, ap, TildeTilde"/>
+    <ASCII_246 CODE="x00f7" HTML="divide" MORE="div" UTF8="195 183"/>
+    <ASCII_247 CODE="x2248" HTML="asymp" MORE="thickapprox, thkap, approx, ap, TildeTilde" UTF8="226 137 136"/>
     <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
     <ASCII_249 CODE="x2219" UTF8="226 136 153"/>
     <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
     <!-- middot -->
-    <ASCII_251 CODE="x221a" HTML="radic" UTF8="226 136 154" MORE="Sqrt"/>
+    <ASCII_251 CODE="x221a" HTML="radic" MORE="Sqrt" UTF8="226 136 154"/>
     <ASCII_252 CODE="x207f" UTF8="226 129 191"/>
     <ASCII_253 CODE="x00b2" HTML="sup2" UTF8="194 178"/>
     <ASCII_254 CODE="x25a0" UTF8="226 150 160"/>
@@ -314,22 +314,78 @@
     <MAP_300 CODE="x03c7" HTML="chi" UTF8="207 135"/>
     <MAP_301 CODE="x03a8" HTML="Psi" UTF8="206 168"/>
     <MAP_302 CODE="x03c8" HTML="psi" UTF8="207 136"/>
-    <MAP_303 CODE="x03a9" HTML="Omega" UTF8="206 169" MORE="ohm"/>
+    <MAP_303 CODE="x03a9" HTML="Omega" MORE="ohm" UTF8="206 169"/>
     <MAP_304 CODE="x03c9" HTML="omega" UTF8="207 137"/>
     <MAP_305 CODE="x03d1" HTML="thetasym" MORE="thetav,vartheta" UTF8="207 145"/>
     <MAP_306 CODE="x03d2" HTML="upsih" MORE="Upsi" UTF8="207 146"/>
-    <MAP_307 CODE="x03d6" HTML="piv" MORE="varphi,varpi" UTF8="207 150" />
+    <MAP_307 CODE="x03d6" HTML="piv" MORE="varpi" UTF8="207 150"/>
     <MAP_308 CODE="x03dc" HTML="Gammad" UTF8="207 156"/>
     <MAP_309 CODE="x03dd" HTML="gammad" MORE="digamma" UTF8="207 157"/>
     <MAP_310 CODE="x03f0" HTML="kappav" MORE="varkappa" UTF8="207 176"/>
     <MAP_311 CODE="x03f1" HTML="rhov" MORE="varrho" UTF8="207 177"/>
     <MAP_312 CODE="x03f5" HTML="epsi" MORE="straightepsilon" UTF8="207 181"/>
     <MAP_313 CODE="x03f6" HTML="bepsi" MORE="backepsilon" UTF8="207 182"/>
-    <MAP_314 CODE="x00a9" HTML="copy" UTF8="194 169" MORE="COPY"/>
+    <MAP_314 CODE="x00a9" HTML="copy" MORE="COPY" UTF8="194 169"/>
     <MAP_315 CODE="x2117" HTML="copysr" UTF8="226 132 151"/>
     <MAP_316 CODE="x00ae" HTML="reg" MORE="circledR,REG" UTF8="194 174"/>
     <MAP_317 CODE="x24c8" HTML="oS" MORE="circledS" UTF8="226 147 136"/>
     <MAP_318 CODE="x29be" HTML="olcir" UTF8="226 166 190"/>
     <MAP_319 CODE="x2122" HTML="trade" MORE="TRADE" UTF8="226 132 162"/>
+    <MAP_320 CODE="x0106" HTML="Cacute" UTF8="196 134"/>
+    <MAP_321 CODE="x0107" HTML="cacute" UTF8="196 135"/>
+    <MAP_322 CODE="x0139" HTML="Lacute" UTF8="196 185"/>
+    <MAP_323 CODE="x013a" HTML="lacute" UTF8="196 186"/>
+    <MAP_324 CODE="x0143" HTML="Nacute" UTF8="197 131"/>
+    <MAP_325 CODE="x0144" HTML="nacute" UTF8="197 132"/>
+    <MAP_326 CODE="x0154" HTML="Racute" UTF8="197 148"/>
+    <MAP_327 CODE="x0155" HTML="racute" UTF8="197 149"/>
+    <MAP_328 CODE="x015a" HTML="Sacute" UTF8="197 154"/>
+    <MAP_329 CODE="x015b" HTML="sacute" UTF8="197 155"/>
+    <MAP_330 CODE="x0179" HTML="Zacute" UTF8="197 185"/>
+    <MAP_331 CODE="x017a" HTML="zacute" UTF8="197 186"/>
+    <MAP_332 CODE="x01f5" HTML="gacute" UTF8="199 181"/>
+    <MAP_333 CODE="x02d8" HTML="breve" MORE="Breve" UTF8="203 152"/>
+    <MAP_334 CODE="x0102" HTML="Abreve" UTF8="196 130"/>
+    <MAP_335 CODE="x0103" HTML="abreve" UTF8="196 131"/>
+    <MAP_336 CODE="x016c" HTML="Ubreve" UTF8="197 172"/>
+    <MAP_337 CODE="x016d" HTML="ubreve" UTF8="197 173"/>
+    <MAP_338 CODE="x0108" HTML="Ccirc" UTF8="196 136"/>
+    <MAP_339 CODE="x0109" HTML="ccirc" UTF8="196 137"/>
+    <MAP_340 CODE="x011c" HTML="Gcirc" UTF8="196 156"/>
+    <MAP_341 CODE="x011d" HTML="gcirc" UTF8="196 157"/>
+    <MAP_342 CODE="x0124" HTML="Hcirc" UTF8="196 164"/>
+    <MAP_343 CODE="x0125" HTML="hcirc" UTF8="196 165"/>
+    <MAP_344 CODE="x0134" HTML="Jcirc" UTF8="196 180"/>
+    <MAP_345 CODE="x0135" HTML="jcirc" UTF8="196 181"/>
+    <MAP_346 CODE="x015c" HTML="Scirc" UTF8="197 156"/>
+    <MAP_347 CODE="x015d" HTML="scirc" UTF8="197 157"/>
+    <MAP_348 CODE="x0174" HTML="Wcirc" UTF8="197 180"/>
+    <MAP_349 CODE="x0175" HTML="wcirc" UTF8="197 181"/>
+    <MAP_350 CODE="x0176" HTML="Ycirc" UTF8="197 182"/>
+    <MAP_351 CODE="x0177" HTML="ycirc" UTF8="197 183"/>
+    <MAP_352 CODE="x02c6" HTML="circ" UTF8="203 134"/>
+    <MAP_353 CODE="x0128" HTML="Itilde" UTF8="196 168"/>
+    <MAP_354 CODE="x0129" HTML="itilde" UTF8="196 169"/>
+    <MAP_355 CODE="x0168" HTML="Utilde" UTF8="197 168"/>
+    <MAP_356 CODE="x0169" HTML="utilde" UTF8="197 169"/>
+    <MAP_357 CODE="x016e" HTML="Uring" UTF8="197 174"/>
+    <MAP_358 CODE="x016f" HTML="uring" UTF8="197 175"/>
+    <MAP_359 CODE="x02da" HTML="ring" UTF8="203 154"/>
+    <MAP_360 CODE="x0136" HTML="Kcedil" UTF8="196 182"/>
+    <MAP_361 CODE="x0137" HTML="kcedil" UTF8="196 183"/>
+    <MAP_362 CODE="x013b" HTML="Lcedil" UTF8="196 187"/>
+    <MAP_363 CODE="x013c" HTML="lcedil" UTF8="196 188"/>
+    <MAP_364 CODE="x0145" HTML="Ncedil" UTF8="197 133"/>
+    <MAP_365 CODE="x0146" HTML="ncedil" UTF8="197 134"/>
+    <MAP_366 CODE="x0156" HTML="Rcedil" UTF8="197 150"/>
+    <MAP_367 CODE="x0157" HTML="rcedil" UTF8="197 151"/>
+    <MAP_368 CODE="x0162" HTML="Tcedil" UTF8="197 162"/>
+    <MAP_369 CODE="x0163" HTML="tcedil" UTF8="197 163"/>
+    <MAP_370 CODE="x0122" HTML="Gcedil" UTF8="196 162"/>
+    <MAP_371 CODE="x0150" HTML="Odblac" UTF8="197 144"/>
+    <MAP_372 CODE="x0151" HTML="odblac" UTF8="197 145"/>
+    <MAP_373 CODE="x0170" HTML="Udblac" UTF8="197 176"/>
+    <MAP_374 CODE="x0171" HTML="udblac" UTF8="197 177"/>
+    <MAP_375 CODE="x02dd" HTML="dblac" MORE="DiacriticalDoubleAcute" UTF8="203 157"/>
   </CODEPAGE>
 </CONFIG>
