@@ -17,6 +17,8 @@ type
 
   TfMain = class(TForm)
     aAddChar: TAction;
+    aMoveChar: TAction;
+    aInsertChar: TAction;
     aDeleteChar: TAction;
     aPreview: TAction;
     alMain: TActionList;
@@ -54,11 +56,18 @@ type
     tbPreview: TToolButton;
     tbAddChar: TToolButton;
     tbDeleteChar: TToolButton;
+    tbSplitA: TToolButton;
+    tbSplitB: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
     udIndex: TUpDown;
     procedure aAddCharExecute(Sender: TObject);
     procedure aAddCharUpdate(Sender: TObject);
     procedure aDeleteCharExecute(Sender: TObject);
     procedure aDeleteCharUpdate(Sender: TObject);
+    procedure aInsertCharExecute(Sender: TObject);
+    procedure aInsertCharUpdate(Sender: TObject);
+    procedure aMoveCharUpdate(Sender: TObject);
     procedure aPreviewExecute(Sender: TObject);
     procedure eCodeChange(Sender: TObject);
     procedure eEntityChange(Sender: TObject);
@@ -339,6 +348,25 @@ end;
 procedure TfMain.aDeleteCharUpdate(Sender: TObject);
 begin
   aDeleteChar.Enabled := lvCodePage.ItemIndex > 255;
+end;
+
+procedure TfMain.aInsertCharExecute(Sender: TObject);
+begin
+  if Not Assigned(Codepages.Active) then Exit;
+  if lvCodePage.ItemIndex < 256 then Exit;
+  CodePages.Active.InsertMap(lvCodepage.ItemIndex);
+  SelectCodePage(Codepages.Active.ID);
+end;
+
+procedure TfMain.aInsertCharUpdate(Sender: TObject);
+begin
+    aInsertChar.Enabled := lvCodePage.ItemIndex > 255;
+end;
+
+procedure TfMain.aMoveCharUpdate(Sender: TObject);
+begin
+  aMoveChar.Enabled:=False;
+  // aMoveChar.Enabled := lvCodePage.ItemIndex > 255;
 end;
 
 procedure TfMain.eEntityChange(Sender: TObject);
