@@ -1,219 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CONFIG>
-  <XMLGROUP ID="CODEPAGE"/>
+  <XMLGROUP ID="SUPPLEMENTAL"/>
   <CODEPAGE IDENTIFIER="900000">
-    <ASCII_0 CODE="x2400" UTF8="226 144 128"/>
-    <ASCII_1 CODE="x263a" UTF8="226 152 186"/>
-    <ASCII_2 CODE="x263b" UTF8="226 152 187"/>
-    <ASCII_3 CODE="x2665" HTML="hearts" MORE="heartsuit" UTF8="226 153 165"/>
-    <ASCII_4 CODE="x2666" HTML="diams" MORE="diamondsuit" UTF8="226 153 166"/>
-    <ASCII_5 CODE="x2663" HTML="clubs" MORE="clubsuit" UTF8="226 153 163"/>
-    <ASCII_6 CODE="x2660" HTML="spades" MORE="spadesuit" UTF8="226 153 160"/>
-    <ASCII_7 CODE="x2022" HTML="bull" MORE="bullet" UTF8="226 128 162"/>
-    <ASCII_8 CODE="x25d8" UTF8="226 151 152"/>
-    <ASCII_9 CODE="x25cb" HTML="cir" UTF8="226 151 139"/>
-    <ASCII_10 CODE="x25d9" UTF8="226 151 153"/>
-    <ASCII_11 CODE="x2642" HTML="male" UTF8="226 153 130"/>
-    <ASCII_12 CODE="x2640" HTML="female" UTF8="226 153 128"/>
-    <ASCII_13 CODE="x266a" HTML="sung" UTF8="226 153 170"/>
-    <ASCII_14 CODE="x266b" UTF8="226 153 171"/>
-    <ASCII_15 CODE="x263c" UTF8="226 152 188"/>
-    <ASCII_16 CODE="x25ba" UTF8="226 150 186"/>
-    <ASCII_17 CODE="x25c0" UTF8="226 151 128"/>
-    <ASCII_18 CODE="x2195" HTML="varr" MORE="UpDownArrow, updownarrow" UTF8="226 134 149"/>
-    <ASCII_19 CODE="x203c" UTF8="226 128 188"/>
-    <ASCII_20 CODE="x00b6" HTML="para" UTF8="194 182"/>
-    <ASCII_21 CODE="x00a7" HTML="sect" UTF8="194 167"/>
-    <ASCII_22 CODE="x25ac" UTF8="226 150 172"/>
-    <ASCII_23 CODE="x21a8" UTF8="226 134 168"/>
-    <ASCII_24 CODE="x2191" HTML="uarr" MORE="ShortUpArrow, UpArrow, uparrow" UTF8="226 134 145"/>
-    <ASCII_25 CODE="x2193" HTML="darr" MORE="ShortDownArrow, DownArrow, downarrow" UTF8="226 134 147"/>
-    <ASCII_26 CODE="x2192" HTML="rarr" MORE="ShortRightArrow, RightArrow, srarr, rightarrow" UTF8="226 134 146"/>
-    <ASCII_27 CODE="x2190" HTML="larr" MORE="ShortLeftArrow, LeftArrow, slarr, leftarrow" UTF8="226 134 144"/>
-    <ASCII_28 CODE="x221f" HTML="angrt" UTF8="226 136 159"/>
-    <ASCII_29 CODE="x2194" HTML="harr" MORE="LeftRightArrow, leftrightarrow" UTF8="226 134 148"/>
-    <ASCII_30 CODE="x25b2" UTF8="226 150 178"/>
-    <ASCII_31 CODE="x25bc" UTF8="226 150 188"/>
-    <ASCII_33 HTML="excl"/>
-    <ASCII_34 HTML="quot" MORE="QUOT"/>
-    <ASCII_35 HTML="num"/>
-    <ASCII_36 HTML="dollar"/>
-    <ASCII_37 HTML="percnt"/>
-    <ASCII_38 CODE="38" HTML="amp" MORE="AMP"/>
-    <ASCII_39 HTML="apos"/>
-    <ASCII_40 HTML="lpar"/>
-    <ASCII_41 HTML="rpar"/>
-    <ASCII_42 HTML="ast" MORE="midast"/>
-    <ASCII_43 HTML="plus"/>
-    <ASCII_44 HTML="comma"/>
-    <ASCII_45 HTML="minus"/>
-    <!-- like dash better -->
-    <ASCII_46 HTML="period"/>
-    <ASCII_47 HTML="sol"/>
-    <ASCII_49 UTF8=""/>
-    <ASCII_51 HTML="" UTF8=""/>
-    <ASCII_52 CODE="" HTML="" UTF8=""/>
-    <ASCII_53 UTF8=""/>
-    <ASCII_58 HTML="colon"/>
-    <ASCII_59 HTML="semi"/>
-    <ASCII_60 CODE="60" HTML="lt"/>
-    <ASCII_61 HTML="equals"/>
-    <ASCII_62 CODE="62" HTML="gt"/>
-    <ASCII_63 HTML="quest"/>
-    <ASCII_64 HTML="commat"/>
-    <ASCII_91 HTML="lsqb" MORE="lbrack"/>
-    <ASCII_92 HTML="bsol"/>
-    <ASCII_93 HTML="rsqb" MORE="rbrack"/>
-    <ASCII_94 HTML="Hat"/>
-    <ASCII_95 HTML="lowbar" MORE="UnderBar"/>
-    <ASCII_96 HTML="grave" MORE="DiacriticalGrave"/>
-    <ASCII_123 HTML="lbrace" MORE="lcub"/>
-    <!--
-        Technically, ASCII_124 shoud be:
-
-	    <ASCII_124 HTML="vertbar" />
-	    <ASCII_124 HTML="VerticalLine" />
-	    <ASCII_124 HTML="vert" />
-
-	    But, I'm sticking with the DOS pipe!
-    -->
-    <ASCII_124 CODE="x00a6" HTML="brvbar" MORE="verbar,vert,VerticalLine" UTF8="194 166"/>
-    <ASCII_125 HTML="rbrace" MORE="rcub"/>
-    <ASCII_126 CODE="x02dc" HTML="tilde" MORE="DiacriticalTilde" UTF8="203 156"/>
-    <ASCII_127 CODE="x2302" UTF8="127 226 140 130"/>
-    <ASCII_128 CODE="x00c7" HTML="Ccedil" UTF8="195 135"/>
-    <ASCII_129 CODE="x00fc" HTML="uuml" UTF8="195 188"/>
-    <ASCII_130 CODE="x00e9" HTML="eacute" UTF8="195 169"/>
-    <ASCII_131 CODE="x00e2" HTML="acirc" UTF8="195 162"/>
-    <ASCII_132 CODE="x00e4" HTML="auml" UTF8="195 164"/>
-    <ASCII_133 CODE="x00e0" HTML="agrave" UTF8="195 160"/>
-    <ASCII_134 CODE="x00e5" HTML="aring" UTF8="195 165"/>
-    <ASCII_135 CODE="x00e7" HTML="ccedil" UTF8="195 167"/>
-    <ASCII_136 CODE="x00ea" HTML="ecirc" UTF8="195 170"/>
-    <ASCII_137 CODE="x00eb" HTML="euml" UTF8="195 171"/>
-    <ASCII_138 CODE="x00e8" HTML="egrave" UTF8="195 168"/>
-    <ASCII_139 CODE="x00ef" HTML="iuml" UTF8="195 175"/>
-    <ASCII_140 CODE="x00ee" HTML="icirc" UTF8="195 174"/>
-    <ASCII_141 CODE="x00ec" HTML="igrave" UTF8="195 172"/>
-    <ASCII_142 CODE="x00c4" HTML="Auml" UTF8="195 132"/>
-    <ASCII_143 CODE="x00c5" HTML="Aring" MORE="angst" UTF8="195 133"/>
-    <ASCII_144 CODE="x00c9" HTML="Eacute" UTF8="195 137"/>
-    <ASCII_145 CODE="x00e6" HTML="aelig" UTF8="195 166"/>
-    <ASCII_146 CODE="x00c6" HTML="AElig" UTF8="195 134"/>
-    <ASCII_147 CODE="x00f4" HTML="ocirc" UTF8="195 180"/>
-    <ASCII_148 CODE="x00f6" HTML="ouml" UTF8="195 182"/>
-    <ASCII_149 CODE="x00f2" HTML="ograve" UTF8="195 178"/>
-    <ASCII_150 CODE="x00fb" HTML="ucirc" UTF8="195 187"/>
-    <ASCII_151 CODE="x00f9" HTML="ugrave" UTF8="195 185"/>
-    <ASCII_152 CODE="x00ff" HTML="yuml" UTF8="195 191"/>
-    <ASCII_153 CODE="x00d6" HTML="Ouml" UTF8="195 150"/>
-    <ASCII_154 CODE="x00dc" HTML="Uuml" UTF8="195 156"/>
-    <ASCII_155 CODE="x00a2" HTML="cent" UTF8="194 162"/>
-    <ASCII_156 CODE="x00a3" HTML="pound" UTF8="194 163"/>
-    <ASCII_157 CODE="x00a5" HTML="yen" UTF8="194 165"/>
-    <ASCII_158 CODE="x20a7" UTF8="226 130 167"/>
-    <ASCII_159 CODE="x0192" HTML="fnof" UTF8="198 146"/>
-    <ASCII_160 CODE="x00e1" HTML="aacute" UTF8="195 161"/>
-    <ASCII_161 CODE="x00ed" HTML="iacute" UTF8="195 173"/>
-    <ASCII_162 CODE="x00f3" HTML="oacute" UTF8="195 179"/>
-    <ASCII_163 CODE="x00fa" HTML="uacute" UTF8="195 186"/>
-    <ASCII_164 CODE="x00f1" HTML="ntilde" UTF8="195 177"/>
-    <ASCII_165 CODE="x00d1" HTML="Ntilde" UTF8="195 145"/>
-    <ASCII_166 CODE="x00aa" HTML="ordf" UTF8="194 170"/>
-    <ASCII_167 CODE="x00ba" HTML="ordm" UTF8="194 186"/>
-    <!-- possibly deg -->
-    <ASCII_168 CODE="x00bf" HTML="iquest" UTF8="194 191"/>
-    <ASCII_169 CODE="x2310" UTF8="226 140 144"/>
-    <ASCII_170 CODE="x00ac" HTML="not" UTF8="194 172"/>
-    <ASCII_171 CODE="x00bd" HTML="frac12" MORE="half" UTF8="194 189"/>
-    <ASCII_172 CODE="x00bc" HTML="frac14" UTF8="194 188"/>
-    <ASCII_173 CODE="x00a1" HTML="iexcl" UTF8="194 161"/>
-    <ASCII_174 CODE="x00ab" HTML="laquo" UTF8="194 171"/>
-    <ASCII_175 CODE="x00bb" HTML="raquo" UTF8="194 187"/>
-    <ASCII_176 CODE="x2591" HTML="blk14" UTF8="226 150 145"/>
-    <ASCII_177 CODE="x2592" HTML="blk12" UTF8="226 150 146"/>
-    <ASCII_178 CODE="x2593" HTML="blk34" UTF8="226 150 147"/>
-    <ASCII_179 CODE="x2502" HTML="boxv" UTF8="226 148 130"/>
-    <ASCII_180 CODE="x2524" HTML="boxvl" UTF8="226 148 164"/>
-    <ASCII_181 CODE="x2561" HTML="boxvL" UTF8="226 149 161"/>
-    <ASCII_182 CODE="x2562" HTML="boxVl" UTF8="226 149 162"/>
-    <ASCII_183 CODE="x2556" HTML="boxDl" UTF8="226 149 150"/>
-    <ASCII_184 CODE="x2555" HTML="boxdL" UTF8="226 149 149"/>
-    <ASCII_185 CODE="x2563" HTML="boxVL" UTF8="226 149 163"/>
-    <ASCII_186 CODE="x2551" HTML="boxV" UTF8="226 149 145"/>
-    <ASCII_187 CODE="x2557" HTML="boxDL" UTF8="226 149 151"/>
-    <ASCII_188 CODE="x255d" HTML="boxUL" UTF8="226 149 157"/>
-    <ASCII_189 CODE="x255c" HTML="boxUl" UTF8="226 149 156"/>
-    <ASCII_190 CODE="x255b" HTML="boxuL" UTF8="226 149 155"/>
-    <ASCII_191 CODE="x2510" HTML="boxdl" UTF8="226 148 144"/>
-    <ASCII_192 CODE="x2514" HTML="boxur" UTF8="226 148 148"/>
-    <ASCII_193 CODE="x2534" HTML="boxhu" UTF8="226 148 180"/>
-    <ASCII_194 CODE="x252c" HTML="boxhd" UTF8="226 148 172"/>
-    <ASCII_195 CODE="x251c" HTML="boxvr" UTF8="226 148 156"/>
-    <ASCII_196 CODE="x2500" HTML="boxh" MORE="HorizontalLine" UTF8="226 148 128"/>
-    <ASCII_197 CODE="x253c" HTML="boxvh" UTF8="226 148 188"/>
-    <ASCII_198 CODE="x255e" HTML="boxvR" UTF8="226 149 158"/>
-    <ASCII_199 CODE="x255f" HTML="boxVr" UTF8="226 149 159"/>
-    <ASCII_200 CODE="x255a" HTML="boxUR" UTF8="226 149 154"/>
-    <ASCII_201 CODE="x2554" HTML="boxDR" UTF8="226 149 148"/>
-    <ASCII_202 CODE="x2569" HTML="boxHU" UTF8="226 149 169"/>
-    <ASCII_203 CODE="x2566" HTML="boxHD" UTF8="226 149 166"/>
-    <ASCII_204 CODE="x2560" HTML="boxVR" UTF8="226 149 160"/>
-    <ASCII_205 CODE="x2550" HTML="boxH" UTF8="226 149 144"/>
-    <ASCII_206 CODE="x256c" HTML="boxVH" UTF8="226 149 172"/>
-    <ASCII_207 CODE="x2567" HTML="boxHu" UTF8="226 149 167"/>
-    <ASCII_208 CODE="x2568" HTML="boxhU" UTF8="226 149 168"/>
-    <ASCII_209 CODE="x2564" HTML="boxHd" UTF8="226 149 164"/>
-    <ASCII_210 CODE="x2565" HTML="boxhD" UTF8="226 149 165"/>
-    <ASCII_211 CODE="x2559" HTML="boxUr" UTF8="226 149 153"/>
-    <ASCII_212 CODE="x2558" HTML="boxuR" UTF8="226 149 152"/>
-    <ASCII_213 CODE="x2552" HTML="boxdR" UTF8="226 149 146"/>
-    <ASCII_214 CODE="x2553" HTML="boxDr" UTF8="226 149 147"/>
-    <ASCII_215 CODE="x256b" HTML="boxVh" UTF8="226 149 171"/>
-    <ASCII_216 CODE="x256a" HTML="boxvH" UTF8="226 149 170"/>
-    <ASCII_217 CODE="x2518" HTML="boxul" UTF8="226 148 152"/>
-    <ASCII_218 CODE="x250c" HTML="boxdr" UTF8="226 148 140"/>
-    <ASCII_219 CODE="x2588" HTML="block" UTF8="226 150 136"/>
-    <ASCII_220 CODE="x2584" UTF8="226 150 132"/>
-    <ASCII_221 CODE="x258c" UTF8="226 150 140"/>
-    <ASCII_222 CODE="x2590" UTF8="226 150 144"/>
-    <ASCII_223 CODE="x2580" UTF8="226 150 128"/>
-    <ASCII_224 CODE="x03b1" HTML="alpha" UTF8="206 177"/>
-    <ASCII_225 CODE="x00df" HTML="szlig" UTF8="195 159"/>
-    <!-- possibly x0392 Beta, x03b2 beta -->
-    <ASCII_226 CODE="x0393" HTML="Gamma" UTF8="206 147"/>
-    <ASCII_227 CODE="x03c0" HTML="pi" UTF8="207 128"/>
-    <ASCII_228 CODE="x03a3" HTML="Sigma" UTF8="206 163"/>
-    <ASCII_229 CODE="x03c3" HTML="sigma" UTF8="207 131"/>
-    <ASCII_230 CODE="x00B5" HTML="micro" UTF8="194 181"/>
-    <ASCII_231 CODE="x03c4" HTML="tau" UTF8="207 132"/>
-    <ASCII_232 CODE="x03a6" HTML="Phi" UTF8="206 166"/>
-    <ASCII_233 CODE="x0398" HTML="Theta" UTF8="206 152"/>
-    <ASCII_234 CODE="x03a9" HTML="Omega" MORE="ohm" UTF8="206 169"/>
-    <ASCII_235 CODE="x03b4" HTML="delta" UTF8="206 180"/>
-    <ASCII_236 CODE="x221e" HTML="infin" UTF8="226 136 158"/>
-    <ASCII_237 CODE="x00f8" HTML="oslash" UTF8="195 184"/>
-    <ASCII_238 CODE="x03b5" HTML="epsilon" UTF8="206 181"/>
-    <!-- epsiv, varepsilon -->
-    <ASCII_239 CODE="x2229" HTML="cap" UTF8="226 136 169"/>
-    <ASCII_240 CODE="x2261" HTML="equiv" MORE="Congruent" UTF8="226 137 161"/>
-    <ASCII_241 CODE="x00b1" HTML="plusmn" MORE="PlusMinus, pm" UTF8="194 177"/>
-    <ASCII_242 CODE="x2265" HTML="ge" MORE="geq, GreaterEqual" UTF8="226 137 165"/>
-    <ASCII_243 CODE="x2264" HTML="le" MORE="leq" UTF8="226 137 164"/>
-    <ASCII_244 CODE="x2320" UTF8="226 140 160"/>
-    <ASCII_245 CODE="x2321" UTF8="226 140 161"/>
-    <ASCII_246 CODE="x00f7" HTML="divide" MORE="div" UTF8="195 183"/>
-    <ASCII_247 CODE="x2248" HTML="asymp" MORE="thickapprox, thkap, approx, ap, TildeTilde" UTF8="226 137 136"/>
-    <ASCII_248 CODE="x00b0" HTML="deg" UTF8="194 176"/>
-    <ASCII_249 CODE="x2219" UTF8="226 136 153"/>
-    <ASCII_250 CODE="x00b7" HTML="centerdot" MORE="middot,CenterDot" UTF8="194 183"/>
-    <!-- middot -->
-    <ASCII_251 CODE="x221a" HTML="radic" MORE="Sqrt" UTF8="226 136 154"/>
-    <ASCII_252 CODE="x207f" UTF8="226 129 191"/>
-    <ASCII_253 CODE="x00b2" HTML="sup2" UTF8="194 178"/>
-    <ASCII_254 CODE="x25a0" UTF8="226 150 160"/>
-    <!-- CODE="x25aa" HTML="blacksquare" -->
-    <ASCII_255 CODE="x00A0" HTML="nbsp" UTF8="32"/>
     <MAP_256 CODE="x0391" HTML="Alpha" UTF8="206 145"/>
     <MAP_257 CODE="x03b1" HTML="alpha" UTF8="206 177"/>
     <MAP_258 CODE="x0392" HTML="Beta" UTF8="206 146"/>
@@ -277,7 +65,6 @@
     <MAP_322 CODE="x00ae" HTML="reg" MORE="circledR,REG" UTF8="194 174"/>
     <MAP_323 CODE="x24c8" HTML="oS" MORE="circledS" UTF8="226 147 136"/>
     <MAP_324 CODE="x29be" HTML="olcir" UTF8="226 166 190"/>
-    <MAP_325 CODE="x2122" HTML="trade" MORE="TRADE" UTF8="226 132 162"/>
     <MAP_337 CODE="x0107" HTML="cacute" UTF8="196 135"/>
     <MAP_338 CODE="x0139" HTML="Lacute" UTF8="196 185"/>
     <MAP_339 CODE="x013a" HTML="lacute" UTF8="196 186"/>
@@ -288,29 +75,20 @@
     <MAP_344 CODE="x015a" HTML="Sacute" UTF8="197 154"/>
     <MAP_345 CODE="x015b" HTML="sacute" UTF8="197 155"/>
     <MAP_346 CODE="x0179" HTML="Zacute" UTF8="197 185"/>
-    <MAP_347 CODE="x017a" HTML="zacute" UTF8="197 186"/>
-    <MAP_348 CODE="x01f5" HTML="gacute" UTF8="199 181"/>
     <MAP_353 CODE="x0103" HTML="abreve" UTF8="196 131"/>
     <MAP_354 CODE="x016c" HTML="Ubreve" UTF8="197 172"/>
-    <MAP_355 CODE="x016d" HTML="ubreve" UTF8="197 173"/>
     <MAP_369 CODE="x0109" HTML="ccirc" UTF8="196 137"/>
     <MAP_370 CODE="x011c" HTML="Gcirc" UTF8="196 156"/>
     <MAP_314 EMPTY="True"/>
     <MAP_315 EMPTY="True"/>
     <MAP_316 EMPTY="True"/>
-    <MAP_317 EMPTY="True"/>
-    <MAP_318 EMPTY="True"/>
-    <MAP_319 EMPTY="True"/>
-    <MAP_326 CODE="x211e" HTML="rx" UTF8="226 132 158"/>
     <MAP_328 CODE="x2019" HTML="rsquo" MORE="CloseCurlyQuote, rsquor" UTF8="226 128 153"/>
     <MAP_329 CODE="x2018" HTML="lsquo" MORE="OpenCurlyQuote" UTF8="226 128 152"/>
     <MAP_330 CODE="x201d" HTML="rdquo" MORE="CloseCurlyDoubleQuote, rdquor" UTF8="226 128 157"/>
     <MAP_331 CODE="x201c" HTML="ldquo" MORE="OpenCurlyDoubleQuote" UTF8="226 128 156"/>
-    <MAP_332 CODE="x201a" HTML="sbquo" MORE="lsquor" UTF8="226 128 154"/>
-    <MAP_333 CODE="x203a" HTML="rsaquo" UTF8="226 128 186"/>
-    <MAP_334 CODE="x2039" HTML="lsaquo" UTF8="226 128 185"/>
-    <MAP_335 EMPTY="True"/>
-    <MAP_350 EMPTY="True"/>
+    <MAP_333 CODE="x201a" HTML="sbquo" MORE="lsquor" UTF8="226 128 154"/>
+    <MAP_334 CODE="x203a" HTML="rsaquo" UTF8="226 128 186"/>
+    <MAP_335 CODE="x2039" HTML="lsaquo" UTF8="226 128 185"/>
     <MAP_371 CODE="x011d" HTML="gcirc" UTF8="196 157"/>
     <MAP_373 CODE="x0125" HTML="hcirc" UTF8="196 165"/>
     <MAP_374 CODE="x0134" HTML="Jcirc" UTF8="196 180"/>
@@ -320,7 +98,6 @@
     <MAP_378 CODE="x0174" HTML="Wcirc" UTF8="197 180"/>
     <MAP_379 CODE="x0175" HTML="wcirc" UTF8="197 181"/>
     <MAP_380 CODE="x0176" HTML="Ycirc" UTF8="197 182"/>
-    <MAP_381 CODE="x0177" HTML="ycirc" UTF8="197 183"/>
     <MAP_540 CODE="x1d50a" HTML="Gfr" UTF8="240 157 148 138"/>
     <MAP_541 CODE="x1d524" HTML="gfr" UTF8="240 157 148 164"/>
     <MAP_542 CODE="x210c" HTML="Hfr" MORE="Poincareplane" UTF8="226 132 140"/>
@@ -350,7 +127,6 @@
     <MAP_562 CODE="x211c" HTML="Rfr" MORE="Re, real, realpart" UTF8="226 132 156"/>
     <MAP_496 CODE="x017d" HTML="Zcaron" UTF8="197 189"/>
     <MAP_563 CODE="x1d52f" HTML="rfr" UTF8="240 157 148 175"/>
-    <MAP_497 CODE="x017e" HTML="zcaron" UTF8="197 190"/>
     <MAP_564 CODE="x1d516" HTML="Sfr" UTF8="240 157 148 150"/>
     <MAP_565 CODE="x1d530" HTML="sfr" UTF8="240 157 148 176"/>
     <MAP_566 CODE="x1d517" HTML="Tfr" UTF8="240 157 148 151"/>
@@ -365,7 +141,6 @@
     <MAP_575 CODE="x1d535" HTML="xfr" UTF8="240 157 148 181"/>
     <MAP_576 CODE="x1d51c" HTML="Yfr" UTF8="240 157 148 156"/>
     <MAP_577 CODE="x1d536" HTML="yfr" UTF8="240 157 148 182"/>
-    <MAP_578 CODE="x2128" HTML="Zfr" MORE="zeetrf" UTF8="226 132 168"/>
     <MAP_604 CODE="x1d53e" HTML="Gopf" UTF8="240 157 148 190"/>
     <MAP_605 CODE="x1d558" HTML="gopf" UTF8="240 157 149 152"/>
     <MAP_606 CODE="x210d" HTML="Hopf" MORE="quaternions" UTF8="226 132 141"/>
@@ -380,20 +155,16 @@
     <MAP_615 CODE="x1d55d" HTML="lopf" UTF8="240 157 149 157"/>
     <MAP_616 CODE="x1d544" HTML="Mopf" UTF8="240 157 149 132"/>
     <MAP_617 CODE="x1d55e" HTML="mopf" UTF8="240 157 149 158"/>
-    <MAP_356 CODE="x02d8" HTML="breve" MORE="Breve" UTF8="203 152"/>
     <MAP_372 CODE="x0124" HTML="Hcirc" UTF8="196 164"/>
     <MAP_593 CODE="x1d552" HTML="aopf" UTF8="240 157 149 146"/>
     <MAP_513 CODE="x010b" HTML="cdot" UTF8="196 139"/>
     <MAP_449 CODE="x0101" HTML="amacr" UTF8="196 129"/>
     <MAP_417 CODE="x0137" HTML="kcedil" UTF8="196 183"/>
-    <MAP_401 CODE="x016f" HTML="uring" UTF8="197 175"/>
     <MAP_385 CODE="x0129" HTML="itilde" UTF8="196 169"/>
-    <MAP_351 EMPTY="True"/>
     <MAP_594 CODE="x1d539" HTML="Bopf" UTF8="240 157 148 185"/>
     <MAP_514 CODE="x0116" HTML="Edot" UTF8="196 150"/>
     <MAP_450 CODE="x0112" HTML="Emacr" UTF8="196 146"/>
     <MAP_418 CODE="x013b" HTML="Lcedil" UTF8="196 187"/>
-    <MAP_386 CODE="x0168" HTML="Utilde" UTF8="197 168"/>
     <MAP_358 EMPTY="True"/>
     <MAP_595 CODE="x1d553" HTML="bopf" UTF8="240 157 149 147"/>
     <MAP_515 CODE="x0117" HTML="edot" UTF8="196 151"/>
@@ -421,7 +192,6 @@
     <MAP_599 CODE="x1d555" HTML="dopf" UTF8="240 157 149 149"/>
     <MAP_519 CODE="x0140" HTML="lmidot" UTF8="197 128"/>
     <MAP_487 CODE="x013e" HTML="lcaron" UTF8="196 190"/>
-    <MAP_471 CODE="x0173" HTML="uogon" UTF8="197 179"/>
     <MAP_455 CODE="x014d" HTML="omacr" UTF8="197 141"/>
     <MAP_423 CODE="x0157" HTML="rcedil" UTF8="197 151"/>
     <MAP_363 EMPTY="True"/>
@@ -435,34 +205,24 @@
     <MAP_537 CODE="x1d522" HTML="efr" UTF8="240 157 148 162"/>
     <MAP_521 CODE="x2299" HTML="odot" MORE="CircleDot" UTF8="226 138 153"/>
     <MAP_489 CODE="x0148" HTML="ncaron" UTF8="197 136"/>
-    <MAP_457 CODE="x016b" HTML="umacr" UTF8="197 171"/>
-    <MAP_425 CODE="x0163" HTML="tcedil" UTF8="197 163"/>
     <MAP_365 EMPTY="True"/>
     <MAP_602 CODE="x1d53d" HTML="Fopf" UTF8="240 157 148 189"/>
     <MAP_538 CODE="x1d509" HTML="Ffr" UTF8="240 157 148 137"/>
     <MAP_522 CODE="x017b" HTML="Zdot" UTF8="197 187"/>
     <MAP_490 CODE="x0158" HTML="Rcaron" UTF8="197 152"/>
-    <MAP_366 EMPTY="True"/>
     <MAP_603 CODE="x1d557" HTML="fopf" UTF8="240 157 149 151"/>
     <MAP_539 CODE="x1d523" HTML="ffr" UTF8="240 157 148 163"/>
-    <MAP_523 CODE="x017c" HTML="zdot" UTF8="197 188"/>
     <MAP_491 CODE="x0159" HTML="rcaron" UTF8="197 153"/>
-    <MAP_367 EMPTY="True"/>
-    <MAP_414 EMPTY="True"/>
     <MAP_469 CODE="x012f" HTML="iogon" UTF8="196 175"/>
     <MAP_484 CODE="x011a" HTML="Ecaron" UTF8="196 154"/>
-    <MAP_510 EMPTY="True"/>
     <MAP_536 CODE="x1d508" HTML="Efr" UTF8="240 157 148 136"/>
-    <MAP_398 EMPTY="True"/>
     <MAP_413 EMPTY="True"/>
     <MAP_468 CODE="x012e" HTML="Iogon" UTF8="196 174"/>
     <MAP_483 CODE="x010f" HTML="dcaron" UTF8="196 143"/>
     <MAP_509 EMPTY="True"/>
     <MAP_535 CODE="x1d521" HTML="dfr" UTF8="240 157 148 161"/>
-    <MAP_590 EMPTY="True"/>
     <MAP_397 EMPTY="True"/>
     <MAP_412 EMPTY="True"/>
-    <MAP_446 EMPTY="True"/>
     <MAP_467 CODE="x0119" HTML="eogon" UTF8="196 153"/>
     <MAP_482 CODE="x010e" HTML="Dcaron" UTF8="196 142"/>
     <MAP_508 EMPTY="True"/>
@@ -470,7 +230,6 @@
     <MAP_589 EMPTY="True"/>
     <MAP_396 EMPTY="True"/>
     <MAP_411 EMPTY="True"/>
-    <MAP_435 CODE="x0171" HTML="udblac" UTF8="197 177"/>
     <MAP_445 EMPTY="True"/>
     <MAP_466 CODE="x0118" HTML="Eogon" UTF8="196 152"/>
     <MAP_481 CODE="x010d" HTML="ccaron" UTF8="196 141"/>
@@ -495,21 +254,18 @@
     <MAP_393 EMPTY="True"/>
     <MAP_408 EMPTY="True"/>
     <MAP_442 EMPTY="True"/>
-    <MAP_478 EMPTY="True"/>
     <MAP_504 EMPTY="True"/>
     <MAP_530 CODE="x1d505" HTML="Bfr" UTF8="240 157 148 133"/>
     <MAP_585 EMPTY="True"/>
     <MAP_392 EMPTY="True"/>
     <MAP_407 EMPTY="True"/>
     <MAP_441 EMPTY="True"/>
-    <MAP_462 EMPTY="True"/>
     <MAP_477 EMPTY="True"/>
     <MAP_503 EMPTY="True"/>
     <MAP_529 CODE="x1d51e" HTML="afr" UTF8="240 157 148 158"/>
     <MAP_584 EMPTY="True"/>
     <MAP_391 EMPTY="True"/>
     <MAP_406 EMPTY="True"/>
-    <MAP_430 EMPTY="True"/>
     <MAP_440 EMPTY="True"/>
     <MAP_461 EMPTY="True"/>
     <MAP_476 EMPTY="True"/>
@@ -529,7 +285,6 @@
     <MAP_438 EMPTY="True"/>
     <MAP_474 EMPTY="True"/>
     <MAP_500 EMPTY="True"/>
-    <MAP_526 EMPTY="True"/>
     <MAP_581 EMPTY="True"/>
     <MAP_618 CODE="x2115" HTML="Nopf" MORE="naturals" UTF8="226 132 149"/>
     <MAP_619 CODE="x1d55f" HTML="nopf" UTF8="240 157 149 159"/>
@@ -555,7 +310,6 @@
     <MAP_639 CODE="x1d569" HTML="xopf" UTF8="240 157 149 169"/>
     <MAP_640 CODE="x1d550" HTML="Yopf" UTF8="240 157 149 144"/>
     <MAP_641 CODE="x1d56a" HTML="yopf" UTF8="240 157 149 170"/>
-    <MAP_642 CODE="x2124" HTML="Zopf" MORE="integers" UTF8="226 132 164"/>
     <MAP_645 EMPTY="True"/>
     <MAP_646 EMPTY="True"/>
     <MAP_647 EMPTY="True"/>
@@ -565,7 +319,6 @@
     <MAP_651 EMPTY="True"/>
     <MAP_652 EMPTY="True"/>
     <MAP_653 EMPTY="True"/>
-    <MAP_654 EMPTY="True"/>
     <MAP_658 CODE="x212c" HTML="Bscr" MORE="Bernoullis, bernou" UTF8="226 132 172"/>
     <MAP_660 CODE="x1d49e" HTML="Cscr" UTF8="240 157 146 158"/>
     <MAP_662 CODE="x1d49f" HTML="Dscr" UTF8="240 157 146 159"/>
@@ -601,7 +354,6 @@
     <MAP_684 CODE="x1d4aa" HTML="Oscr" UTF8="240 157 146 170"/>
     <MAP_682 CODE="x1d4a9" HTML="Nscr" UTF8="240 157 146 169"/>
     <MAP_680 CODE="x2133" HTML="Mscr" MORE="Mellintrf, phmmat" UTF8="226 132 179"/>
-    <MAP_706 CODE="x1d4b5" HTML="Zscr" UTF8="240 157 146 181"/>
     <MAP_705 CODE="x1d4ce" HTML="yscr" UTF8="240 157 147 142"/>
     <MAP_703 CODE="x1d4cd" HTML="xscr" UTF8="240 157 147 141"/>
     <MAP_701 CODE="x1d4cc" HTML="wscr" UTF8="240 157 147 140"/>
@@ -630,32 +382,23 @@
     <MAP_716 EMPTY="True"/>
     <MAP_725 CODE="x0142" HTML="lstrok" UTF8="197 130"/>
     <MAP_717 EMPTY="True"/>
-    <MAP_726 CODE="x0166" HTML="Tstrok" UTF8="197 166"/>
-    <MAP_718 EMPTY="True"/>
-    <MAP_382 CODE="x02c6" HTML="circ" UTF8="203 134"/>
-    <MAP_387 CODE="x0169" HTML="utilde" UTF8="197 169"/>
-    <MAP_402 CODE="x02da" HTML="ring" UTF8="203 154"/>
-    <MAP_426 CODE="x0122" HTML="Gcedil" UTF8="196 162"/>
-    <MAP_436 CODE="x02dd" HTML="dblac" MORE="DiacriticalDoubleAcute" UTF8="203 157"/>
-    <MAP_458 CODE="x00af" HTML="macr" MORE="strns" UTF8="194 175"/>
-    <MAP_472 CODE="x02db" HTML="ogon" UTF8="203 155"/>
-    <MAP_498 CODE="x02c7" HTML="caron" MORE="Hacek" UTF8="203 135"/>
-    <MAP_524 CODE="x02d9" HTML="dot" MORE="DiacriticalDot" UTF8="203 153"/>
-    <MAP_579 CODE="x1d537" HTML="zfr" UTF8="240 157 148 183"/>
-    <MAP_643 CODE="x1d56b" HTML="zopf" UTF8="240 157 149 171"/>
-    <MAP_707 CODE="x1d4cf" HTML="zscr" UTF8="240 157 147 143"/>
-    <MAP_727 CODE="x0167" HTML="tstrok" UTF8="197 167"/>
-    <MAP_719 EMPTY="True"/>
-    <MAP_655 EMPTY="True"/>
-    <MAP_591 EMPTY="True"/>
-    <MAP_527 EMPTY="True"/>
-    <MAP_511 EMPTY="True"/>
-    <MAP_479 EMPTY="True"/>
-    <MAP_463 EMPTY="True"/>
-    <MAP_447 EMPTY="True"/>
-    <MAP_431 EMPTY="True"/>
-    <MAP_415 EMPTY="True"/>
-    <MAP_399 EMPTY="True"/>
+    <MAP_730 CODE="xfb00" HTML="fflig" UTF8="239 172 128"/>
+    <MAP_731 CODE="xfb04" HTML="ffllig" UTF8="239 172 132"/>
+    <MAP_737 CODE="x2155" HTML="frac15" UTF8="226 133 149"/>
+    <MAP_738 CODE="x2159" HTML="frac16" UTF8="226 133 153"/>
+    <MAP_739 CODE="x215b" HTML="frac18" UTF8="226 133 155"/>
+    <MAP_740 CODE="x2154" HTML="frac23" UTF8="226 133 148"/>
+    <MAP_741 CODE="x2156" HTML="frac25" UTF8="226 133 150"/>
+    <MAP_742 CODE="x2157" HTML="frac35" UTF8="226 133 151"/>
+    <MAP_743 CODE="x215c" HTML="frac38" UTF8="226 133 156"/>
+    <MAP_744 CODE="x2158" HTML="frac45" UTF8="226 133 152"/>
+    <MAP_745 CODE="x215a" HTML="frac56" UTF8="226 133 154"/>
+    <MAP_746 CODE="x215d" HTML="frac58" UTF8="226 133 157"/>
+    <MAP_748 CODE="x2150" UTF8="226 133 144"/>
+    <MAP_747 CODE="x215e" HTML="frac78" UTF8="226 133 158"/>
+    <MAP_749 CODE="x2151" UTF8="226 133 145"/>
+    <MAP_736 CODE="x2153" HTML="frac13" UTF8="226 133 147"/>
+    <MAP_729 CODE="xfb03" HTML="ffilig" UTF8="239 172 131"/>
     <MAP_720 CODE="x0110" HTML="Dstrok" UTF8="196 144"/>
     <MAP_656 CODE="x1d49c" HTML="Ascr" UTF8="240 157 146 156"/>
     <MAP_592 CODE="x1d538" HTML="Aopf" UTF8="240 157 148 184"/>
@@ -671,10 +414,9 @@
     <MAP_368 CODE="x0108" HTML="Ccirc" UTF8="196 136"/>
     <MAP_352 CODE="x0102" HTML="Abreve" UTF8="196 130"/>
     <MAP_336 CODE="x0106" HTML="Cacute" UTF8="196 134"/>
-    <MAP_327 EMPTY="True"/>
+    <MAP_332 CODE="x201e" HTML="bdquo" MORE="ldquor" UTF8="226 128 158"/>
     <MAP_349 EMPTY="True"/>
     <MAP_357 EMPTY="True"/>
-    <MAP_383 EMPTY="True"/>
     <MAP_388 EMPTY="True"/>
     <MAP_403 EMPTY="True"/>
     <MAP_427 EMPTY="True"/>
@@ -686,29 +428,75 @@
     <MAP_580 EMPTY="True"/>
     <MAP_644 EMPTY="True"/>
     <MAP_708 EMPTY="True"/>
-    <MAP_728 EMPTY="True"/>
-    <MAP_729 CODE="xfb03" HTML="ffilig" UTF8="239 172 131"/>
-    <MAP_730 CODE="xfb00" HTML="fflig" UTF8="239 172 128"/>
-    <MAP_731 CODE="xfb04" HTML="ffllig" UTF8="239 172 132"/>
-    <MAP_732 CODE="xfb01" HTML="filig" UTF8="239 172 129"/>
+    <MAP_317 EMPTY="True"/>
+    <MAP_348 CODE="x01f5" HTML="gacute" UTF8="199 181"/>
+    <MAP_356 CODE="x02d8" HTML="breve" MORE="Breve" UTF8="203 152"/>
+    <MAP_387 CODE="x0169" HTML="utilde" UTF8="197 169"/>
+    <MAP_402 CODE="x02da" HTML="ring" UTF8="203 154"/>
+    <MAP_426 CODE="x0122" HTML="Gcedil" UTF8="196 162"/>
+    <MAP_436 CODE="x02dd" HTML="dblac" MORE="DiacriticalDoubleAcute" UTF8="203 157"/>
+    <MAP_458 CODE="x00af" HTML="macr" MORE="strns" UTF8="194 175"/>
+    <MAP_472 CODE="x02db" HTML="ogon" UTF8="203 155"/>
+    <MAP_498 CODE="x02c7" HTML="caron" MORE="Hacek" UTF8="203 135"/>
+    <MAP_524 CODE="x02d9" HTML="dot" MORE="DiacriticalDot" UTF8="203 153"/>
+    <MAP_579 CODE="x1d537" HTML="zfr" UTF8="240 157 148 183"/>
+    <MAP_643 CODE="x1d56b" HTML="zopf" UTF8="240 157 149 171"/>
+    <MAP_707 CODE="x1d4cf" HTML="zscr" UTF8="240 157 147 143"/>
     <MAP_733 CODE="xfb02" HTML="fllig" UTF8="239 172 130"/>
-    <MAP_734 EMPTY="True"/>
-    <MAP_736 CODE="x2153" HTML="frac13" UTF8="226 133 147"/>
-    <MAP_737 CODE="x2155" HTML="frac15" UTF8="226 133 149"/>
-    <MAP_738 CODE="x2159" HTML="frac16" UTF8="226 133 153"/>
-    <MAP_739 CODE="x215b" HTML="frac18" UTF8="226 133 155"/>
-    <MAP_740 CODE="x2154" HTML="frac23" UTF8="226 133 148"/>
-    <MAP_741 CODE="x2156" HTML="frac25" UTF8="226 133 150"/>
-    <MAP_742 CODE="x2157" HTML="frac35" UTF8="226 133 151"/>
-    <MAP_743 CODE="x215c" HTML="frac38" UTF8="226 133 156"/>
-    <MAP_744 CODE="x2158" HTML="frac45" UTF8="226 133 152"/>
-    <MAP_745 CODE="x215a" HTML="frac56" UTF8="226 133 154"/>
-    <MAP_746 CODE="x215d" HTML="frac58" UTF8="226 133 157"/>
-    <MAP_748 CODE="x2150" UTF8="226 133 144"/>
-    <MAP_747 CODE="x215e" HTML="frac78" UTF8="226 133 158"/>
-    <MAP_735 EMPTY="True"/>
-    <MAP_749 CODE="x2151" UTF8="226 133 145"/>
+    <MAP_325 CODE="x2122" HTML="trade" MORE="TRADE" UTF8="226 132 162"/>
+    <MAP_347 CODE="x017a" HTML="zacute" UTF8="197 186"/>
+    <MAP_355 CODE="x016d" HTML="ubreve" UTF8="197 173"/>
+    <MAP_381 CODE="x0177" HTML="ycirc" UTF8="197 183"/>
+    <MAP_386 CODE="x0168" HTML="Utilde" UTF8="197 168"/>
+    <MAP_401 CODE="x016f" HTML="uring" UTF8="197 175"/>
+    <MAP_425 CODE="x0163" HTML="tcedil" UTF8="197 163"/>
+    <MAP_435 CODE="x0171" HTML="udblac" UTF8="197 177"/>
+    <MAP_457 CODE="x016b" HTML="umacr" UTF8="197 171"/>
+    <MAP_471 CODE="x0173" HTML="uogon" UTF8="197 179"/>
+    <MAP_497 CODE="x017e" HTML="zcaron" UTF8="197 190"/>
+    <MAP_523 CODE="x017c" HTML="zdot" UTF8="197 188"/>
+    <MAP_578 CODE="x2128" HTML="Zfr" MORE="zeetrf" UTF8="226 132 168"/>
+    <MAP_642 CODE="x2124" HTML="Zopf" MORE="integers" UTF8="226 132 164"/>
+    <MAP_706 CODE="x1d4b5" HTML="Zscr" UTF8="240 157 146 181"/>
+    <MAP_726 CODE="x0166" HTML="Tstrok" UTF8="197 166"/>
+    <MAP_732 CODE="xfb01" HTML="filig" UTF8="239 172 129"/>
     <MAP_750 CODE="x2152" UTF8="226 133 146"/>
+    <MAP_734 EMPTY="True"/>
+    <MAP_727 CODE="x0167" HTML="tstrok" UTF8="197 167"/>
+    <MAP_718 EMPTY="True"/>
+    <MAP_654 EMPTY="True"/>
+    <MAP_590 EMPTY="True"/>
+    <MAP_526 EMPTY="True"/>
+    <MAP_510 EMPTY="True"/>
+    <MAP_478 EMPTY="True"/>
+    <MAP_462 EMPTY="True"/>
+    <MAP_446 EMPTY="True"/>
+    <MAP_430 EMPTY="True"/>
+    <MAP_414 EMPTY="True"/>
+    <MAP_398 EMPTY="True"/>
+    <MAP_382 CODE="x02c6" HTML="circ" UTF8="203 134"/>
+    <MAP_366 EMPTY="True"/>
+    <MAP_350 EMPTY="True"/>
+    <MAP_326 CODE="x211e" HTML="rx" UTF8="226 132 158"/>
+    <MAP_318 EMPTY="True"/>
     <MAP_751 CODE="x2189" UTF8="226 134 137"/>
+    <MAP_735 EMPTY="True"/>
+    <MAP_728 EMPTY="True"/>
+    <MAP_719 EMPTY="True"/>
+    <MAP_655 EMPTY="True"/>
+    <MAP_591 EMPTY="True"/>
+    <MAP_527 EMPTY="True"/>
+    <MAP_511 EMPTY="True"/>
+    <MAP_479 EMPTY="True"/>
+    <MAP_463 EMPTY="True"/>
+    <MAP_447 EMPTY="True"/>
+    <MAP_431 EMPTY="True"/>
+    <MAP_415 EMPTY="True"/>
+    <MAP_399 EMPTY="True"/>
+    <MAP_383 EMPTY="True"/>
+    <MAP_367 EMPTY="True"/>
+    <MAP_351 EMPTY="True"/>
+    <MAP_327 EMPTY="True"/>
+    <MAP_319 EMPTY="True"/>
   </CODEPAGE>
 </CONFIG>

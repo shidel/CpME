@@ -69,6 +69,7 @@ type
     procedure aInsertCharUpdate(Sender: TObject);
     procedure aMoveCharUpdate(Sender: TObject);
     procedure aPreviewExecute(Sender: TObject);
+    procedure aPreviewUpdate(Sender: TObject);
     procedure eCodeChange(Sender: TObject);
     procedure eEntityChange(Sender: TObject);
     procedure eIndexChange(Sender: TObject);
@@ -234,7 +235,8 @@ var
     S := '<tr><th>Code</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      M := CodePages[C].Code[N];
+      M := StringReplace(CodePages[C].Code[N], SPACE, '', [rfReplaceAll]);
+      M := StringReplace(M, COMMA, ';&#', [rfReplaceAll]);
       S := S + '<td class="Code">' + WhenTrue(M, '&#' + M + ';', '&nbsp;') + '</td>';
     end;
     Result:=S + '</tr>' + LF;
@@ -336,6 +338,19 @@ begin
     aPreview.Enabled:=False;
     Exit;
   end;
+end;
+
+procedure TfMain.aPreviewUpdate(Sender: TObject);
+var
+  Okay : Boolean;
+  V, E : Integer;
+begin
+  Okay:=Assigned(Codepages.Active);
+  if Okay then begin
+    Val(Codepages.Active.ID, V, E);
+    Okay:=(V<>0) and (E=0);
+  end;
+  aPreview.Enabled:=Okay;
 end;
 
 procedure TfMain.aAddCharExecute(Sender: TObject);

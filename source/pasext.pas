@@ -334,6 +334,31 @@ function StringClip(Str : String; Len : integer; Elipsis : String = '...') : Str
 function TimeZoneOffset(TZ : String) : String;
 {$ENDIF}
 
+function IntToBin(AValue : Int8) : String; overload;
+function IntToBin(AValue : UInt8) : String; overload;
+function IntToBin(AValue : Int16) : String; overload;
+function IntToBin(AValue : UInt16) : String; overload;
+function IntToBin(AValue : Int32) : String; overload;
+function IntToBin(AValue : UInt32) : String; overload;
+function IntToBin(AValue : Int64) : String; overload;
+function IntToBin(AValue : UInt64) : String; overload;
+
+procedure Exchange(var A, B : Char); overload;
+procedure Exchange(var A, B : UTF8String); overload;
+procedure Exchange(var A, B : AnsiString); overload;
+procedure Exchange(var A, B : UnicodeString); overload;
+procedure Exchange(var A, B : Pointer); overload;
+procedure Exchange(var A, B : TObject); overload;
+procedure Exchange(var A, B : Int8); overload;
+procedure Exchange(var A, B : UInt8); overload;
+procedure Exchange(var A, B : Int16); overload;
+procedure Exchange(var A, B : UInt16); overload;
+procedure Exchange(var A, B : Int32); overload;
+procedure Exchange(var A, B : UInt32); overload;
+procedure Exchange(var A, B : Int64); overload;
+procedure Exchange(var A, B : UInt64); overload;
+
+
 implementation
 
 {$if defined(windows)}
@@ -2423,6 +2448,179 @@ begin
     Exit;
   end;
   StringClip:=Copy(Str, 1, Len - Length(Elipsis)) + Elipsis;
+end;
+
+function IntToBin(AValue: UInt8): String; overload;
+var
+  I : Integer;
+begin
+  IntToBin:='';
+  for I := 7 downto 0 do
+    if AValue and (1 shl I) <> 0 then
+      IntToBin:=IntToBin+'1'
+    else
+      IntToBin:=IntToBin+'0';
+end;
+
+function IntToBin(AValue: UInt16): String; overload;
+begin
+  IntToBin:=IntToBin(Hi(UInt16(AValue))) + IntToBin(Lo(UInt16(AValue)));
+end;
+
+function IntToBin(AValue: UInt32): String; overload;
+begin
+  IntToBin:=IntToBin(Hi(UInt32(AValue))) + IntToBin(Lo(UInt32(AValue)));
+end;
+
+function IntToBin(AValue: UInt64): String; overload;
+begin
+  IntToBin:=IntToBin(Hi(UInt64(AValue))) + IntToBin(Lo(UInt64(AValue)));
+end;
+
+procedure Exchange(var A, B: Char);
+var
+  C : Char;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UTF8String);
+var
+  C : UTF8String;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: AnsiString);
+var
+  C : AnsiString;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UnicodeString);
+var
+  C : UnicodeString;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: Pointer);
+var
+  C : Pointer;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: TObject);
+var
+  C : TObject;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: Int8);
+var
+  C : Int8;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UInt8);
+var
+  C : UInt8;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: Int16);
+var
+  C : UInt16;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UInt16);
+var
+  C : UInt16;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: Int32);
+var
+  C : UInt32;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UInt32);
+var
+  C : UInt32;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: Int64);
+var
+  C : UInt64;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+procedure Exchange(var A, B: UInt64);
+var
+  C : UInt64;
+begin
+  C:=A;
+  A:=B;
+  B:=C;
+end;
+
+function IntToBin(AValue: Int8): String; overload;
+begin
+  IntToBin:=IntToBin(UInt8(AValue));
+end;
+
+function IntToBin(AValue: Int16): String; overload;
+begin
+  IntToBin:=IntToBin(UInt16(AValue));
+end;
+
+function IntToBin(AValue: Int32): String; overload;
+begin
+  IntToBin:=IntToBin(UInt32(AValue));
+end;
+
+function IntToBin(AValue: Int64): String; overload;
+begin
+  IntToBin:=IntToBin(UInt64(AValue));
 end;
 
 {$IFDEF Country}

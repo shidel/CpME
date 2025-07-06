@@ -395,6 +395,7 @@ object fMain: TfMain
       )
       ShortCut = 4176
       OnExecute = aPreviewExecute
+      OnUpdate = aPreviewUpdate
     end
     object aAddChar: TAction
       Caption = 'aAddChar'

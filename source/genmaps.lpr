@@ -17,6 +17,7 @@ type
     ASCII : Integer;
     OKDOS : boolean;
     UTF8 : UnicodeString;
+    VALS : TArrayOfBytes;
     CODE : UnicodeString;
     HTML : TArrayOfUnicode;
   end;
@@ -60,6 +61,51 @@ begin
     Key:='CODEPAGE/ASCII' + T + Attribute
 end;
 
+function SetVALS(var Entry : TEntry) : boolean;
+var
+  T, N : UnicodeString;
+  V, E: Integer;
+  B : Boolean;
+  D : TArrayOfBytes;
+begin
+  SetVALS:=False;
+  D := [];
+  if Entry.UTF8<>'' then begin
+    T := Entry.UTF8;
+    while T <> '' do begin
+      N:=Trim(PopDelim(T, SPACE));
+      if N = '' then Exit;
+      Val(N, V, E);
+      if E <> 0 then Exit;
+      SetLength(D, Length(D)+1);
+      D[High(D)]:=V;
+    end;
+    if Length(D) > 0 then begin
+      B:=False;
+      // This was done completely by guess work assuming there had to be some
+      // sort of logical pattern to the length of UTF-8 Characters. At present,
+      // it seems correct when tested against the thousands of UTF-8 equivalent
+      // to the Named HTML entities. But, you never know.
+      if (D[Low(D)] = $7f) then // special 127, basically ignored followed by 3
+        B := Length(D) = 4
+      else if (D[Low(D)] and $f0) = $f0 then
+        B := Length(D) = 4
+      else if (D[Low(D)] and $e0) = $e0 then
+        B := Length(D) = 3
+      else if (D[Low(D)] and $e0) = $c0 then
+        B := Length(D) = 2
+      else if (D[Low(D)] and $80) = $00 then
+        B := Length(D) = 1;
+      if not B then
+        WriteLn('Invalid UTF-8 code: ', IntToHex(D[Low(D)]), ' ', IntToBin(D[Low(D)]), ' ', Entry.UTF8);
+      if not B then Exit;
+    end;
+  end;
+
+  Entry.VALS:=D;
+  SetVALS:=True;
+end;
+
 function ReadEntry(var X : TXMLConfig; Index : Integer; Out Entry : TEntry): boolean;
 var
   L, T : UnicodeString;
@@ -67,11 +113,14 @@ begin
   Entry.ASCII:=Index;
   Entry.OKDOS:=False;
   Entry.HTML:=[];
+  ENTRY.VALS:=[];
   Entry.Empty:=X.GetValue(Key(Index, 'EMPTY'),'') <> '';
   Entry.UTF8:=X.GetValue(Key(Index, 'UTF8'),'');
   Entry.CODE:=X.GetValue(Key(Index, 'CODE'),'');
-  if Entry.CODE <> '' then
+  if Entry.CODE <> '' then begin
+    Entry.CODE:=UnicodeString(StringReplace(Trim(AnsiString(Entry.CODE)), COMMA, ';&#', [rfReplaceAll]));
     Entry.CODE:='&#' + Entry.CODE + ';';
+  end;
   T:=Trim(X.GetValue(Key(Index, 'HTML'),''));
   if T <> '' then
     AddToArray(Entry.HTML, '&' + T + ';');
@@ -86,6 +135,7 @@ begin
     Entry.OKDOS:=TRUE;
     Entry.UTF8:=UnicodeString(IntToStr(Index));
   end;
+  SetVALS(Entry);
   ReadEntry:=(Entry.UTF8<>'') or (Entry.Code<>'') or (Length(Entry.HTML)>0)
     or (Index < 256) or (Entry.Empty);
 end;
@@ -138,16 +188,21 @@ var
   X : TXMLConfig;
   I : Integer;
   E : TEntry;
-  C : String;
+  C, N : String;
   V, T : Integer;
 begin
-  C := ExtractFileBase(FileName);
+  N := ExtractFileBase(FileName);
+  C := N;
   Val(C, V, T);
-  if (V >= 900000) or (T <> 0) then C:='SUP';
+  if T <> 0 then Exit;
+  if (V >= 900000) then begin
+    C:='SUP';
+    N:=N+' Supplemental';
+  end;
   Data := '// DOS Codepage to UTF-8 conversion map' + LF +
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
   'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfStrings = (' + LF;
-  WriteLn('Reading Codepage ', C, ' XML mapping file.');
+  WriteLn('Reading Codepage ', N, ' XML mapping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
@@ -162,7 +217,8 @@ begin
       AddUTF8(E);
       AddHTML(E);
       AddASCII(E, C);
-      AddInfo(E);
+      if V <= 900000 then
+        AddInfo(E);
     end;
     Data:=Data+ '  );' + LF + LF;
     if C <> 'SUP' then
@@ -312,10 +368,10 @@ end;
 
 procedure SaveInfo(Filename : String);
 var
-  I : Integer;
+  I, N : Integer;
   S : String;
   L, D : String;
-  C, X, E : String;
+  C, X: String;
 begin
   S :='<!DOCTYPE html>' + LF +
   '<html lang="en">' + LF +
@@ -323,25 +379,25 @@ begin
   '<title>Codepage Map Summary</title>' + LF +
   '<meta http-equiv="content-type" content="text/html; charset=utf-8">' + LF +
   '<style>' + LF +
-  'body { white-space:pre; font-size:500%; }' + LF +
+  'body { white-space:pre; font-size:200%; }' + LF +
   'span.names { white-space:default; font-size:20%; }' + LF +
   '</style>' + LF +
   '</head>' + LF +
-  '<body>' + LF;
+  '<body>';
   L := '';
   D := '';
-  E := '';
+  N := 0;
   for I := 0 to Info.Count - 1 do begin
     X:=Info[I];
     C := PopDelim(X, TAB);
+    if C = '' then Continue;
     if C <> L then begin
       S := S + D + LF; // + '<span class="names">' + E + '</span>' + LF;
-      D := C;
+      D := ZeroPad(N, 4) + ':' + TAB + C;
+      Inc(N);
       L := C;
-      E := '';
     end;
     D := D + TAB + X;
-    E := Trim(E + ' &amp' + ExcludeLeading('&', X));
   end;
   S := S + D + LF; // + '<span class="names">' + E + '</span>' + LF;
   S := S + '</body>' + LF;
@@ -358,8 +414,6 @@ end;
 
 procedure Summary;
 begin
-//  for I := 0 to Info.Count - 1 do
-//    WriteLn(Info[I]);
   WriteLn('UTF-8 to HTML Entries: ', UTF8.Count);
   WriteLn('HTML to UTF-8 Entries: ', HTML.Count);
 end;
