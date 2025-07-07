@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="863">
+  <CODEPAGE_863>
+    <x7C UTF8="124" ENTITIES="vert,verbar,VerticalLine"/>
+    <x84 UTF8="194" ENTITIES="Acirc"/>
+    <x86 UTF8="182" ENTITIES="para"/>
+    <x8D UTF8="819"/>
+    <x8E UTF8="192" ENTITIES="Agrave"/>
+    <x8F UTF8="167" ENTITIES="sect"/>
+    <x91 UTF8="200" ENTITIES="Egrave"/>
+    <x92 UTF8="202" ENTITIES="Ecirc"/>
+    <x94 UTF8="203" ENTITIES="Euml"/>
+    <x95 UTF8="207" ENTITIES="Iuml"/>
+    <x98 UTF8="164" ENTITIES="curren"/>
+    <x99 UTF8="212" ENTITIES="Ocirc"/>
+    <x9D UTF8="249" ENTITIES="ugrave"/>
+    <x9E UTF8="251" ENTITIES="ucirc"/>
+    <xA0 UTF8="166" ENTITIES="brvbar"/>
+    <xA1 UTF8="180" ENTITIES="acute,DiacriticalAcute"/>
+    <xA4 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
+    <xA5 UTF8="184" ENTITIES="cedil,Cedilla"/>
+    <xA6 UTF8="179" ENTITIES="sup3"/>
+    <xA7 UTF8="175"/>
+    <xA8 UTF8="206" ENTITIES="Icirc"/>
+    <xAD UTF8="190" ENTITIES="frac34"/>
+  </CODEPAGE_863>
+</CONFIG>

@@ -107,11 +107,9 @@ begin
     Delete(S, 1, L);
   end;
   DecodeUTF8:=ExcludeTrailing(COMMA,DecodeUTF8);
-
 end;
 
 procedure ConvertXML(var OX, NX : TXMLConfig);
-
 var
   I : integer;
   O : TOldEntry;
@@ -126,10 +124,12 @@ begin
        WriteLn(I, ' "', O.UTF8, '" ', V, ' ', S);
        NX.SetValue(NewKey(I, 'UTF8'), UnicodeString(V));
        if S <> '' then
-         NX.SetValue(NewKey(I, 'HTML'), UnicodeString(S));
+         NX.SetValue(NewKey(I, 'ENTITIES'), UnicodeString(S));
     end;
     Inc(I);
   end;
+  if I > 256 then
+    NX.SetValue('SUPPLEMENT_' + UnicodeString(CP) + '/COUNT', I-256);
 
 end;
 

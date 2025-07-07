@@ -11,6 +11,11 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
   Menus, ActnList, ExtCtrls, fpImage, PASext, DOScp;
 
+const
+  csAscii  = 0;
+  csUTF8   = 1;
+  csEntity = 2;
+
 type
 
   { TfMain }
@@ -24,8 +29,6 @@ type
     alMain: TActionList;
     apMain: TApplicationProperties;
     ControlBar1: TControlBar;
-    eCode: TEdit;
-    eMore: TEdit;
     eEntity: TEdit;
     eIndex: TEdit;
     eUTF8: TEdit;
@@ -34,8 +37,6 @@ type
     ilActive: TImageList;
     ilDisabled: TImageList;
     lEntity: TLabel;
-    lCode: TLabel;
-    lMore: TLabel;
     lUTF8: TLabel;
     lIndex: TLabel;
     lCodePages: TLabel;
@@ -70,10 +71,8 @@ type
     procedure aMoveCharUpdate(Sender: TObject);
     procedure aPreviewExecute(Sender: TObject);
     procedure aPreviewUpdate(Sender: TObject);
-    procedure eCodeChange(Sender: TObject);
     procedure eEntityChange(Sender: TObject);
     procedure eIndexChange(Sender: TObject);
-    procedure eMoreChange(Sender: TObject);
     procedure eUTF8Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -142,19 +141,9 @@ begin
   if not Assigned(CodePages.Active) then Exit;
   I:=lvCodePage.ItemIndex;
   CodePages.Active.UTF8[I] := eUTF8.Text;
-  lvCodePage.Items[I].SubItems[1]:=CodePages.Active.UTF8[I];
+  lvCodePage.Items[I].SubItems[csUTF8]:=CodePages.Active.UTF8[I];
 end;
 
-procedure TfMain.eCodeChange(Sender: TObject);
-var
-  I : Integer;
-begin
-  if FSwitching then exit;
-  if not Assigned(CodePages.Active) then Exit;
-  I:=lvCodePage.ItemIndex;
-  CodePages.Active.Code[I] := eCode.Text;
-  lvCodePage.Items[I].SubItems[2]:=CodePages.Active.Code[I];
-end;
 
 procedure TfMain.aPreviewExecute(Sender: TObject);
 var
@@ -411,7 +400,7 @@ begin
   if not Assigned(CodePages.Active) then Exit;
   I:=lvCodePage.ItemIndex;
   CodePages.Active.Entity[I] := eEntity.Text;
-  lvCodePage.Items[I].SubItems[3]:=CodePages.Active.Entity[I];
+  lvCodePage.Items[I].SubItems[csEntity]:=CodePages.Active.Entity[I];
 end;
 
 procedure TfMain.eIndexChange(Sender: TObject);
@@ -434,17 +423,6 @@ begin
     lvCodePage.Items[I].Selected:=True;
     lvCodePage.Items[I].MakeVisible(false);
   end;
-end;
-
-procedure TfMain.eMoreChange(Sender: TObject);
-var
-  I : Integer;
-begin
-  if FSwitching then exit;
-  if not Assigned(CodePages.Active) then Exit;
-  I:=lvCodePage.ItemIndex;
-  CodePages.Active.Additional[I] := eMore.Text;
-  lvCodePage.Items[I].SubItems[4]:=CodePages.Active.Additional[I];
 end;
 
 procedure TfMain.lbCodePagesSelectionChange(Sender: TObject; User: boolean);
@@ -511,15 +489,11 @@ var
       if J < 255 then LI.ImageIndex:=J;
       LI.SubItems.Add('');
       LI.SubItems.Add(CodePages.Active.UTF8[J]);
-      LI.SubItems.Add(CodePages.Active.Code[J]);
       LI.SubItems.Add(CodePages.Active.Entity[J]);
-      LI.SubItems.Add(CodePages.Active.Additional[J]);
     end else begin
       LI := lvCodepage.Items[J];
-      LI.SubItems[1]:=CodePages.Active.UTF8[J];
-      LI.SubItems[2]:=CodePages.Active.Code[J];
-      LI.SubItems[3]:=CodePages.Active.Entity[J];
-      LI.SubItems[4]:=CodePages.Active.Additional[J];
+      LI.SubItems[csUTF8]:=CodePages.Active.UTF8[J];
+      LI.SubItems[csUTF8]:=CodePages.Active.Entity[J];
     end;
   end;
 
@@ -562,15 +536,11 @@ begin
     Codepages.Active.FontFile.Characters[Index].ToImage(iChar);
     eIndex.Text:=IntToStr(Index);
     eUTF8.Text:=CodePages.Active.UTF8[Index];
-    eCode.Text:=CodePages.Active.Code[Index];
     eEntity.Text:=CodePages.Active.Entity[Index];
-    eMore.Text:=CodePages.Active.Additional[Index];
   end else begin
     iChar.Picture.Clear;
     eUTF8.Text:='';
-    eCode.Text:='';
     eEntity.Text:='';
-    eMore.Text:='';
   end;
   FSwitching :=False;
 end;

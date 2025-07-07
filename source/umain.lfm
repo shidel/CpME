@@ -184,16 +184,8 @@ object fMain: TfMain
             Width = 40
           end        
           item
-            Caption = 'Code'
-            Width = 80
-          end        
-          item
             Caption = 'Entity'
             Width = 120
-          end        
-          item
-            Caption = 'Additional'
-            Width = 150
           end>
         ColumnClick = False
         HideSelection = False
@@ -220,8 +212,8 @@ object fMain: TfMain
         TabOrder = 1
         object iChar: TImage
           Left = 0
-          Height = 96
-          Top = 272
+          Height = 204
+          Top = 164
           Width = 123
           Align = alClient
           Center = True
@@ -230,14 +222,14 @@ object fMain: TfMain
         end
         object pProps: TPanel
           Left = 8
-          Height = 256
+          Height = 148
           Top = 8
           Width = 107
           Align = alTop
           AutoSize = True
           BorderSpacing.Around = 8
           BevelOuter = bvNone
-          ClientHeight = 256
+          ClientHeight = 148
           ClientWidth = 107
           TabOrder = 0
           object lIndex: TLabel
@@ -304,30 +296,10 @@ object fMain: TfMain
             TabOrder = 1
             OnChange = eUTF8Change
           end
-          object lCode: TLabel
-            Left = 0
-            Height = 16
-            Top = 106
-            Width = 107
-            Align = alTop
-            BorderSpacing.Top = 12
-            Caption = 'HTML &Code'
-            FocusControl = eCode
-          end
-          object eCode: TEdit
-            Left = 0
-            Height = 22
-            Top = 126
-            Width = 107
-            Align = alTop
-            BorderSpacing.Top = 4
-            TabOrder = 2
-            OnChange = eCodeChange
-          end
           object lEntity: TLabel
             Left = 0
             Height = 16
-            Top = 160
+            Top = 106
             Width = 107
             Align = alTop
             BorderSpacing.Top = 12
@@ -337,31 +309,12 @@ object fMain: TfMain
           object eEntity: TEdit
             Left = 0
             Height = 22
-            Top = 180
+            Top = 126
             Width = 107
             Align = alTop
             BorderSpacing.Top = 4
-            TabOrder = 3
+            TabOrder = 2
             OnChange = eEntityChange
-          end
-          object lMore: TLabel
-            Left = 0
-            Height = 16
-            Top = 214
-            Width = 107
-            Align = alTop
-            BorderSpacing.Top = 12
-            Caption = '&More Entities'
-          end
-          object eMore: TEdit
-            Left = 0
-            Height = 22
-            Top = 234
-            Width = 107
-            Align = alTop
-            BorderSpacing.Top = 4
-            TabOrder = 4
-            OnChange = eMoreChange
           end
         end
       end

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="CONTROL">
+  <CODEPAGE_CONTROL>
+    <x00 UTF8="9216"/>
+    <x09 UTF8="9225" ENTITIES="Tab"/>
+    <x0A UTF8="9226" ENTITIES="NewLine"/>
+  </CODEPAGE_CONTROL>
+</CONFIG>

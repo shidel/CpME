@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="857">
+  <CODEPAGE_857>
+    <x7C UTF8="124" ENTITIES="vert,verbar,VerticalLine"/>
+    <x8D UTF8="305" ENTITIES="inodot,imath"/>
+    <x98 UTF8="304" ENTITIES="Idot"/>
+    <x9B UTF8="248" ENTITIES="oslash"/>
+    <x9D UTF8="216" ENTITIES="Oslash"/>
+    <x9E UTF8="350" ENTITIES="Scedil"/>
+    <x9F UTF8="351" ENTITIES="scedil"/>
+    <xA6 UTF8="286" ENTITIES="Gbreve"/>
+    <xA7 UTF8="287" ENTITIES="gbreve"/>
+    <xA9 UTF8="174" ENTITIES="reg"/>
+    <xB5 UTF8="193" ENTITIES="Aacute"/>
+    <xB6 UTF8="194" ENTITIES="Acirc"/>
+    <xB7 UTF8="192" ENTITIES="Agrave"/>
+    <xB8 UTF8="169" ENTITIES="copy,COPY"/>
+    <xBD UTF8="162" ENTITIES="cent"/>
+    <xBE UTF8="165" ENTITIES="yen"/>
+    <xC6 UTF8="227" ENTITIES="atilde"/>
+    <xC7 UTF8="195" ENTITIES="Atilde"/>
+    <xCF UTF8="164" ENTITIES="curren"/>
+    <xD0 UTF8="186" ENTITIES="ordm"/>
+    <xD1 UTF8="170" ENTITIES="ordf"/>
+    <xD2 UTF8="202" ENTITIES="Ecirc"/>
+    <xD3 UTF8="203" ENTITIES="Euml"/>
+    <xD4 UTF8="200" ENTITIES="Egrave"/>
+    <xD5 UTF8="8364" ENTITIES="euro"/>
+    <xD6 UTF8="205" ENTITIES="Iacute"/>
+    <xD7 UTF8="206" ENTITIES="Icirc"/>
+    <xD8 UTF8="207" ENTITIES="Iuml"/>
+    <xDD UTF8="166" ENTITIES="brvbar"/>
+    <xDE UTF8="204" ENTITIES="Igrave"/>
+    <xE0 UTF8="211" ENTITIES="Oacute"/>
+    <xE2 UTF8="212" ENTITIES="Ocirc"/>
+    <xE3 UTF8="210" ENTITIES="Ograve"/>
+    <xE4 UTF8="245" ENTITIES="otilde"/>
+    <xE5 UTF8="213" ENTITIES="Otilde"/>
+    <xE8 UTF8="215" ENTITIES="times"/>
+    <xE9 UTF8="218" ENTITIES="Uacute"/>
+    <xEA UTF8="219" ENTITIES="Ucirc"/>
+    <xEB UTF8="217" ENTITIES="Ugrave"/>
+    <xEC UTF8="236" ENTITIES="igrave"/>
+    <xED UTF8="255" ENTITIES="yuml"/>
+    <xEE UTF8="175" ENTITIES="strns"/>
+    <xEF UTF8="180" ENTITIES="acute"/>
+    <xF0 UTF8="8722" ENTITIES="minus"/>
+    <xF2 UTF8="819"/>
+    <xF3 UTF8="190" ENTITIES="frac34"/>
+    <xF4 UTF8="182" ENTITIES="para"/>
+    <xF5 UTF8="167" ENTITIES="sect"/>
+    <xF7 UTF8="184" ENTITIES="cedil"/>
+    <xF9 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
+    <xFB UTF8="185" ENTITIES="sup1"/>
+    <xFC UTF8="179" ENTITIES="sup3"/>
+  </CODEPAGE_857>
+</CONFIG>

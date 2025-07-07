@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="437">
+  <CODEPAGE_437>
+    <x00 UTF8="9216"/>
+    <x01 UTF8="9786"/>
+    <x02 UTF8="9787"/>
+    <x03 UTF8="9829" ENTITIES="hearts,heartsuit"/>
+    <x04 UTF8="9830" ENTITIES="diams,diamondsuit"/>
+    <x05 UTF8="9827" ENTITIES="clubs,clubsuit"/>
+    <x06 UTF8="9824" ENTITIES="spades,spadesuit"/>
+    <x07 UTF8="8226" ENTITIES="bull,bullet"/>
+    <x08 UTF8="9688"/>
+    <x09 UTF8="9675" ENTITIES="cir"/>
+    <x0A UTF8="9689"/>
+    <x0B UTF8="9794" ENTITIES="male"/>
+    <x0C UTF8="9792" ENTITIES="female"/>
+    <x0D UTF8="9834" ENTITIES="sung"/>
+    <x0E UTF8="9835"/>
+    <x0F UTF8="9788"/>
+    <x10 UTF8="9658"/>
+    <x11 UTF8="9664"/>
+    <x12 UTF8="8597" ENTITIES="varr,UpDownArrow,updownarrow"/>
+    <x13 UTF8="8252"/>
+    <x14 UTF8="182" ENTITIES="para"/>
+    <x15 UTF8="167" ENTITIES="sect"/>
+    <x16 UTF8="9644"/>
+    <x17 UTF8="8616"/>
+    <x18 UTF8="8593" ENTITIES="uarr,ShortUpArrow,UpArrow,uparrow"/>
+    <x19 UTF8="8595" ENTITIES="darr,ShortDownArrow,DownArrow,downarrow"/>
+    <x1A UTF8="8594" ENTITIES="rarr,ShortRightArrow,RightArrow,srarr,rightarrow"/>
+    <x1B UTF8="8592" ENTITIES="larr,ShortLeftArrow,LeftArrow,slarr,leftarrow"/>
+    <x1C UTF8="8735" ENTITIES="angrt"/>
+    <x1D UTF8="8596" ENTITIES="harr,LeftRightArrow,leftrightarrow"/>
+    <x1E UTF8="9650"/>
+    <x1F UTF8="9660"/>
+    <x21 UTF8="33" ENTITIES="excl"/>
+    <x22 UTF8="34" ENTITIES="quot,QUOT"/>
+    <x23 UTF8="35" ENTITIES="num"/>
+    <x24 UTF8="36" ENTITIES="dollar"/>
+    <x25 UTF8="37" ENTITIES="percnt"/>
+    <x26 UTF8="38" ENTITIES="amp,AMP"/>
+    <x27 UTF8="39" ENTITIES="apos"/>
+    <x28 UTF8="40" ENTITIES="lpar"/>
+    <x29 UTF8="41" ENTITIES="rpar"/>
+    <x2A UTF8="42" ENTITIES="ast,midast"/>
+    <x2B UTF8="43" ENTITIES="plus"/>
+    <x2C UTF8="44" ENTITIES="comma"/>
+    <x2D UTF8="45" ENTITIES="minus"/>
+    <x2E UTF8="46" ENTITIES="period"/>
+    <x2F UTF8="47" ENTITIES="sol"/>
+    <x3A UTF8="58" ENTITIES="colon"/>
+    <x3B UTF8="59" ENTITIES="semi"/>
+    <x3C UTF8="60" ENTITIES="lt"/>
+    <x3D UTF8="61" ENTITIES="equals"/>
+    <x3E UTF8="62" ENTITIES="gt"/>
+    <x3F UTF8="63" ENTITIES="quest"/>
+    <x40 UTF8="64" ENTITIES="commat"/>
+    <x5B UTF8="91" ENTITIES="lsqb,lbrack"/>
+    <x5C UTF8="92" ENTITIES="bsol"/>
+    <x5D UTF8="93" ENTITIES="rsqb,rbrack"/>
+    <x5E UTF8="94" ENTITIES="Hat"/>
+    <x5F UTF8="95" ENTITIES="lowbar,UnderBar"/>
+    <x60 UTF8="96" ENTITIES="grave,DiacriticalGrave"/>
+    <x7B UTF8="123" ENTITIES="lbrace,lcub"/>
+    <x7C UTF8="166" ENTITIES="brvbar,verbar,vert,VerticalLine"/>
+    <x7D UTF8="125" ENTITIES="rbrace,rcub"/>
+    <x7E UTF8="732" ENTITIES="tilde,DiacriticalTilde"/>
+    <x7F UTF8="8962"/>
+    <x80 UTF8="199" ENTITIES="Ccedil"/>
+    <x81 UTF8="252" ENTITIES="uuml"/>
+    <x82 UTF8="233" ENTITIES="eacute"/>
+    <x83 UTF8="226" ENTITIES="acirc"/>
+    <x84 UTF8="228" ENTITIES="auml"/>
+    <x85 UTF8="224" ENTITIES="agrave"/>
+    <x86 UTF8="229" ENTITIES="aring"/>
+    <x87 UTF8="231" ENTITIES="ccedil"/>
+    <x88 UTF8="234" ENTITIES="ecirc"/>
+    <x89 UTF8="235" ENTITIES="euml"/>
+    <x8A UTF8="232" ENTITIES="egrave"/>
+    <x8B UTF8="239" ENTITIES="iuml"/>
+    <x8C UTF8="238" ENTITIES="icirc"/>
+    <x8D UTF8="236" ENTITIES="igrave"/>
+    <x8E UTF8="196" ENTITIES="Auml"/>
+    <x8F UTF8="197" ENTITIES="Aring,angst"/>
+    <x90 UTF8="201" ENTITIES="Eacute"/>
+    <x91 UTF8="230" ENTITIES="aelig"/>
+    <x92 UTF8="198" ENTITIES="AElig"/>
+    <x93 UTF8="244" ENTITIES="ocirc"/>
+    <x94 UTF8="246" ENTITIES="ouml"/>
+    <x95 UTF8="242" ENTITIES="ograve"/>
+    <x96 UTF8="251" ENTITIES="ucirc"/>
+    <x97 UTF8="249" ENTITIES="ugrave"/>
+    <x98 UTF8="255" ENTITIES="yuml"/>
+    <x99 UTF8="214" ENTITIES="Ouml"/>
+    <x9A UTF8="220" ENTITIES="Uuml"/>
+    <x9B UTF8="162" ENTITIES="cent"/>
+    <x9C UTF8="163" ENTITIES="pound"/>
+    <x9D UTF8="165" ENTITIES="yen"/>
+    <x9E UTF8="8359"/>
+    <x9F UTF8="402" ENTITIES="fnof"/>
+    <xA0 UTF8="225" ENTITIES="aacute"/>
+    <xA1 UTF8="237" ENTITIES="iacute"/>
+    <xA2 UTF8="243" ENTITIES="oacute"/>
+    <xA3 UTF8="250" ENTITIES="uacute"/>
+    <xA4 UTF8="241" ENTITIES="ntilde"/>
+    <xA5 UTF8="209" ENTITIES="Ntilde"/>
+    <xA6 UTF8="170" ENTITIES="ordf"/>
+    <xA7 UTF8="186" ENTITIES="ordm"/>
+    <xA8 UTF8="191" ENTITIES="iquest"/>
+    <xA9 UTF8="8976"/>
+    <xAA UTF8="172" ENTITIES="not"/>
+    <xAB UTF8="189" ENTITIES="frac12,half"/>
+    <xAC UTF8="188" ENTITIES="frac14"/>
+    <xAD UTF8="161" ENTITIES="iexcl"/>
+    <xAE UTF8="171" ENTITIES="laquo"/>
+    <xAF UTF8="187" ENTITIES="raquo"/>
+    <xB0 UTF8="9617" ENTITIES="blk14"/>
+    <xB1 UTF8="9618" ENTITIES="blk12"/>
+    <xB2 UTF8="9619" ENTITIES="blk34"/>
+    <xB3 UTF8="9474" ENTITIES="boxv"/>
+    <xB4 UTF8="9508" ENTITIES="boxvl"/>
+    <xB5 UTF8="9569" ENTITIES="boxvL"/>
+    <xB6 UTF8="9570" ENTITIES="boxVl"/>
+    <xB7 UTF8="9558" ENTITIES="boxDl"/>
+    <xB8 UTF8="9557" ENTITIES="boxdL"/>
+    <xB9 UTF8="9571" ENTITIES="boxVL"/>
+    <xBA UTF8="9553" ENTITIES="boxV"/>
+    <xBB UTF8="9559" ENTITIES="boxDL"/>
+    <xBC UTF8="9565" ENTITIES="boxUL"/>
+    <xBD UTF8="9564" ENTITIES="boxUl"/>
+    <xBE UTF8="9563" ENTITIES="boxuL"/>
+    <xBF UTF8="9488" ENTITIES="boxdl"/>
+    <xC0 UTF8="9492" ENTITIES="boxur"/>
+    <xC1 UTF8="9524" ENTITIES="boxhu"/>
+    <xC2 UTF8="9516" ENTITIES="boxhd"/>
+    <xC3 UTF8="9500" ENTITIES="boxvr"/>
+    <xC4 UTF8="9472" ENTITIES="boxh,HorizontalLine"/>
+    <xC5 UTF8="9532" ENTITIES="boxvh"/>
+    <xC6 UTF8="9566" ENTITIES="boxvR"/>
+    <xC7 UTF8="9567" ENTITIES="boxVr"/>
+    <xC8 UTF8="9562" ENTITIES="boxUR"/>
+    <xC9 UTF8="9556" ENTITIES="boxDR"/>
+    <xCA UTF8="9577" ENTITIES="boxHU"/>
+    <xCB UTF8="9574" ENTITIES="boxHD"/>
+    <xCC UTF8="9568" ENTITIES="boxVR"/>
+    <xCD UTF8="9552" ENTITIES="boxH"/>
+    <xCE UTF8="9580" ENTITIES="boxVH"/>
+    <xCF UTF8="9575" ENTITIES="boxHu"/>
+    <xD0 UTF8="9576" ENTITIES="boxhU"/>
+    <xD1 UTF8="9572" ENTITIES="boxHd"/>
+    <xD2 UTF8="9573" ENTITIES="boxhD"/>
+    <xD3 UTF8="9561" ENTITIES="boxUr"/>
+    <xD4 UTF8="9560" ENTITIES="boxuR"/>
+    <xD5 UTF8="9554" ENTITIES="boxdR"/>
+    <xD6 UTF8="9555" ENTITIES="boxDr"/>
+    <xD7 UTF8="9579" ENTITIES="boxVh"/>
+    <xD8 UTF8="9578" ENTITIES="boxvH"/>
+    <xD9 UTF8="9496" ENTITIES="boxul"/>
+    <xDA UTF8="9484" ENTITIES="boxdr"/>
+    <xDB UTF8="9608" ENTITIES="block"/>
+    <xDC UTF8="9604"/>
+    <xDD UTF8="9612"/>
+    <xDE UTF8="9616"/>
+    <xDF UTF8="9600"/>
+    <xE0 UTF8="945" ENTITIES="alpha"/>
+    <xE1 UTF8="223" ENTITIES="szlig"/>
+    <xE2 UTF8="915" ENTITIES="Gamma"/>
+    <xE3 UTF8="960" ENTITIES="pi"/>
+    <xE4 UTF8="931" ENTITIES="Sigma"/>
+    <xE5 UTF8="963" ENTITIES="sigma"/>
+    <xE6 UTF8="181" ENTITIES="micro"/>
+    <xE7 UTF8="964" ENTITIES="tau"/>
+    <xE8 UTF8="934" ENTITIES="Phi"/>
+    <xE9 UTF8="920" ENTITIES="Theta"/>
+    <xEA UTF8="937" ENTITIES="Omega,ohm"/>
+    <xEB UTF8="948" ENTITIES="delta"/>
+    <xEC UTF8="8734" ENTITIES="infin"/>
+    <xED UTF8="248" ENTITIES="oslash"/>
+    <xEE UTF8="949" ENTITIES="epsilon"/>
+    <xEF UTF8="8745" ENTITIES="cap"/>
+    <xF0 UTF8="8801" ENTITIES="equiv,Congruent"/>
+    <xF1 UTF8="177" ENTITIES="plusmn,PlusMinus,pm"/>
+    <xF2 UTF8="8805" ENTITIES="ge,geq,GreaterEqual"/>
+    <xF3 UTF8="8804" ENTITIES="le,leq"/>
+    <xF4 UTF8="8992"/>
+    <xF5 UTF8="8993"/>
+    <xF6 UTF8="247" ENTITIES="divide,div"/>
+    <xF7 UTF8="8776" ENTITIES="asymp,thickapprox,thkap,approx,ap,TildeTilde"/>
+    <xF8 UTF8="176" ENTITIES="deg"/>
+    <xF9 UTF8="8729"/>
+    <xFA UTF8="183" ENTITIES="centerdot,middot,CenterDot"/>
+    <xFB UTF8="8730" ENTITIES="radic,Sqrt"/>
+    <xFC UTF8="8319"/>
+    <xFD UTF8="178" ENTITIES="sup2"/>
+    <xFE UTF8="9632"/>
+    <xFF UTF8="32" ENTITIES="nbsp"/>
+  </CODEPAGE_437>
+</CONFIG>
