@@ -386,6 +386,8 @@ function ValueToCodePoint(Value : TUTF8Value; out C : TUTF8CodePoint) : boolean;
 // return a null string.
 function ValueToCodePoint(Value : TUTF8Value): TUTF8CodePoint; overload;
 
+function HexVal(const S : String; out Value : integer) : boolean; overload;
+
 implementation
 
 {$if defined(windows)}
@@ -3030,6 +3032,15 @@ const
   function ValueToCodePoint(Value : TUTF8Value): TUTF8CodePoint; overload;
   begin
     ValueToCodePoint(Value, ValueToCodePoint);
+  end;
+
+  function HexVal(const S : String; out Value : integer) : boolean; overload;
+  var
+    E : integer;
+  begin
+    Val(S, Value, E);
+    HexVal:=E=0;
+    if Not HexVal then Value := 0;
   end;
 
 initialization

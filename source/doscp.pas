@@ -23,12 +23,11 @@ type
     FFontFile : TFontFile;
     {$ENDIF}
     function GetASCII(Index : integer): String;
-    function GetEmpty(Index : integer): boolean;
     function GetEntities(Index : integer): String;
     function GetID: String;
     function GetUTF8(Index : integer): String;
     function NotEmpty(Index : integer) : boolean;
-    procedure SetEmpty(Index : integer);
+    procedure SetCount(AValue: integer);
     procedure SetEntities(Index : integer; AValue: String);
     procedure SetFileName(AValue: String);
     {$IFDEF LCL}
@@ -45,11 +44,10 @@ type
     {$IFDEF LCL}
     property FontFile : TFontFile read FFontFile write SetFontFile;
     {$ENDIF}
-    property Count : integer read FCount;
+    property Count : integer read FCount write SetCount;
     property ASCII[Index : integer] : String read GetASCII;
     property UTF8[Index : integer] : String read GetUTF8 write SetUTF8;
     property Entities[Index : integer] : String read GetEntities Write SetEntities;
-    property Empty[Index : integer] : boolean read GetEmpty;
     function AddMap : integer;
     procedure DeleteMap (Index:Integer);
     procedure InsertMap (Index:Integer);
@@ -87,10 +85,42 @@ type
 var
   CodePages : TCodePages;
 
+  function UTF8toInts(C : TUTF8CodePoint; Hex : boolean = false) : String;
+  function IntsToUTF8(S : String) : TUTF8CodePoint;
+
 implementation
 
 var
   CodePageFilePath : string;
+
+function UTF8toInts(C: TUTF8CodePoint; Hex : boolean = false): String;
+var
+  L : integer;
+begin
+  UTF8toInts:='';
+  while C <> '' do begin
+    L := CodePointLength(C);
+    if Hex then
+      UTF8toInts:=UTF8toInts+'x'+IntToHex(CodePointToValue(C),2) + COMMA
+    else
+      UTF8toInts:=UTF8toInts+IntToStr(CodePointToValue(C)) + COMMA;
+    Delete(C, 1, L);
+  end;
+  UTF8toInts:=ExcludeTrailing(COMMA,UTF8toInts);
+end;
+
+function IntsToUTF8(S : String) : TUTF8CodePoint;
+var
+  T : String;
+  V : int32;
+begin
+  IntsToUTF8:='';
+  While S <> '' do begin
+    T:=PopDelim(S, COMMA);
+    if HexVal(T, V) then
+      IntsToUTF8:=IntsToUTF8+ValueToCodePoint(V);
+  end;
+end;
 
 { TCodePage }
 
@@ -111,24 +141,14 @@ begin
     GetAscii:=Char(Index);
 end;
 
-function TCodePage.GetEmpty(Index : integer): boolean;
-begin
-  GetEmpty:=FXML.GetValue(GetKey(Index, 'EMPTY'), '') <> '';
-end;
-
 function TCodePage.GetEntities(Index : integer): String;
 begin
-  GetEntities:=FXML.GetValue(GetKey(Index, 'HTML'), '');
+  GetEntities:=FXML.GetValue(GetKey(Index, 'ENTITIES'), '');
 end;
 
 function TCodePage.GetUTF8(Index : integer): String;
 begin
-  GetUTF8:=FXML.GetValue(GetKey(Index, 'UTF8'), '');
-  if GetUTF8 = '' then
-    GetUTF8:='' // ASCII[Index]
-  else
-    GetUTF8:=IntsToStr(GetUTF8);
-  SetEmpty(Index);
+  GetUTF8:=IntsToUTF8(FXML.GetValue(GetKey(Index, 'UTF8'), ''));
 end;
 
 function TCodePage.NotEmpty(Index: integer): boolean;
@@ -136,18 +156,22 @@ begin
   NotEmpty:=True;
   if Index < 256 then Exit;
   if FXML.GetValue(GetKey(Index, 'UTF8'), '') <> '' then Exit;
-  if FXML.GetValue(GetKey(Index, 'CODE'), '') <> '' then Exit;
-  if FXML.GetValue(GetKey(Index, 'HTML'), '') <> '' then Exit;
-  if FXML.GetValue(GetKey(Index, 'MORE'), '') <> '' Then Exit;
+  if FXML.GetValue(GetKey(Index, 'ENTITIES'), '') <> '' then Exit;
   NotEmpty:=False;
 end;
 
-procedure TCodePage.SetEmpty(Index : integer);
+procedure TCodePage.SetCount(AValue: integer);
+var
+  I : integer;
 begin
-  if (Index >= FCount) or NotEmpty(Index) then
-    FXML.DeleteValue(GetKey(Index, 'EMPTY'))
-  else
-    FXML.SetValue(GetKey(Index, 'EMPTY'), 'True');
+  if AValue <= 255 then Exit;
+  if FCount=AValue then Exit;
+  FXML.SetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', AValue - 255);
+  for I := AValue to FCount - 1 do begin
+    FXML.DeleteValue(GetKey(I, 'UTF8'));
+    FXML.DeleteValue(GetKey(I, 'ENTITIES'))
+  end;
+  FCount:=AValue;
 end;
 
 procedure TCodePage.SetEntities(Index : integer; AValue: String);
@@ -158,10 +182,9 @@ begin
   AValue:=ExcludeTrailing(',', AValue);
   AValue:=Trim(AValue);
   if AValue = '' then
-    FXML.DeleteValue(GetKey(Index, 'HTML'))
+    FXML.DeleteValue(GetKey(Index, 'ENTITIES'))
   else
-    FXML.SetValue(GetKey(Index, 'HTML'), AValue);
-  SetEmpty(Index);
+    FXML.SetValue(GetKey(Index, 'ENTITIES'), AValue);
 end;
 
 procedure TCodePage.SetFileName(AValue: String);
@@ -183,18 +206,18 @@ begin
   if AValue <> SPACE then
     AValue:=Trim(AValue);
   if AValue = ASCII[Index] then AValue:='';
-  if AValue <> '' then AValue:=StrToInts(AValue);
   if AValue = '' then
     FXML.DeleteValue(GetKey(Index, 'UTF8'))
   else
-    FXML.SetValue(GetKey(Index, 'UTF8'), AValue);
-  SetEmpty(Index);
+    FXML.SetValue(GetKey(Index, 'UTF8'), UTF8ToInts(AValue));
 end;
 
 function TCodePage.GetKey(Index: Integer; Attribute : String): String;
 begin
-  GetKey:='CODEPAGE/' + WhenTrue(Index > 255, 'MAP', 'ASCII') + '_' +
-    IntToStr(Index) + '/' + Attribute;
+  if Index > 255 then
+    GetKey:='SUPPLEMENT_' + UnicodeString(ID) + '/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
+  else
+    GetKey:='CODEPAGE_' + UnicodeString(ID) + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
 end;
 
 constructor TCodePage.Create(AFileName : String);
@@ -212,14 +235,10 @@ begin
     FXML:=TXMLConfig.Create(nil);
     try
       FXML.LoadFromFile(FFileName);
-      S:=FXML.GetValue('CODEPAGE/IDENTIFIER','');
+      S:=AnsiString(FXML.GetValue('CODEPAGES',''));
       if S <> ID then
-        FXML.SetValue('CODEPAGE/IDENTIFIER',ID);
-      FCount:=256;
-      While (FXML.GetValue(GetKey(FCount, 'UTF8'), '') <> '') or
-      (FXML.GetValue(GetKey(FCount, 'ENTITIES'), '') <> '') or
-      (FXML.GetValue(GetKey(FCount, 'EMPTY'), '') <> '') do
-        Inc(FCount);
+        Raise Exception.Create('Multiple or Incorrect Codepage Identifier');
+      FCount:=255+ FXML.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
     except
       FreeAndNil(FXML);
     end;
@@ -239,9 +258,8 @@ end;
 
 function TCodePage.AddMap: integer;
 begin
-  SetUTF8(FCount, Char(0));
   AddMap := FCount;
-  Inc(FCount);
+  SetCount(FCount + 1);
 end;
 
 procedure TCodePage.DeleteMap(Index: Integer);
@@ -252,15 +270,9 @@ begin
   Dec(FCount);
   for I := Index to FCount do begin
     UTF8[I] := UTF8[I+1];
-    CODE[I] := CODE[I+1];
     Entities[I] := Entities[I+1];
-    Additional[I] := Additional[I+1];
   end;
-  FXML.DeleteValue(GetKey(FCount, 'UTF8'));
-  FXML.DeleteValue(GetKey(FCount, 'CODE'));
-  FXML.DeleteValue(GetKey(FCount, 'HTML'));
-  FXML.DeleteValue(GetKey(FCount, 'MORE'));
-  FXML.DeleteValue(GetKey(FCount, 'EMPTY'));
+  SetCOunt(FCount - 1);
 end;
 
 procedure TCodePage.InsertMap(Index: Integer);
@@ -270,16 +282,11 @@ begin
   if Index < 256 then Exit;
   for I := FCount - 1 downto Index do begin
     UTF8[I+1] := UTF8[I];
-    CODE[I+1] := CODE[I];
     Entities[I+1] := Entities[I];
-    Additional[I+1] := Additional[I];
   end;
-  Inc(FCount);
+  SetCount(FCount+1);
   UTF8[I] := '';
-  CODE[I] := '';
   Entities[I] := '';
-  Additional[I] := '';
-  FXML.SetValue(GetKey(I, 'EMPTY'), 'True');
 end;
 
 procedure TCodePage.Flush;

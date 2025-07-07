@@ -162,9 +162,9 @@ var
     S := '<tr><th>0x' + HexStr(Y * 16, Z) + '</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      M := CodePages[C].Entity[N];
+      M := CodePages[C].Entities[N];
       if M = '' then begin
-        M := CodePages[C].Code[N];
+        M := UTF8ToInts(CodePages[C].UTF8[N], True);
         S := S + '<td class="unnamed">';
       end else
         S := S + '<td class="named">';
@@ -224,7 +224,7 @@ var
     S := '<tr><th>Code</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      M := StringReplace(CodePages[C].Code[N], SPACE, '', [rfReplaceAll]);
+      M  :=UTF8ToInts(CodePages[C].UTF8[N], True);
       M := StringReplace(M, COMMA, ';&#', [rfReplaceAll]);
       S := S + '<td class="Code">' + WhenTrue(M, '&#' + M + ';', '&nbsp;') + '</td>';
     end;
@@ -239,7 +239,8 @@ var
     S := '<tr><th>Entity</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      M := CodePages[C].Entity[N];
+      M := CodePages[C].Entities[N];
+      M := PopDelim(M, COMMA);
       S := S + '<td class="Entity">' + WhenTrue(M, '&' + M + ';', '&nbsp;') + '</td>';
     end;
     Result:=S + '</tr>' + LF;
@@ -254,7 +255,8 @@ var
     S := '<tr><th>More</th>' + LF;
     for X := 0 to 15 do begin
       N := Y * 16 + X;
-      M := CodePages[C].Additional[N];
+      M := CodePages[C].Entities[N];
+      PopDelim(M, COMMA);
       S := S + '<td class="additional">';
       if M = '' then
         S := S + '&nbsp;'
@@ -399,8 +401,8 @@ begin
   if FSwitching then exit;
   if not Assigned(CodePages.Active) then Exit;
   I:=lvCodePage.ItemIndex;
-  CodePages.Active.Entity[I] := eEntity.Text;
-  lvCodePage.Items[I].SubItems[csEntity]:=CodePages.Active.Entity[I];
+  CodePages.Active.Entities[I] := eEntity.Text;
+  lvCodePage.Items[I].SubItems[csEntity]:=CodePages.Active.Entities[I];
 end;
 
 procedure TfMain.eIndexChange(Sender: TObject);
@@ -489,11 +491,11 @@ var
       if J < 255 then LI.ImageIndex:=J;
       LI.SubItems.Add('');
       LI.SubItems.Add(CodePages.Active.UTF8[J]);
-      LI.SubItems.Add(CodePages.Active.Entity[J]);
+      LI.SubItems.Add(CodePages.Active.Entities[J]);
     end else begin
       LI := lvCodepage.Items[J];
       LI.SubItems[csUTF8]:=CodePages.Active.UTF8[J];
-      LI.SubItems[csUTF8]:=CodePages.Active.Entity[J];
+      LI.SubItems[csEntity]:=CodePages.Active.Entities[J];
     end;
   end;
 
@@ -536,7 +538,7 @@ begin
     Codepages.Active.FontFile.Characters[Index].ToImage(iChar);
     eIndex.Text:=IntToStr(Index);
     eUTF8.Text:=CodePages.Active.UTF8[Index];
-    eEntity.Text:=CodePages.Active.Entity[Index];
+    eEntity.Text:=CodePages.Active.Entities[Index];
   end else begin
     iChar.Picture.Clear;
     eUTF8.Text:='';
