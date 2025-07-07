@@ -106,7 +106,7 @@ type
   // String containing 0ne or more UTF-8 encoded characters
   TUTF8CodePoint = AnsiString;
   // Numeric value of a decoded UTF-8 character
-  TUTF8Value = UInt32;
+  TUTF8Value = Int32;
 
 
 function VerifiedPath (Parent, SubDir : String) : string;
@@ -365,21 +365,21 @@ procedure Exchange(var A, B : Int64); overload;
 procedure Exchange(var A, B : UInt64); overload;
 
 // Return the number of bytes required for the first encoded
-// UTF-8 character in a string of 1 ore more encoded characters.
+// UTF-8 character in a string of one or more encoded UTF-8 characters.
 function CodePointLength(C : TUTF8CodePoint) : integer;
 // Decode the first UTF-8 encoded character in a string and return
 // the numeric value forthat character. This is the save value used
 // in unnamed HTML characters like "&#x2302;"
-// If not encoded correctly, will return Value=0 and result=false.
+// If not encoded correctly, will return Value=-1 and result=false.
 function CodePointToValue(C : TUTF8CodePoint; out Value : TUTF8Value) : Boolean; overload;
 // Decode the first UTF-8 encoded character in a string and return
 // the numeric value forthat character. This is the save value used
 // in unnamed HTML characters like "&#x2302;"
-// If not encoded correctly, will return Value=0.
+// If not encoded correctly, will return Value=-1.
 function CodePointToValue(C : TUTF8CodePoint) : TUTF8Value; overload;
 // Will encode a character value into a series of bytes representing
 // a UTF-8 character. If out of the valid range of characters, will
-// return false. Acceptable charcter values range from 0x00 t0 0x10ffff.
+// return false. Acceptable charcter values range from 0x00 to 0x10ffff.
 function ValueToCodePoint(Value : TUTF8Value; out C : TUTF8CodePoint) : boolean; overload;
 // Will encode a character value into a series of bytes representing
 // a UTF-8 character. If out of the valid range of characters, will
@@ -2944,7 +2944,7 @@ const
     P, L, M, V : integer;
   begin
     CodePointToValue:=False;
-    Value:=0;
+    Value:=-1;
     if Length(C) = 0 then Exit;
     L := 0;
     P := 0;

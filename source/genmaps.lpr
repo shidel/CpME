@@ -268,22 +268,22 @@ begin
   '{$DEFINE TextRemapEntries}' + LF +
   'type' + LF +
   '  TTextRemapEntry = record' + LF +
-  '    Original, Converted : String;' + LF +
+  '    Value : UInt32;' + LF +
+  '    Data : String;' + LF +
   '  end;' + LF +
   '  TTextRemapEntries = array of TTextRemapEntry;' + LF +
   '{$ENDIF}' + LF + LF;
 end;
 
-procedure AddItem(M : String; AllData : boolean = false);
+procedure AddItem(V; UInt32; D : String; AllData : boolean = false);
 var
   T, S, C : String;
 begin
   if M = '' then exit;
-  T := PopDelim(M, '/');
-  C := PopDelim(M, '/');
+  C := PopDelim(D, '/');
   if Not AllData then
-    M := PopDelim(M, '/'); // this will discard any remaining delimited fields
-  S := '    (Original:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
+    C := PopDelim(C, '/'); // this will discard any remaining delimited fields
+  S := '    (Value:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
   'Converted:' + QUOTE + C + WhenTrue(M, '/' + M) + QUOTE + ')';
   if Data <> '' then
     Data := Data + ',' + LF + S
