@@ -5,20 +5,17 @@ program genmaps;
 
 {$mode objfpc}{$H+}
 
-uses Classes, SysUtils, XMLConf, PASext;
+uses Classes, SysUtils, XMLConf, PASext, DOScp;
 
 var
   UTF8, HTML, ASCII, Info : TStringList;
   Data : String;
+  ID : String;
 
 type
   TEntry = record
-    Empty : Boolean;
-    ASCII : Integer;
-    OKDOS : boolean;
+    Index : integer;
     UTF8 : UnicodeString;
-    VALS : TArrayOfBytes;
-    CODE : UnicodeString;
     HTML : TArrayOfUnicode;
   end;
 
@@ -51,93 +48,29 @@ begin
 end;
 
 function Key(Index : Integer; Attribute : UnicodeString) : UnicodeString;
-var
-  T : UnicodeString;
 begin
-  T := '_' + UnicodeString(IntToStr(Index)) + '/';
   if Index > 255 then
-    Key:='CODEPAGE/MAP' + T + Attribute
+    Key:='SUPPLEMENT_' + UnicodeString(ID) + '/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
   else
-    Key:='CODEPAGE/ASCII' + T + Attribute
-end;
-
-function SetVALS(var Entry : TEntry) : boolean;
-var
-  T, N : UnicodeString;
-  V, E: Integer;
-  B : Boolean;
-  D : TArrayOfBytes;
-begin
-  SetVALS:=False;
-  D := [];
-  if Entry.UTF8<>'' then begin
-    T := Entry.UTF8;
-    while T <> '' do begin
-      N:=Trim(PopDelim(T, SPACE));
-      if N = '' then Exit;
-      Val(N, V, E);
-      if E <> 0 then Exit;
-      SetLength(D, Length(D)+1);
-      D[High(D)]:=V;
-    end;
-    if Length(D) > 0 then begin
-      B:=False;
-      // This was done completely by guess work assuming there had to be some
-      // sort of logical pattern to the length of UTF-8 Characters. At present,
-      // it seems correct when tested against the thousands of UTF-8 equivalent
-      // to the Named HTML entities. But, you never know.
-      if (D[Low(D)] = $7f) then // special 127, basically ignored followed by 3
-        B := Length(D) = 4
-      else if (D[Low(D)] and $f0) = $f0 then
-        B := Length(D) = 4
-      else if (D[Low(D)] and $e0) = $e0 then
-        B := Length(D) = 3
-      else if (D[Low(D)] and $e0) = $c0 then
-        B := Length(D) = 2
-      else if (D[Low(D)] and $80) = $00 then
-        B := Length(D) = 1;
-      if not B then
-        WriteLn('Invalid UTF-8 code: ', IntToHex(D[Low(D)]), ' ', IntToBin(D[Low(D)]), ' ', Entry.UTF8);
-      if not B then Exit;
-    end;
-  end;
-
-  Entry.VALS:=D;
-  SetVALS:=True;
+    Key:='CODEPAGE_' + UnicodeString(ID) + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
 end;
 
 function ReadEntry(var X : TXMLConfig; Index : Integer; Out Entry : TEntry): boolean;
 var
   L, T : UnicodeString;
 begin
-  Entry.ASCII:=Index;
-  Entry.OKDOS:=False;
+  Entry.Index:=Index;
   Entry.HTML:=[];
-  ENTRY.VALS:=[];
-  Entry.Empty:=X.GetValue(Key(Index, 'EMPTY'),'') <> '';
   Entry.UTF8:=X.GetValue(Key(Index, 'UTF8'),'');
-  Entry.CODE:=X.GetValue(Key(Index, 'CODE'),'');
-  if Entry.CODE <> '' then begin
-    Entry.CODE:=UnicodeString(StringReplace(Trim(AnsiString(Entry.CODE)), COMMA, ';&#', [rfReplaceAll]));
-    Entry.CODE:='&#' + Entry.CODE + ';';
-  end;
-  T:=Trim(X.GetValue(Key(Index, 'HTML'),''));
-  if T <> '' then
-    AddToArray(Entry.HTML, '&' + T + ';');
-  L:=X.GetValue(Key(Index, 'MORE'),'');
+  L:=Trim(X.GetValue(Key(Index, 'ENTITIES'),''));
   while L <> '' do begin
     T:=Trim(PopDelim(L, COMMA));
     if T <> '' then
-      AddToArray(Entry.HTML, '&' + T + ';');
+      AddToArray(Entry.HTML, T);
   end;
-  if (Entry.UTF8 = '') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)) and (Index < 256) then
-  begin
-    Entry.OKDOS:=TRUE;
-    Entry.UTF8:=UnicodeString(IntToStr(Index));
-  end;
-  SetVALS(Entry);
-  ReadEntry:=(Entry.UTF8<>'') or (Entry.Code<>'') or (Length(Entry.HTML)>0)
-    or (Index < 256) or (Entry.Empty);
+  if (Entry.UTF8 = '') and (Length(Entry.HTML)>0) and (Index < 256) then
+    Entry.UTF8:=UnicodeString(ValueToCodePoint(Index));
+  ReadEntry:=(Entry.UTF8<>'') or (Length(Entry.HTML)>0) or (Index < 256);
 end;
 
 procedure AddUTF8(const Entry : TEntry);
@@ -145,7 +78,7 @@ var
   S : UnicodeString;
   I : Integer;
 begin
-  S := Entry.UTF8 + '/' + Entry.Code + '/';
+  S := Entry.UTF8 + '/';
   for I := 0 to Length(Entry.HTML) - 1 do begin
     if I > 0 then S := S + '/';
     S := S + Entry.HTML[I];
@@ -158,8 +91,8 @@ var
   S : AnsiString;
 begin
   S := AnsiString(Entry.UTF8);
-  if (Entry.ASCII < 256) and (CodePage <> 'SUP')  then
-    S := S + '/' + CodePage + ',' + IntToStr(Entry.ASCII);
+  if (Entry.Index < 256) and (CodePage <> 'SUP')  then
+    S := S + '/' + CodePage + ',' + IntToStr(Entry.Index);
   ASCII.Add(S);
 end;
 
@@ -167,8 +100,6 @@ procedure AddHTML(const Entry : TEntry);
 var
   I : Integer;
 begin
-  if Entry.Code <> '' then
-    HTML.Add(AnsiString(Entry.Code + '/' + Entry.UTF8));
   for I := 0 to Length(Entry.HTML) - 1 do
     HTML.Add(AnsiString(Entry.HTML[I] + '/' + Entry.UTF8));
 end;
@@ -177,10 +108,8 @@ procedure AddInfo(const Entry : TEntry);
 var
   I : Integer;
 begin
-  if Entry.Code <> '' then
-    Info.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.Code));
   for I := 0 to Length(Entry.HTML) - 1 do
-    Info.Add(AnsiString(IntsToUnicode(Entry.UTF8) + TAB + Entry.HTML[I]));
+    Info.Add(IntsToUTF8(Entry.UTF8) + TAB + '&' + AnsiString(Entry.HTML[I]) + ';');
 end;
 
 procedure ReadXML(FileName : String);
@@ -189,9 +118,11 @@ var
   I : Integer;
   E : TEntry;
   C, N : String;
-  V, T : Integer;
+  V, T, M : Integer;
+  R : Boolean;
 begin
   N := ExtractFileBase(FileName);
+  ID:=UpperCase(N);
   C := N;
   Val(C, V, T);
   if T <> 0 then Exit;
@@ -206,14 +137,13 @@ begin
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
-    I := 0;
-    while ReadEntry(X, I, E) do begin
-      if I < 256 then
-        Data:=Data + '    ' + QUOTE + WhenTrue(E.OKDOS, '', AnsiString(E.UTF8)) +
+    M:=255+X.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
+    for I := 0 to M -1 do begin
+      R:= ReadEntry(X, I, E);
+      if (I < 256) or R then
+        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
           QUOTE + WhenTrue(I<255, ',') + LF;
-      Inc(I);
-      if (E.Empty) then Continue;
-      if (E.UTF8='') or ((E.CODE='') and (Length(E.HTML)=0)) then continue;
+      if (E.UTF8='') or (Length(E.HTML)=0) then continue;
       AddUTF8(E);
       AddHTML(E);
       AddASCII(E, C);
@@ -234,31 +164,10 @@ var
   I : integer;
 begin
   DirScanByName(D, 'codepages/' + DirWildCard);
+  ReadXML('codepages/437.xml');
   for I := 0 to Length(D) - 1 do
-    ReadXML('codepages/' + D[I]);
-end;
-
-procedure ShrinkASCII;
-var
-  I : integer;
-  L, T, D : String;
-begin
-  ASCII.Sorted:=False;
-  I := 0;
-  L := '';
-  while I < ASCII.Count do begin
-    D := ASCII[I];
-    T := PopDelim(D, '/');
-    if T = L then begin
-      if D <> '' then
-        ASCII[I-1] := ASCII[I-1] + '/' + D;
-      ASCII.Delete(I);
-    end else begin
-      L := T;
-      Inc(I);
-    end;
-  end;
-  ASCII.Sorted:=True;
+    if D[I] <> '437.xml' then
+      ReadXML('codepages/' + D[I]);
 end;
 
 function EntryTypeDef : String;
@@ -275,16 +184,16 @@ begin
   '{$ENDIF}' + LF + LF;
 end;
 
-procedure AddItem(V; UInt32; D : String; AllData : boolean = false);
+procedure AddItem(D : String; AllData : boolean = false);
 var
-  T, S, C : String;
+  T, S : String;
 begin
-  if M = '' then exit;
-  C := PopDelim(D, '/');
+  if D = '' then exit;
+  T := PopDelim(D, '/');
   if Not AllData then
-    C := PopDelim(C, '/'); // this will discard any remaining delimited fields
+    D := PopDelim(D, '/'); // this will discard any remaining delimited fields
   S := '    (Value:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
-  'Converted:' + QUOTE + C + WhenTrue(M, '/' + M) + QUOTE + ')';
+  'Converted:' + QUOTE + D + QUOTE + ')';
   if Data <> '' then
     Data := Data + ',' + LF + S
   else
@@ -421,7 +330,6 @@ end;
 begin
   Prepare;
   ReadAllData;
-  ShrinkASCII;
   SaveMaps;
   Summary;
   Finish;

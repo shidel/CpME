@@ -7,6 +7,7 @@ unit DOSfont;
 
 interface
 
+{$IFDEF LCL}
 uses
   Classes, SysUtils, Graphics, Controls, ExtCtrls, PASext;
 
@@ -73,7 +74,9 @@ type
     property Background : TColor read FBackground write SetBackground;
   end;
 
+{$ENDIF}
 implementation
+{$IFDEF LCL}
 
 var
   FontFilePath : String;
@@ -268,6 +271,6 @@ initialization
     FontFilePath := IncludeTrailingPathDelimiter(AppBasePath);
 
 finalization
-
+{$ENDIF}
 end.
 
