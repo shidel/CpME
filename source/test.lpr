@@ -7,8 +7,6 @@ program test;
 
 uses Classes, SysUtils, PASext, XMLConf;
 
-{$I map_utf8.inc}
-
 var
   BX : TXMLConfig;
   CP : String;
@@ -20,7 +18,7 @@ type
     OKDOS : boolean;
     UTF8 : UnicodeString;
     CODE : UnicodeString;
-    HTML : TArrayOfUnicode;
+    HTML : TArrayOfStrings;
   end;
 
 
@@ -73,18 +71,19 @@ begin
   end;
   T:=Trim(X.GetValue(OldKey(Index, 'HTML'),''));
   if T <> '' then
-    AddToArray(Entry.HTML, T); // '&' + T + ';');
+    AddToArray(Entry.HTML, AnsiString(T)); // '&' + T + ';');
   L:=X.GetValue(OldKey(Index, 'MORE'),'');
   while L <> '' do begin
     T:=Trim(PopDelim(L, COMMA));
     if T <> '' then
-      AddToArray(Entry.HTML, T); // '&' + T + ';');
+      AddToArray(Entry.HTML, AnsiString(T)); // '&' + T + ';');
   end;
   if (Entry.UTF8 = '') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)) and (Index < 256) then
   begin
     Entry.OKDOS:=TRUE;
     Entry.UTF8:=UnicodeString(IntToStr(Index));
   end;
+  Entry.UTF8:=UnicodeString(IntsToStr(AnsiString(Entry.UTF8)));
   OldReadEntry:=(Entry.UTF8<>'') or (Entry.Code<>'') or (Length(Entry.HTML)>0)
     or (Index < 256) or (Entry.Empty);
 end;
@@ -92,22 +91,26 @@ end;
 function NewKey(Index : Integer; Attribute : UnicodeString) : UnicodeString;
 begin
   if Index > 255 then
-    NewKey:='SUPPLEMENT/' + CP + '/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
+    NewKey:='SUPPLEMENT_' + UnicodeString(CP) + '/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
   else
-    NewKey:='CODEPAGE/' + CP + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
+    NewKey:='CODEPAGE_' + UnicodeString(CP) + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
 end;
 
 procedure ConvertXML(var OX, NX : TXMLConfig);
 var
   I : integer;
   O : TOldEntry;
+  S : String;
 begin
   I := 0;
   while (I <256) or Exists(OX, I) do begin
-    if I > 127 then Break; // temporary
     if Needed(OX, I) then begin
        OldReadEntry(OX, I, O);
-       WriteLn(O.UTF8, ' ', O.Code);
+       S := Implode(O.HTML, ',');
+       WriteLn(I, ' "', O.UTF8, '" ', O.Code, ' ', S);
+       NX.SetValue(NewKey(I, 'UTF8'), CodePointToValue(AnsiString(O.UTF8)));
+       if S <> '' then
+         NX.SetValue(NewKey(I, 'HTML'), UnicodeString(S));
     end;
     Inc(I);
   end;
@@ -126,7 +129,7 @@ begin
   for I := 0 to Length(D) -1 do begin
     // DeleteFile(D[I]);
     WriteLn(D[I]);
-    CP:=ExtractFileBase(D[I]);
+    CP:=UpperCase(ExtractFileBase(D[I]));
     NX := TXMLConfig.Create(nil);
     if D[I] = '437.xml' then
       OX := BX
