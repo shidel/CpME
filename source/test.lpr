@@ -11,6 +11,18 @@ uses Classes, SysUtils, PASext, XMLConf;
 
 var
   BX : TXMLConfig;
+  CP : String;
+
+type
+  TOldEntry = record
+    Empty : Boolean;
+    ASCII : Integer;
+    OKDOS : boolean;
+    UTF8 : UnicodeString;
+    CODE : UnicodeString;
+    HTML : TArrayOfUnicode;
+  end;
+
 
 function OldKey(Index : Integer; Attribute : UnicodeString) : UnicodeString;
 var
@@ -45,23 +57,57 @@ begin
   Needed:=False;
 end;
 
+function OldReadEntry(var X : TXMLConfig; Index : Integer; Out Entry : TOldEntry): boolean;
+var
+  L, T : UnicodeString;
+begin
+  Entry.ASCII:=Index;
+  Entry.OKDOS:=False;
+  Entry.HTML:=[];
+  Entry.Empty:=X.GetValue(OldKey(Index, 'EMPTY'),'') <> '';
+  Entry.UTF8:=X.GetValue(OldKey(Index, 'UTF8'),'');
+  Entry.CODE:=X.GetValue(OldKey(Index, 'CODE'),'');
+  if Entry.CODE <> '' then begin
+    Entry.CODE:=UnicodeString(StringReplace(Trim(AnsiString(Entry.CODE)), COMMA, ';&#', [rfReplaceAll]));
+    // Entry.CODE:='&#' + Entry.CODE + ';';
+  end;
+  T:=Trim(X.GetValue(OldKey(Index, 'HTML'),''));
+  if T <> '' then
+    AddToArray(Entry.HTML, T); // '&' + T + ';');
+  L:=X.GetValue(OldKey(Index, 'MORE'),'');
+  while L <> '' do begin
+    T:=Trim(PopDelim(L, COMMA));
+    if T <> '' then
+      AddToArray(Entry.HTML, T); // '&' + T + ';');
+  end;
+  if (Entry.UTF8 = '') and ((Entry.Code<>'') or (Length(Entry.HTML)>0)) and (Index < 256) then
+  begin
+    Entry.OKDOS:=TRUE;
+    Entry.UTF8:=UnicodeString(IntToStr(Index));
+  end;
+  OldReadEntry:=(Entry.UTF8<>'') or (Entry.Code<>'') or (Length(Entry.HTML)>0)
+    or (Index < 256) or (Entry.Empty);
+end;
+
 function NewKey(Index : Integer; Attribute : UnicodeString) : UnicodeString;
 begin
   if Index > 255 then
-    NewKey:='SUPPLEMENT/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
+    NewKey:='SUPPLEMENT/' + CP + '/x' + UnicodeString(IntToHex(Index-256,4)) +'/'+Attribute
   else
-    NewKey:='CODEPAGE/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
+    NewKey:='CODEPAGE/' + CP + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
 end;
 
 procedure ConvertXML(var OX, NX : TXMLConfig);
 var
   I : integer;
+  O : TOldEntry;
 begin
   I := 0;
   while (I <256) or Exists(OX, I) do begin
     if I > 127 then Break; // temporary
     if Needed(OX, I) then begin
-       WriteLn(I);
+       OldReadEntry(OX, I, O);
+       WriteLn(O.UTF8, ' ', O.Code);
     end;
     Inc(I);
   end;
@@ -78,8 +124,9 @@ begin
   BX.Filename := 'codepages/437.xml';
   DirScan(D, 'codepages/*');
   for I := 0 to Length(D) -1 do begin
-    DeleteFile(D[I]);
+    // DeleteFile(D[I]);
     WriteLn(D[I]);
+    CP:=ExtractFileBase(D[I]);
     NX := TXMLConfig.Create(nil);
     if D[I] = '437.xml' then
       OX := BX
@@ -88,6 +135,7 @@ begin
       OX.Filename := 'codepages/' + D[I];
     end;
     NX.Filename := D[I];
+    NX.SetValue('CODEPAGES', UnicodeString(CP));
     ConvertXML(OX, NX);
     if D[I] <> '437.xml' then
       OX.Free;
