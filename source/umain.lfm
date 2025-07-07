@@ -1,7 +1,7 @@
 object fMain: TfMain
-  Left = 721
+  Left = 640
   Height = 452
-  Top = 571
+  Top = 655
   Width = 774
   Caption = 'Codepage Mapping Editor'
   ClientHeight = 452
@@ -12,12 +12,27 @@ object fMain: TfMain
   LCLVersion = '4.0.0.4'
   OnCreate = FormCreate
   OnShow = FormShow
-  object StatusBar1: TStatusBar
+  object sBar: TStatusBar
     Left = 0
     Height = 18
     Top = 434
     Width = 774
-    Panels = <>
+    Panels = <    
+      item
+        Alignment = taCenter
+        Text = 'Entries: 10000'
+        Width = 90
+      end    
+      item
+        Alignment = taCenter
+        Text = 'Index: 0x1234'
+        Width = 80
+      end    
+      item
+        Text = 'Code: x1234,x1234'
+        Width = 50
+      end>
+    SimplePanel = False
   end
   object ControlBar1: TControlBar
     Left = 0

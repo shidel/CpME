@@ -16,6 +16,10 @@ const
   csUTF8   = 1;
   csEntity = 2;
 
+  pTotal = 0;
+  pIndex = 1;
+  pCodes = 2;
+
 type
 
   { TfMain }
@@ -52,7 +56,7 @@ type
     pHeadSpace: TPanel;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
-    StatusBar1: TStatusBar;
+    sBar: TStatusBar;
     tbMain: TToolBar;
     tbPreview: TToolButton;
     tbAddChar: TToolButton;
@@ -521,6 +525,8 @@ begin
     lvCodePage.Items[X].Selected:=True;
     SelectChar(X);
   end;
+  sBar.Panels[pTotal].Text:='Entries: ' +
+    WhenTrue(CodePages.Active, IntToStr(CodePages.Active.Count),'n/a');
 end;
 
 procedure TfMain.SelectChar(Index: Integer);
@@ -544,6 +550,10 @@ begin
     eUTF8.Text:='';
     eEntity.Text:='';
   end;
+  sBar.Panels[pIndex].Text:='Index: ' +
+    WhenTrue(CodePages.Active, 'x' + IntToHex(Index,4),'n/a');
+  sBar.Panels[pCodes].Text:=' Code: ' +
+    WhenTrue(eUTF8.Text, UTF8toInts(eUTF8.Text,true),'n/a');
   FSwitching :=False;
 end;
 
@@ -555,6 +565,7 @@ begin
   if E <> 0 then I := 0;
   SelectChar(I);
 end;
+
 
 end.
 

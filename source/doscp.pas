@@ -130,7 +130,7 @@ end;
 
 function TCodePage.GetID: String;
 begin
-  GetID:=ExtractFileBase(FFileName);
+  GetID:=UpperCase(ExtractFileBase(FFileName));
 end;
 
 function TCodePage.GetASCII(Index : integer): String;
@@ -268,11 +268,11 @@ var
 begin
   if Index < 256 then Exit;
   Dec(FCount);
-  for I := Index to FCount do begin
+  for I := Index to FCount-1 do begin
     UTF8[I] := UTF8[I+1];
     Entities[I] := Entities[I+1];
   end;
-  SetCOunt(FCount - 1);
+  SetCount(FCount - 1);
 end;
 
 procedure TCodePage.InsertMap(Index: Integer);
