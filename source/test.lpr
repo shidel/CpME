@@ -96,19 +96,35 @@ begin
     NewKey:='CODEPAGE_' + UnicodeString(CP) + '/x' + UnicodeString(IntToHex(Index,2)) + '/' + Attribute
 end;
 
+function DecodeUTF8(S : AnsiString) : AnsiString;
+var
+  L : integer;
+begin
+  DecodeUTF8:='';
+  while S <> '' do begin
+    L := CodePointLength(S);
+    DecodeUTF8:=DecodeUTF8+IntToStr(CodePointToValue(S)) + COMMA;
+    Delete(S, 1, L);
+  end;
+  DecodeUTF8:=ExcludeTrailing(COMMA,DecodeUTF8);
+
+end;
+
 procedure ConvertXML(var OX, NX : TXMLConfig);
+
 var
   I : integer;
   O : TOldEntry;
-  S : String;
+  S, V : String;
 begin
   I := 0;
   while (I <256) or Exists(OX, I) do begin
     if Needed(OX, I) then begin
        OldReadEntry(OX, I, O);
        S := Implode(O.HTML, ',');
-       WriteLn(I, ' "', O.UTF8, '" ', O.Code, ' ', S);
-       NX.SetValue(NewKey(I, 'UTF8'), CodePointToValue(AnsiString(O.UTF8)));
+       V:=DecodeUTF8(AnsiString(O.UTF8));
+       WriteLn(I, ' "', O.UTF8, '" ', V, ' ', S);
+       NX.SetValue(NewKey(I, 'UTF8'), UnicodeString(V));
        if S <> '' then
          NX.SetValue(NewKey(I, 'HTML'), UnicodeString(S));
     end;
