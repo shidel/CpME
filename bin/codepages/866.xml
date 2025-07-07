@@ -71,8 +71,7 @@
     <ASCII_124 HTML="vert" MORE="verbar,VerticalLine"/>
     <ASCII_125 HTML="rbrace" MORE="rcub"/>
     <ASCII_126 CODE="x02dc" HTML="tilde" MORE="DiacriticalTilde" UTF8="203 156"/>
-    <ASCII_127 CODE="x2302" UTF8="127 226 140 130"/>
-    <ASCII_127 CODE="x2302" UTF8="127 226 140 130"/>
+    <ASCII_127 CODE="x2302" UTF8="226 140 130"/>
     <ASCII_128 CODE="x0410" HTML="Acy" UTF8="208 144"/>
     <ASCII_129 CODE="x0411" HTML="Bcy" UTF8="208 145"/>
     <ASCII_130 CODE="x0412" HTML="Vcy" UTF8="208 146"/>
