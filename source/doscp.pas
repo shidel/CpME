@@ -164,9 +164,9 @@ procedure TCodePage.SetCount(AValue: integer);
 var
   I : integer;
 begin
-  if AValue <= 255 then Exit;
+  if AValue < 256 then Exit;
   if FCount=AValue then Exit;
-  FXML.SetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', AValue - 255);
+  FXML.SetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', AValue - 256);
   for I := AValue to FCount - 1 do begin
     FXML.DeleteValue(GetKey(I, 'UTF8'));
     FXML.DeleteValue(GetKey(I, 'ENTITIES'))

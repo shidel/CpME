@@ -11,6 +11,7 @@ var
   UTF8, HTML, ASCII, Info : TStringList;
   Data : String;
   ID : String;
+  DAC : TArrayOfStrings;
 
 type
   TEntry = record
@@ -21,6 +22,8 @@ type
 
 procedure Prepare;
 begin
+  DAC:=[];
+  SetLength(DAC, 256);
   UTF8:=TStringList.Create;
   UTF8.Duplicates:=dupIgnore;
   UTF8.Sorted:=True;
@@ -88,12 +91,12 @@ end;
 
 procedure AddASCII(const Entry : TEntry; CodePage : String);
 var
-  S : AnsiString;
+  V, E : integer;
 begin
-  S := AnsiString(Entry.UTF8);
-  if (Entry.Index < 256) and (CodePage <> 'SUP')  then
-    S := S + '/' + CodePage + ',' + IntToStr(Entry.Index);
-  ASCII.Add(S);
+  if (Entry.Index > 255) then exit;
+  Val(CodePage, V, E);
+  if (E <> 0) or (V >= 900000) then exit;
+  ASCII.Add(AnsiString(Entry.UTF8) + '/' + CodePage ); // + ',' + IntToStr(Entry.Index));
 end;
 
 procedure AddHTML(const Entry : TEntry);
@@ -109,7 +112,7 @@ var
   I : Integer;
 begin
   for I := 0 to Length(Entry.HTML) - 1 do
-    Info.Add(IntsToUTF8(Entry.UTF8) + TAB + '&' + AnsiString(Entry.HTML[I]) + ';');
+    Info.Add(IntsToUTF8(AnsiString(Entry.UTF8)) + TAB + '&' + AnsiString(Entry.HTML[I]) + ';');
 end;
 
 procedure ReadXML(FileName : String);
@@ -117,7 +120,8 @@ var
   X : TXMLConfig;
   I : Integer;
   E : TEntry;
-  C, N : String;
+  C, N: String;
+  K : UnicodeString;
   V, T, M : Integer;
   R : Boolean;
 begin
@@ -125,29 +129,37 @@ begin
   ID:=UpperCase(N);
   C := N;
   Val(C, V, T);
-  if T <> 0 then Exit;
-  if (V >= 900000) then begin
+  // if T <> 0 then Exit;
+  if (V >= 900000) or (T <> 0) then begin
     C:='SUP';
     N:=N+' Supplemental';
   end;
   Data := '// DOS Codepage to UTF-8 conversion map' + LF +
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
-  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfStrings = (' + LF;
-  WriteLn('Reading Codepage ', N, ' XML mapping file.');
+  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfIntegers = (' + LF;
+  WriteLn('Reading Codepage ', N, ' XML mazpping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
-    M:=255+X.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
+    M:=256+X.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
     for I := 0 to M -1 do begin
       R:= ReadEntry(X, I, E);
-      if (I < 256) or R then
-        Data:=Data + '    ' + QUOTE + AnsiString(E.UTF8) +
-          QUOTE + WhenTrue(I<255, ',') + LF;
+      K :=Trim(E.UTF8);
+      if (I < 256) then begin
+        K:=UnicodeString(WhenTrue(AnsiString(K),AnsiString(K), '-1'));
+        if ID='437' then
+          DAC[I] := AnsiString(K)
+        else if K = '-1' then
+          K:=UnicodeString(DAC[I]);
+        Data:=Data + '    ' + AnsiString(K) + WhenTrue(I<255, ',') +
+        TAB + '{' + IntToStr(I) + '}' + LF;
+        Exchange(E.UTF8, K);
+        AddASCII(E, C);
+      end;
       if (E.UTF8='') or (Length(E.HTML)=0) then continue;
       AddUTF8(E);
       AddHTML(E);
-      AddASCII(E, C);
-      if V <= 900000 then
+      // if V <= 900000 then
         AddInfo(E);
     end;
     Data:=Data+ '  );' + LF + LF;
@@ -313,6 +325,30 @@ begin
   SaveBinary(Filename, S);
 end;
 
+procedure ShrinkASCII;
+var
+  I : integer;
+  L, T, D : String;
+begin
+  ASCII.Sorted:=False;
+  I := 0;
+  L := '';
+  while I < ASCII.Count do begin
+    D := ASCII[I];
+    T := PopDelim(D, '/');
+    if T = L then begin
+      if D <> '' then
+        ASCII[I-1] := ASCII[I-1] + '/' + D;
+      ASCII.Delete(I);
+    end else begin
+      L := T;
+      Inc(I);
+    end;
+  end;
+  ASCII.Sorted:=True;
+end;
+
+
 procedure SaveMaps;
 begin
   SaveUTF8('map_utf8.inc');
@@ -330,6 +366,7 @@ end;
 begin
   Prepare;
   ReadAllData;
+  ShrinkASCII;
   SaveMaps;
   Summary;
   Finish;
