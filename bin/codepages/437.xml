@@ -195,4 +195,5 @@
     <xFE UTF8="9632"/>
     <xFF UTF8="32" ENTITIES="nbsp"/>
   </CODEPAGE_437>
+  <SUPPLEMENT_437 COUNT="0"/>
 </CONFIG>

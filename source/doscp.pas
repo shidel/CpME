@@ -12,11 +12,15 @@ uses
 
 type
 
+  TCodePages = class;
+
   { TCodePage }
 
   TCodePage = class
   private
+    FCheckPrimary: boolean;
     FCount: integer;
+    FOwner: TCodePages;
     FXML : TXMLConfig;
     FFileName : String;
     {$IFDEF LCL}
@@ -26,21 +30,26 @@ type
     function GetEntities(Index : integer): String;
     function GetID: String;
     function GetUTF8(Index : integer): String;
-    function NotEmpty(Index : integer) : boolean;
+    procedure SetCheckPrimary(AValue: boolean);
     procedure SetCount(AValue: integer);
     procedure SetEntities(Index : integer; AValue: String);
     procedure SetFileName(AValue: String);
     {$IFDEF LCL}
     procedure SetFontFile(AValue: TFontFile);
+    procedure SetOwner(AValue: TCodePages);
     {$ENDIF}
     procedure SetUTF8(Index : integer; AValue: String);
   protected
     function GetKey(Index : Integer; Attribute : String) : String;
+    function NotEmpty(Index : integer; Strict : boolean = false) : boolean;
+    function Empty(Index : integer; Strict : boolean = false) : boolean;
   public
     constructor Create(AFileName : String);
     destructor Destroy; override;
+    property Owner : TCodePages read FOwner write SetOwner;
     property FileName : String read FFileName write SetFileName;
     property ID : String read GetID;
+    property CheckPrimary : boolean read FCheckPrimary write SetCheckPrimary;
     {$IFDEF LCL}
     property FontFile : TFontFile read FFontFile write SetFontFile;
     {$ENDIF}
@@ -61,10 +70,12 @@ type
   private
     FActive: TCodePage;
     FCodePages : array of TCodePage;
+    FPrimary: TCodePage;
     function GetCodePage(Index : integer): TCodePage;
     function GetCount: integer;
     procedure SetActive(AValue: TCodePage);
     procedure SetCodePage(Index : integer; AValue: TCodePage);
+    procedure SetPrimary(AValue: TCodePage);
   protected
   public
     constructor Create;
@@ -73,6 +84,7 @@ type
     procedure Reset;
     property Count : integer read GetCount;
     property CodePage[Index : integer] : TCodePage read GetCodePage write SetCodePage; default;
+    property Primary : TCodePage read FPrimary write SetPrimary;
     property Active : TCodePage read FActive write SetActive;
     function Find(ACodePage : integer) : TCodePage; overload;
     function Find(ACodePage : String) : TCodePage; overload;
@@ -143,21 +155,40 @@ end;
 
 function TCodePage.GetEntities(Index : integer): String;
 begin
-  GetEntities:=FXML.GetValue(GetKey(Index, 'ENTITIES'), '');
+  if Assigned(FOwner) and Assigned(FOwner.FPrimary) and (Self<>FOwner.FPrimary)
+  and CheckPrimary and (Index < 256) and Empty(Index, True) then begin
+    GetEntities:=FOwner.FPrimary.Entities[Index];
+  end else
+    GetEntities:=FXML.GetValue(GetKey(Index, 'ENTITIES'), '');
 end;
 
 function TCodePage.GetUTF8(Index : integer): String;
 begin
+  if Assigned(FOwner) and Assigned(FOwner.FPrimary) and (Self<>FOwner.FPrimary)
+  and CheckPrimary and (Index < 256) and Empty(Index, True) then begin
+    GetUTF8:=FOwner.FPrimary.UTF8[Index];
+  end else
   GetUTF8:=IntsToUTF8(FXML.GetValue(GetKey(Index, 'UTF8'), ''));
 end;
 
-function TCodePage.NotEmpty(Index: integer): boolean;
+procedure TCodePage.SetCheckPrimary(AValue: boolean);
+begin
+  if FCheckPrimary=AValue then Exit;
+  FCheckPrimary:=AValue;
+end;
+
+function TCodePage.NotEmpty(Index: integer; Strict : boolean = false): boolean;
 begin
   NotEmpty:=True;
-  if Index < 256 then Exit;
+  if (not Strict) and (Index < 256) then Exit;
   if FXML.GetValue(GetKey(Index, 'UTF8'), '') <> '' then Exit;
   if FXML.GetValue(GetKey(Index, 'ENTITIES'), '') <> '' then Exit;
   NotEmpty:=False;
+end;
+
+function TCodePage.Empty(Index: integer; Strict : boolean = false): boolean;
+begin
+  Empty:=Not NotEmpty(Index, Strict); // Double negative :-)
 end;
 
 procedure TCodePage.SetCount(AValue: integer);
@@ -199,6 +230,13 @@ begin
   if FFontFile=AValue then Exit;
   FFontFile:=AValue;
 end;
+
+procedure TCodePage.SetOwner(AValue: TCodePages);
+begin
+  if FOwner=AValue then Exit;
+  FOwner:=AValue;
+end;
+
 {$ENDIF}
 
 procedure TCodePage.SetUTF8(Index : integer; AValue: String);
@@ -225,7 +263,9 @@ var
   S: String;
 begin
   inherited Create;
+  FOwner := nil;
   FCount := 0;
+  FCheckPrimary:=True;
   FFileName:=CodePageFilePath + AFileName;
   {$IFDEF LCL}
   FFontFile:=TFontFile.Create(FileChangeExt(AFileName, '.fnt'));
@@ -238,7 +278,7 @@ begin
       S:=AnsiString(FXML.GetValue('CODEPAGES',''));
       if S <> ID then
         Raise Exception.Create('Multiple or Incorrect Codepage Identifier');
-      FCount:=255+ FXML.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
+      FCount:=256+ FXML.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
     except
       FreeAndNil(FXML);
     end;
@@ -267,12 +307,12 @@ var
   I : Integer;
 begin
   if Index < 256 then Exit;
-  Dec(FCount);
-  for I := Index to FCount-1 do begin
+  for I := Index to FCount - 1 do begin
     UTF8[I] := UTF8[I+1];
     Entities[I] := Entities[I+1];
   end;
   SetCount(FCount - 1);
+  Flush;
 end;
 
 procedure TCodePage.InsertMap(Index: Integer);
@@ -319,10 +359,17 @@ begin
   FCodePages[Index]:=AValue;
 end;
 
+procedure TCodePages.SetPrimary(AValue: TCodePage);
+begin
+  if FPrimary=AValue then Exit;
+  FPrimary:=AValue;
+end;
+
 constructor TCodePages.Create;
 begin
   inherited Create;
   FCodePages:=[];
+  Clear;
 end;
 
 destructor TCodePages.Destroy;
@@ -336,6 +383,7 @@ var
   I : integer;
 begin
   FActive:=Nil;
+  FPrimary:=Nil;
   for I := 0 to Count - 1 do
     FCodePages[I].Free;
   SetLength(FCodePages, 0);
@@ -351,10 +399,14 @@ begin
   DirScan(D, CodePageFilePath + DirWildCard + '.xml');
   D.Sort;
   SetLength(FCodePages, D.Count);
-  for I := 0 to D.Count - 1 do
+  for I := 0 to D.Count - 1 do begin
     FCodePages[I] := TCodePage.Create(D[I]);
+    if Assigned(FCodePages[I]) then
+      FCodePages[I].FOwner:=Self;
+  end;
   D.Free;
   Select(437);
+  FPrimary:=FActive;
 end;
 
 function TCodePages.Find(ACodePage: integer): TCodePage;

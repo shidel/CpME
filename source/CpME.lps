@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="13"/>
-        <UsageCount Value="120"/>
+        <UsageCount Value="122"/>
       </Unit>
       <Unit>
         <Filename Value="umain.pas"/>
@@ -17,11 +17,10 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="519"/>
-        <CursorPos X="71" Y="537"/>
-        <FoldState Value=" T3kM0}Ht"/>
-        <UsageCount Value="120"/>
+        <TopLine Value="112"/>
+        <CursorPos X="59" Y="133"/>
+        <FoldState Value=" T3kR0}Hi"/>
+        <UsageCount Value="122"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -29,10 +28,12 @@
         <Filename Value="doscp.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DOScp"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="131"/>
-        <CursorPos X="57" Y="146"/>
-        <UsageCount Value="120"/>
+        <TopLine Value="264"/>
+        <CursorPos X="9" Y="315"/>
+        <FoldState Value=" TM001 T49[648iQ281 PDA2 T3jL0E23136121D pkMoL032 PCD0 T6jM019 PBoY]E1jO0B27312]i7]431]/jA[T50jQJ7[Q5[L4DoAqy"/>
+        <UsageCount Value="122"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -49,7 +50,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="3014"/>
         <CursorPos X="5" Y="3020"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -61,8 +62,7 @@
         <Filename Value="dosfont.pas"/>
         <UnitName Value="DOSfont"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="61"/>
-        <CursorPos X="3" Y="250"/>
+        <CursorPos X="3" Y="10"/>
         <UsageCount Value="47"/>
       </Unit>
       <Unit>
@@ -82,66 +82,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="167" Column="51" TopLine="147"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="228" TopLine="194"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="259" Column="7" TopLine="225"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="405" Column="68" TopLine="384"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="498" Column="53" TopLine="474"/>
-      </Position>
-      <Position>
-        <Filename Value="umain.pas"/>
-        <Caret Line="541" Column="14" TopLine="520"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="102" Column="55" TopLine="89"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="26" TopLine="32"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="50" TopLine="30"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="143" TopLine="123"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="155" TopLine="135"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="176" Column="42" TopLine="148"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="47" Column="56" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="51" Column="16" TopLine="42"/>
-      </Position>
-      <Position>
-        <Filename Value="doscp.pas"/>
-        <Caret Line="267" Column="24" TopLine="262"/>
-      </Position>
       <Position>
         <Filename Value="doscp.pas"/>
         <Caret Line="52" Column="20" TopLine="24"/>
@@ -201,6 +141,66 @@
       <Position>
         <Filename Value="umain.pas"/>
         <Caret Line="20" Column="10"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="12" Column="50" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="78" Column="64" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="335" Column="9" TopLine="317"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="11" Column="56" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="12" Column="60" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="75" Column="19" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="46" Column="60" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="43" Column="15" TopLine="16"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="163" Column="25" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="165" Column="11" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="169" Column="11" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="42" Column="22" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="doscp.pas"/>
+        <Caret Line="52" Column="35" TopLine="27"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="123" Column="13" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="umain.pas"/>
+        <Caret Line="90" Column="21" TopLine="69"/>
       </Position>
     </JumpHistory>
     <RunParams>

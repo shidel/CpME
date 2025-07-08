@@ -9,7 +9,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  Menus, ActnList, ExtCtrls, fpImage, PASext, DOScp;
+  Menus, ActnList, ExtCtrls, fpImage, PASext, DOScp, DOSfont;
 
 const
   csAscii  = 0;
@@ -87,6 +87,7 @@ type
   private
     FRecentCP:String;
     FSwitching:boolean;
+    FFirstShow : boolean;
     procedure SelectCodePage(CP : integer); overload;
     procedure SelectCodePage(CP : String); overload;
     procedure SelectChar(Index : Integer); overload;
@@ -108,6 +109,7 @@ procedure TfMain.FormCreate(Sender: TObject);
 var
   I : integer;
 begin
+  FFirstShow := True;
   FRecentCP:='';
   FSwitching:=False;
   lbCodePages.Clear;
@@ -119,9 +121,12 @@ end;
 
 procedure TfMain.FormShow(Sender: TObject);
 begin
-  if lvCodePage.ItemIndex < 0 then begin
-    eIndex.Text:='255';
-    eIndex.Text:='127';
+  if FFirstShow then begin
+    FFirstShow:=False;
+    if lvCodePage.ItemIndex < 0 then begin
+      eIndex.Text:='137';
+      eIndex.Text:='127';
+    end;
   end;
 end;
 
