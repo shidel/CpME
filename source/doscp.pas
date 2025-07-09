@@ -5,13 +5,18 @@ unit DOScp;
 
 {$mode ObjFPC}{$H+}
 
+// TO-DO: when non-437 matches 437 < 256 remove entry
+// TO-DO: when first edit non-437 < 256, clone 437 data
+
 interface
 
 uses
   Classes, SysUtils, XMLConf, PASext {$IFDEF LCL}, DOSfont {$ENDIF};
 
 type
-
+  TCodePageEntry = record
+    UTF8, HTML : UnicodeString;
+  end;
   TCodePages = class;
 
   { TCodePage }
@@ -27,10 +32,12 @@ type
     FFontFile : TFontFile;
     {$ENDIF}
     function GetASCII(Index : integer): String;
+    function GetCodePageEntry(Index : integer): TCodePageEntry;
     function GetEntities(Index : integer): String;
     function GetID: String;
     function GetUTF8(Index : integer): String;
     procedure SetCheckPrimary(AValue: boolean);
+    procedure SetCodePageEntry(Index : integer; AValue: TCodePageEntry);
     procedure SetCount(AValue: integer);
     procedure SetEntities(Index : integer; AValue: String);
     procedure SetFileName(AValue: String);
@@ -43,6 +50,7 @@ type
     function GetKey(Index : Integer; Attribute : String) : String;
     function NotEmpty(Index : integer; Strict : boolean = false) : boolean;
     function Empty(Index : integer; Strict : boolean = false) : boolean;
+    property Entry[Index : integer] : TCodePageEntry read GetCodePageEntry write SetCodePageEntry;
   public
     constructor Create(AFileName : String);
     destructor Destroy; override;
@@ -153,13 +161,19 @@ begin
     GetAscii:=Char(Index);
 end;
 
+function TCodePage.GetCodePageEntry(Index : integer): TCodePageEntry;
+begin
+  GetCodePageEntry.UTF8:=IntsToUTF8(FXML.GetValue(GetKey(Index, 'UTF8'), ''));
+  GetCodePageEntry.HTML:=FXML.GetValue(GetKey(Index, 'ENTITIES'), '');
+end;
+
 function TCodePage.GetEntities(Index : integer): String;
 begin
   if Assigned(FOwner) and Assigned(FOwner.FPrimary) and (Self<>FOwner.FPrimary)
   and CheckPrimary and (Index < 256) and Empty(Index, True) then begin
     GetEntities:=FOwner.FPrimary.Entities[Index];
   end else
-    GetEntities:=FXML.GetValue(GetKey(Index, 'ENTITIES'), '');
+    GetEntities:=Entry[Index].HTML;
 end;
 
 function TCodePage.GetUTF8(Index : integer): String;
@@ -168,13 +182,30 @@ begin
   and CheckPrimary and (Index < 256) and Empty(Index, True) then begin
     GetUTF8:=FOwner.FPrimary.UTF8[Index];
   end else
-  GetUTF8:=IntsToUTF8(FXML.GetValue(GetKey(Index, 'UTF8'), ''));
+    GetUTF8:=Entry[Index].UTF8;
 end;
 
 procedure TCodePage.SetCheckPrimary(AValue: boolean);
 begin
   if FCheckPrimary=AValue then Exit;
   FCheckPrimary:=AValue;
+end;
+
+procedure TCodePage.SetCodePageEntry(Index : integer; AValue: TCodePageEntry);
+begin
+  if AValue.HTML = '' then
+    FXML.DeleteValue(GetKey(Index, 'ENTITIES'))
+  else
+    FXML.SetValue(GetKey(Index, 'ENTITIES'), AValue.HTML);
+  if AValue.UTF8 = '' then
+    FXML.DeleteValue(GetKey(Index, 'UTF8'))
+  else
+    FXML.SetValue(GetKey(Index, 'UTF8'), UTF8ToInts(AValue.UTF8));
+  if not Assigned(FOwner) then exit;
+  if not Assigned(FOwner.FPrimary) then exit;
+  if not CheckPrimary then exit;
+  if Self=FOwner.FPrimary then exit;
+
 end;
 
 function TCodePage.NotEmpty(Index: integer; Strict : boolean = false): boolean;
@@ -206,16 +237,18 @@ begin
 end;
 
 procedure TCodePage.SetEntities(Index : integer; AValue: String);
+var
+  E : TCodePageEntry;
 begin
   AValue:=StringReplace(AValue, '&', '', [rfReplaceAll]);
   AValue:=StringReplace(AValue, ';', ',', [rfReplaceAll]);
   AValue:=StringReplace(AValue, ',,', ',', [rfReplaceAll]);
   AValue:=ExcludeTrailing(',', AValue);
   AValue:=Trim(AValue);
-  if AValue = '' then
-    FXML.DeleteValue(GetKey(Index, 'ENTITIES'))
-  else
-    FXML.SetValue(GetKey(Index, 'ENTITIES'), AValue);
+  E:=Entry[Index];
+  if E.HTML = AValue then exit;
+  E.HTML:=AValue;
+  Entry[Index]:=E;
 end;
 
 procedure TCodePage.SetFileName(AValue: String);
@@ -240,14 +273,16 @@ end;
 {$ENDIF}
 
 procedure TCodePage.SetUTF8(Index : integer; AValue: String);
+var
+  E : TCodePageEntry;
 begin
   if AValue <> SPACE then
     AValue:=Trim(AValue);
   if AValue = ASCII[Index] then AValue:='';
-  if AValue = '' then
-    FXML.DeleteValue(GetKey(Index, 'UTF8'))
-  else
-    FXML.SetValue(GetKey(Index, 'UTF8'), UTF8ToInts(AValue));
+  E:=Entry[Index];
+  if E.UTF8 = AValue then exit;
+  E.UTF8:=AValue;
+  Entry[Index]:=E;
 end;
 
 function TCodePage.GetKey(Index: Integer; Attribute : String): String;

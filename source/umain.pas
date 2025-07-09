@@ -5,6 +5,9 @@ unit umain;
 
 {$mode objfpc}{$H+}
 
+// TO-DO when clearing non-437 < 256, make sure list shows change back to using
+// the 437 character mapping data.
+
 interface
 
 uses

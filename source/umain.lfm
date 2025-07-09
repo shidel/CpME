@@ -368,10 +368,6 @@ object fMain: TfMain
     object aAddChar: TAction
       Caption = 'aAddChar'
       ImageIndex = 1
-      SecondaryShortCuts.Strings = (
-        'Ctrl+A'
-      )
-      ShortCut = 4161
       OnExecute = aAddCharExecute
       OnUpdate = aAddCharUpdate
     end
