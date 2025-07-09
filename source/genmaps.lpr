@@ -11,6 +11,7 @@ var
   UTF8, HTML, ASCII, Info : TStringList;
   Data : String;
   ID : String;
+  App_Build: String;
   DAC : TArrayOfStrings;
 
 type
@@ -22,6 +23,10 @@ type
 
 procedure Prepare;
 begin
+  App_Build:=BUILD_DATE;
+  App_Build:='// Created by CpME' +QUOTE +'s map creator v'
+  +PopDelim(App_Build) + LF +
+  '// https://github.com/shidel/CpME/' + LF;
   DAC:=[];
   SetLength(DAC, 256);
   UTF8:=TStringList.Create;
@@ -164,6 +169,7 @@ begin
     N:=N+' Supplemental';
   end;
   Data := '// DOS Codepage to UTF-8 conversion map' + LF +
+  App_Build +LF + LF+
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
   'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfLongInts = (' + LF;
   WriteLn('Reading Codepage ', N, ' XML mazpping file.');
@@ -180,8 +186,11 @@ begin
           DAC[I] := AnsiString(K)
         else if K = '-1' then
           K:=UnicodeString(DAC[I]);
-        Data:=Data + '    ' + AnsiString(K) + WhenTrue(I<255, ',') +
-        TAB + '{' + IntToStr(I) + '}' + LF;
+        Data:=Data + '    ' +
+        '{' + IntToStr(I) + '} ' +
+        TAB +
+        AnsiString(K) + WhenTrue(I<255, ',') +
+        LF;
         Exchange(E.UTF8, K);
         AddASCII(E, C);
       end;
@@ -218,14 +227,14 @@ begin
   '{$DEFINE TextRemapEntries}' + LF +
   'type' + LF +
   '  TTextRemapEntry = record' + LF +
-  '    Value : String;' + LF +
-  '    Data : String;' + LF +
+  '    Value : AnsiString;' + LF +
+  '    Data : AnsiString;' + LF +
   '  end;' + LF +
   '  TTextRemapEntries = array of TTextRemapEntry;' + LF +
   '{$ENDIF}' + LF + LF;
 end;
 
-procedure AddItem(D : String; AllData : boolean = false);
+procedure AddItem(D : String; RPad:Integer; AllData : boolean = false);
 var
   T, S : String;
 begin
@@ -233,8 +242,8 @@ begin
   T := PopDelim(D, '/');
   if Not AllData then
     D := PopDelim(D, '/'); // this will discard any remaining delimited fields
-  S := '    (Value:' + QUOTE + T + QUOTE + SEMICOLON + SPACE +
-  'Converted:' + QUOTE + D + QUOTE + ')';
+  S := '    (Value:' + RightPad(QUOTE + T + QUOTE + SEMICOLON, RPad) + SPACE +
+  'Data:' + QUOTE + D + QUOTE + ')';
   if Data <> '' then
     Data := Data + ',' + LF + S
   else
@@ -247,7 +256,7 @@ var
 begin
   if H < L then Exit;
   M := L + (H - L) div 2;
-  AddItem(UTF8[M]);
+  AddItem(UTF8[M], 16);
   if L = H then Exit;
   if L < M then ItemsUTF8(L, M-1);
   if M < H then ItemsUTF8(M + 1, H);
@@ -259,7 +268,7 @@ var
 begin
   if H < L then Exit;
   M := L + (H - L) div 2;
-  AddItem(HTML[M]);
+  AddItem(HTML[M],36);
   if L = H then Exit;
   if L < M then ItemsHTML(L, M-1);
   if M < H then ItemsHTML(M + 1, H);
@@ -271,7 +280,7 @@ var
 begin
   if H < L then Exit;
   M := L + (H - L) div 2;
-  AddItem(ASCII[M], True);
+  AddItem(ASCII[M], 16, True);
   if L = H then Exit;
   if L < M then ItemsASCII(L, M-1);
   if M < H then ItemsASCII(M + 1, H);
@@ -281,7 +290,9 @@ procedure SaveUTF8(Filename : String);
 begin
   Data := '';
   ItemsUTF8(0, UTF8.Count - 1);
-  Data := '// UTF-8 to HTML conversion map' + LF + EntryTypeDef + LF +
+  Data := '// UTF-8 to HTML conversion map' + LF +
+  App_Build +LF +
+  EntryTypeDef + LF +
   '{$DEFINE UTF8toHTMLRemap}' + LF +
   'const' + LF +
   '  UTF8toHTMLRemapList : TTextRemapEntries = (' + LF +
@@ -294,7 +305,9 @@ procedure SaveHTML(Filename : String);
 begin
   Data := '';
   ItemsHTML(0, HTML.Count - 1);
-  Data := '// HTML to UTF-8 conversion map' + LF + EntryTypeDef + LF +
+  Data := '// HTML to UTF-8 conversion map' + LF +
+  App_Build +LF +
+  EntryTypeDef + LF +
   '{$DEFINE HTMLtoUTF8Remap}' + LF +
   'const' + LF +
   '  HTMLtoUTF8RemapList : TTextRemapEntries = (' + LF +
@@ -307,7 +320,9 @@ procedure SaveASCII(Filename : String);
 begin
   Data := '';
   ItemsASCII(0, ASCII.Count - 1);
-  Data := '// UTF-8 to ASCII conversion map' + LF + EntryTypeDef + LF +
+  Data := '// UTF-8 to ASCII compatibility map' + LF +
+  App_Build +LF +
+  EntryTypeDef + LF +
   '{$DEFINE UTF8toASCIIRemap}' + LF +
   'const' + LF +
   '  UTF8toASCIIRemapList : TTextRemapEntries = (' + LF +
@@ -382,7 +397,7 @@ procedure SaveMaps;
 begin
   SaveUTF8('map_utf8.inc');
   SaveHTML('map_html.inc');
-  SaveASCII('map_uasc.inc');
+  SaveASCII('map_uchk.inc');
   SaveInfo('summary.html');
 end;
 
