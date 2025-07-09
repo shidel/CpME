@@ -5,7 +5,7 @@ program genmaps;
 
 {$mode objfpc}{$H+}
 
-uses Classes, SysUtils, XMLConf, PASext, DOScp;
+uses Classes, SysUtils, XMLConf, PASext; // DOScp, DOSfont;
 
 var
   UTF8, HTML, ASCII, Info : TStringList;
@@ -107,6 +107,36 @@ begin
     HTML.Add(AnsiString(Entry.HTML[I] + '/' + Entry.UTF8));
 end;
 
+function UTF8toInts(C: TUTF8CodePoint; Hex : boolean = false): String;
+var
+  L : integer;
+begin
+  UTF8toInts:='';
+  while C <> '' do begin
+    L := CodePointLength(C);
+    if Hex then
+      UTF8toInts:=UTF8toInts+'x'+IntToHex(CodePointToValue(C),2) + COMMA
+    else
+      UTF8toInts:=UTF8toInts+IntToStr(CodePointToValue(C)) + COMMA;
+    Delete(C, 1, L);
+  end;
+  UTF8toInts:=ExcludeTrailing(COMMA,UTF8toInts);
+end;
+
+function IntsToUTF8(S : String) : TUTF8CodePoint;
+var
+  T : String;
+  V : int32;
+begin
+  IntsToUTF8:='';
+  While S <> '' do begin
+    T:=PopDelim(S, COMMA);
+    if HexVal(T, V) then
+      IntsToUTF8:=IntsToUTF8+ValueToCodePoint(V);
+  end;
+end;
+
+
 procedure AddInfo(const Entry : TEntry);
 var
   I : Integer;
@@ -123,7 +153,6 @@ var
   C, N: String;
   K : UnicodeString;
   V, T, M : Integer;
-  R : Boolean;
 begin
   N := ExtractFileBase(FileName);
   ID:=UpperCase(N);
@@ -136,14 +165,14 @@ begin
   end;
   Data := '// DOS Codepage to UTF-8 conversion map' + LF +
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
-  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfIntegers = (' + LF;
+  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfLongInts = (' + LF;
   WriteLn('Reading Codepage ', N, ' XML mazpping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
     M:=256+X.GetValue('SUPPLEMENT_' + UnicodeString(ID) + '/COUNT', 0);
     for I := 0 to M -1 do begin
-      R:= ReadEntry(X, I, E);
+      ReadEntry(X, I, E);
       K :=Trim(E.UTF8);
       if (I < 256) then begin
         K:=UnicodeString(WhenTrue(AnsiString(K),AnsiString(K), '-1'));
@@ -189,7 +218,7 @@ begin
   '{$DEFINE TextRemapEntries}' + LF +
   'type' + LF +
   '  TTextRemapEntry = record' + LF +
-  '    Value : UInt32;' + LF +
+  '    Value : String;' + LF +
   '    Data : String;' + LF +
   '  end;' + LF +
   '  TTextRemapEntries = array of TTextRemapEntry;' + LF +

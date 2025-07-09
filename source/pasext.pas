@@ -93,6 +93,7 @@ type
   TArrayOfBytes = array of Byte;
   TArrayOfWords = array of Word;
   TArrayOfIntegers = array of Integer;
+  TArrayOfLongInts = array of LongInt;
   TArrayOfChars = TCharArray; // Same as: array of Char;
   TArrayOfStrings = TStringArray; // Same as: array of String;
   TArrayOfUnicode = array of UnicodeString; // Same as: array of String;
