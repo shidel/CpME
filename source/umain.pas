@@ -5,8 +5,15 @@ unit umain;
 
 {$mode objfpc}{$H+}
 
-// TO-DO when clearing non-437 < 256, make sure list shows change back to using
+// TO-DO: when clearing non-437 < 256, make sure list shows change back to using
 // the 437 character mapping data.
+// TO-DO: add ability to change order of supplemental characters
+// TO-DO: move map generator into CpME
+// TO-DO: add ability to set path codepage XML path
+// TO-DO: add ability to select preview output path
+// TO-DO: add ability to create or duplicate a codepage.
+// TO-DO: ASCII font character editing.
+// TO-DO: No font, use (or clone) 437
 
 interface
 
