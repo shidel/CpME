@@ -101,10 +101,10 @@ procedure AddASCII(const Entry : TEntry; CodePage : String);
 var
   V, E : integer;
 begin
-  if (Entry.Index > 255) then exit;
+  if (Entry.Index > 255) or (Entry.UTF8 = '-1') then exit;
   Val(CodePage, V, E);
   if (E <> 0) or (V >= 900000) then exit;
-  ASCII.Add(AnsiString(Entry.UTF8) + '/' + CodePage ); // + ',' + IntToStr(Entry.Index));
+  ASCII.Add(AnsiString(Entry.UTF8) + '/' + CodePage + ',' + IntToStr(Entry.Index));
 end;
 
 procedure AddHTML(const Entry : TEntry);
