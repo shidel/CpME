@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="13"/>
-        <UsageCount Value="186"/>
+        <UsageCount Value="187"/>
       </Unit>
       <Unit>
         <Filename Value="umain.pas"/>
@@ -17,9 +17,9 @@
         <ComponentName Value="fMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="35" Y="9"/>
-        <FoldState Value=" T3kU0}HV"/>
-        <UsageCount Value="186"/>
+        <CursorPos X="28" Y="16"/>
+        <FoldState Value=" T3kb0}H6"/>
+        <UsageCount Value="187"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -29,10 +29,9 @@
         <UnitName Value="DOScp"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="179"/>
-        <CursorPos Y="208"/>
+        <CursorPos Y="10"/>
         <FoldState Value=" TM001 T4C[648iY281 PDA2 T3jT0E22338 pjPlZ09D piejc034 PQV0 T6jU01227 PBpI]G1jW0B2A2211217]431])iZ[T50jYJ]K]M[L4Dobq8"/>
-        <UsageCount Value="186"/>
+        <UsageCount Value="187"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -41,7 +40,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="3014"/>
         <CursorPos X="5" Y="3020"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>

@@ -9,7 +9,7 @@ uses Classes, SysUtils, XMLConf, PASext; // DOScp, DOSfont;
 
 var
   UTF8, HTML, ASCII, Info : TStringList;
-  Data : String;
+  Data, DData : String;
   ID : String;
   App_Build: String;
   DAC : TArrayOfStrings;
@@ -21,12 +21,15 @@ type
     HTML : TArrayOfUnicode;
   end;
 
+const
+  MapPath='maps/';
+
 procedure Prepare;
 begin
   App_Build:=BUILD_DATE;
-  App_Build:='// Created by CpME' +QUOTE +'s map creator v'
-  +PopDelim(App_Build) + LF +
-  '// https://github.com/shidel/CpME/' + LF;
+  App_Build:=LF + '{ Created by CpME' +QUOTE +'s map creator v'
+  +PopDelim(App_Build) + ' }' + LF +
+  '{ https://github.com/shidel/CpME/           }' + LF;
   DAC:=[];
   SetLength(DAC, 256);
   UTF8:=TStringList.Create;
@@ -141,13 +144,53 @@ begin
   end;
 end;
 
-
 procedure AddInfo(const Entry : TEntry);
 var
   I : Integer;
 begin
   for I := 0 to Length(Entry.HTML) - 1 do
     Info.Add(IntsToUTF8(AnsiString(Entry.UTF8)) + TAB + '&' + AnsiString(Entry.HTML[I]) + ';');
+end;
+
+function EntryTypeDef : String;
+begin
+  EntryTypeDef := LF +
+  '{$IFNDEF TP70}' + LF + LF +
+  '{$IFNDEF TextRemapEntries}' + LF +
+  '{$DEFINE TextRemapEntries}' + LF +
+  'type' + LF +
+  '  TTextRemapEntry = record' + LF +
+  '    Value : AnsiString;' + LF +
+  '    Data : AnsiString;' + LF +
+  '  end;' + LF +
+  '  TTextRemapEntries = array of TTextRemapEntry;' + LF +
+  '{$ENDIF}' + LF ;
+end;
+
+function DOSProc (Proc : String): String;
+begin
+  DOSProc := LF + LF + '{$ELSE}' + LF + LF +
+  '{$IFNDEF TextRemapEntries}' + LF +
+  '{$DEFINE TextRemapEntries}' + LF +
+  'type' + LF +
+  '  TTextRemapEntry = record' + LF +
+  '    Value : PChar;' + LF +
+  '    Data : PChar;' + LF +
+  '  end;' + LF +
+  '{$ENDIF}' + LF +LF +
+  'procedure ' + Proc + 'data; assembler; ' + LF +
+  'asm' + LF;
+end;
+
+function CPTypeDef : String;
+begin
+  CPTypeDef :=
+  '{$IFNDEF CodepageRemapEntries}' + LF +
+  '{$DEFINE CodepageRemapEntries}' + LF +
+  'type' + LF +
+  '  TCodepageRemapEntry = LongInt;' + LF +
+  '  TCodepageRemapEntries = array [0..255] of TCodepageRemapEntry;' + LF +
+  '{$ENDIF}' + LF + LF;
 end;
 
 procedure ReadXML(FileName : String);
@@ -168,11 +211,12 @@ begin
     C:='SUP';
     N:=N+' Supplemental';
   end;
-  Data := '// DOS Codepage to UTF-8 conversion map' + LF +
-  App_Build +LF + LF+
+  Data := '{ DOS Codepage to UTF-8 conversion map }' + LF +
+  App_Build + LF + LF+
+  CPTypeDef + LF +
   '{$DEFINE CP' + C + 'toUTF8Remap}' + LF +
-  'const' + LF + '  CP' + C + 'toUTF8RemapList : TArrayOfLongInts = (' + LF;
-  WriteLn('Reading Codepage ', N, ' XML mazpping file.');
+  'const' + LF + '  CP' + C + 'toUTF8RemapList : TCodepageRemapEntries = (' + LF;
+  WriteLn('Reading Codepage ', N, ' XML mapping file.');
   X := TXMLConfig.Create(nil);
   try
     X.Filename:=FileName;
@@ -202,7 +246,7 @@ begin
     end;
     Data:=Data+ '  );' + LF + LF;
     if C <> 'SUP' then
-      SaveBinary('map_' + C + '.inc', Data);
+      SaveBinary(MapPath + 'map_' + C + '.inc', Data);
   finally
     X.Free;
   end;
@@ -220,20 +264,6 @@ begin
       ReadXML('codepages/' + D[I]);
 end;
 
-function EntryTypeDef : String;
-begin
-  EntryTypeDef := LF +
-  '{$IFNDEF TextRemapEntries}' + LF +
-  '{$DEFINE TextRemapEntries}' + LF +
-  'type' + LF +
-  '  TTextRemapEntry = record' + LF +
-  '    Value : AnsiString;' + LF +
-  '    Data : AnsiString;' + LF +
-  '  end;' + LF +
-  '  TTextRemapEntries = array of TTextRemapEntry;' + LF +
-  '{$ENDIF}' + LF + LF;
-end;
-
 procedure AddItem(D : String; RPad:Integer; AllData : boolean = false);
 var
   T, S : String;
@@ -248,6 +278,8 @@ begin
     Data := Data + ',' + LF + S
   else
     Data:=S;
+  DData := DData + TAB + 'db ' + RightPad(QUOTE + T + QUOTE + ',0,', RPad) +
+    QUOTE + D + QUOTE + COMMA + '0' + LF;
 end;
 
 procedure ItemsUTF8(L, H : integer);
@@ -289,45 +321,55 @@ end;
 procedure SaveUTF8(Filename : String);
 begin
   Data := '';
+  DData := '';
   ItemsUTF8(0, UTF8.Count - 1);
-  Data := '// UTF-8 to HTML conversion map' + LF +
+  Data := '{ UTF-8 to HTML conversion map }' + LF +
   App_Build +LF +
   EntryTypeDef + LF +
   '{$DEFINE UTF8toHTMLRemap}' + LF +
   'const' + LF +
   '  UTF8toHTMLRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
-  '  );' + LF + LF;
+  '  );' +
+  DOSProc('UTF2HTML') + DData + 'end;' + LF + LF +
+  '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
 
 procedure SaveHTML(Filename : String);
 begin
   Data := '';
+  DData := '';
   ItemsHTML(0, HTML.Count - 1);
-  Data := '// HTML to UTF-8 conversion map' + LF +
+  Data := '{ HTML to UTF-8 conversion map }' + LF +
   App_Build +LF +
   EntryTypeDef + LF +
   '{$DEFINE HTMLtoUTF8Remap}' + LF +
   'const' + LF +
   '  HTMLtoUTF8RemapList : TTextRemapEntries = (' + LF +
   Data + LF +
-  '  );' + LF + LF;
+  '  );' +
+  DOSProc('HTML2UTF') + DData + 'end;' + LF + LF +
+  '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
 
 procedure SaveASCII(Filename : String);
 begin
   Data := '';
+  DData := '';
   ItemsASCII(0, ASCII.Count - 1);
-  Data := '// UTF-8 to ASCII compatibility map' + LF +
+  Data := '{ UTF-8 to ASCII compatibility map }' + LF +
   App_Build +LF +
+
   EntryTypeDef + LF +
   '{$DEFINE UTF8toASCIIRemap}' + LF +
   'const' + LF +
   '  UTF8toASCIIRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
-  '  );' + LF + LF;
+  '  );' +
+  DOSProc('UTF2CP') + DData + 'end;' + LF + LF +
+  '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
 
@@ -395,9 +437,9 @@ end;
 
 procedure SaveMaps;
 begin
-  SaveUTF8('map_utf8.inc');
-  SaveHTML('map_html.inc');
-  SaveASCII('map_uchk.inc');
+  SaveUTF8(MapPath + 'map_utf8.inc');
+  SaveHTML(MapPath + 'map_html.inc');
+  SaveASCII(MapPath + 'map_uchk.inc');
   SaveInfo('summary.html');
 end;
 
