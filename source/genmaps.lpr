@@ -100,11 +100,14 @@ end;
 procedure AddASCII(const Entry : TEntry; CodePage : String);
 var
   V, E : integer;
+  U : AnsiString;
 begin
-  if (Entry.Index > 255) or (Entry.UTF8 = '-1') then exit;
+  if (Entry.Index > 255) then Exit;
+  U := AnsiString(Entry.UTF8);
+  if (U = '-1') then U:=IntToStr(Entry.Index);
   Val(CodePage, V, E);
   if (E <> 0) or (V >= 900000) then exit;
-  ASCII.Add(AnsiString(Entry.UTF8) + '/' + CodePage + ',' + IntToStr(Entry.Index));
+  ASCII.Add(U + '/' + CodePage + ',' + IntToStr(Entry.Index));
 end;
 
 procedure AddHTML(const Entry : TEntry);
@@ -331,7 +334,9 @@ begin
   '  UTF8toHTMLRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
   '  );' +
-  DOSProc('UTF2HTML') + DData + 'end;' + LF + LF +
+  DOSProc('UTF2HTML') + DData +
+  TAB + 'db 0' + LF +
+  'end;' + LF + LF +
   '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
@@ -349,7 +354,9 @@ begin
   '  HTMLtoUTF8RemapList : TTextRemapEntries = (' + LF +
   Data + LF +
   '  );' +
-  DOSProc('HTML2UTF') + DData + 'end;' + LF + LF +
+  DOSProc('HTML2UTF') + DData +
+  TAB + 'db 0' + LF +
+  'end;' + LF + LF +
   '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
@@ -368,7 +375,9 @@ begin
   '  UTF8toASCIIRemapList : TTextRemapEntries = (' + LF +
   Data + LF +
   '  );' +
-  DOSProc('UTF2CP') + DData + 'end;' + LF + LF +
+  DOSProc('UTF2CP') + DData +
+  TAB + 'db 0' + LF +
+  'end;' + LF + LF +
   '{$ENDIF}' + LF + LF;
   SaveBinary(Filename, Data);
 end;
