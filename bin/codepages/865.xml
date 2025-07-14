@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="865">
+  <CODEPAGE_865>
+    <x7C UTF8="124" ENTITIES="vert,verbar,VerticalLine"/>
+    <x9B UTF8="248" ENTITIES="oslash"/>
+    <x9D UTF8="216" ENTITIES="Oslash"/>
+    <xAF UTF8="164" ENTITIES="curren"/>
+  </CODEPAGE_865>
+</CONFIG>
