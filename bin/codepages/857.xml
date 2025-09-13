@@ -44,7 +44,7 @@
     <xED UTF8="255" ENTITIES="yuml"/>
     <xEE UTF8="175" ENTITIES="strns"/>
     <xEF UTF8="180" ENTITIES="acute"/>
-    <xF0 UTF8="8722" ENTITIES="minus"/>
+    <xF0 UTF8="8208" ENTITIES="hyphen"/>
     <xF2 UTF8="819"/>
     <xF3 UTF8="190" ENTITIES="frac34"/>
     <xF4 UTF8="182" ENTITIES="para"/>
