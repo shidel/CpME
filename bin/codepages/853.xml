@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="853">
+  <CODEPAGE_853>
+    <xF0 UTF8="8208" ENTITIES="hyphen"/>
+    <xFB UTF8="185"/>
+    <x86 UTF8="265"/>
+    <x8F UTF8="264"/>
+    <x91 UTF8="267"/>
+    <x92 UTF8="266"/>
+    <x98 UTF8="304"/>
+    <x9B UTF8="285"/>
+    <x9D UTF8="284"/>
+    <x9E UTF8="215"/>
+    <x9F UTF8="309"/>
+    <xA6 UTF8="286"/>
+    <xA7 UTF8="287"/>
+    <xA8 UTF8="292"/>
+    <xA9 UTF8="293"/>
+    <xAA UTF8="8364"/>
+    <xAC UTF8="308"/>
+    <xAD UTF8="351"/>
+    <xB5 UTF8="193"/>
+    <xB6 UTF8="194"/>
+    <xB7 UTF8="192"/>
+    <xB8 UTF8="350"/>
+    <xBD UTF8="379"/>
+    <xBE UTF8="380"/>
+    <xC6 UTF8="348"/>
+    <xC7 UTF8="349"/>
+    <xCF UTF8="164"/>
+    <xD0 UTF8="162"/>
+    <xD1 UTF8="165"/>
+    <xD2 UTF8="202"/>
+    <xD3 UTF8="203"/>
+    <xD4 UTF8="200"/>
+    <xD5 UTF8="305"/>
+    <xD6 UTF8="205"/>
+    <xD7 UTF8="206"/>
+    <xD8 UTF8="207"/>
+    <xDD UTF8="163"/>
+    <xDE UTF8="204"/>
+    <xE0 UTF8="211"/>
+    <xE2 UTF8="212"/>
+    <xE3 UTF8="210"/>
+    <xE4 UTF8="288"/>
+    <xE5 UTF8="289"/>
+    <xE7 UTF8="294"/>
+    <xE8 UTF8="295"/>
+    <xE9 UTF8="218"/>
+    <xEA UTF8="219"/>
+    <xEB UTF8="219"/>
+    <xEC UTF8="364"/>
+    <xED UTF8="365"/>
+    <xEE UTF8="183"/>
+    <xEF UTF8="180"/>
+    <xF2 UTF8="8467"/>
+    <xF3 UTF8="329"/>
+    <xF4 UTF8="728"/>
+    <xF7 UTF8="184"/>
+    <xF9 UTF8="168"/>
+    <xFA UTF8="729"/>
+    <xFC UTF8="179"/>
+  </CODEPAGE_853>
+  <SUPPLEMENT_853 COUNT="0"/>
+</CONFIG>
