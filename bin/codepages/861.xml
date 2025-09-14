@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="861">
+  <CODEPAGE_861>
+    <x8B UTF8="208" ENTITIES="ETH"/>
+    <x8C UTF8="240" ENTITIES="eth"/>
+    <x8D UTF8="222" ENTITIES="THORN"/>
+    <x95 UTF8="254" ENTITIES="thorn"/>
+    <x97 UTF8="221" ENTITIES="Yacute"/>
+    <x98 UTF8="253" ENTITIES="yacute"/>
+    <x99 UTF8="214" ENTITIES="Ouml"/>
+    <x9B UTF8="248" ENTITIES="oslash"/>
+    <x9D UTF8="216" ENTITIES="Oslash"/>
+    <xA4 UTF8="193" ENTITIES="Aacute"/>
+    <xA5 UTF8="205" ENTITIES="Iacute"/>
+    <xA6 UTF8="211" ENTITIES="Oacute"/>
+    <xA7 UTF8="218" ENTITIES="Uacute"/>
+  </CODEPAGE_861>
+  <SUPPLEMENT_861 COUNT="0"/>
+</CONFIG>
