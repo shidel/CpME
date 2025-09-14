@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="860">
+  <CODEPAGE_860>
+    <x86 UTF8="193" ENTITIES="Aacute"/>
+    <x84 UTF8="227" ENTITIES="atilde"/>
+    <x80 ENTITIES="Ccedil"/>
+    <x89 UTF8="202" ENTITIES="Ecirc"/>
+    <x8B UTF8="205" ENTITIES="Iacute"/>
+    <x8C UTF8="212" ENTITIES="Ocirc"/>
+    <x8D UTF8="236" ENTITIES="igrave"/>
+    <x8E UTF8="195" ENTITIES="Atilde"/>
+    <x8F UTF8="194" ENTITIES="Acirc"/>
+    <x90 UTF8="201" ENTITIES="Eacute"/>
+    <x91 UTF8="192" ENTITIES="Agrave"/>
+    <x92 UTF8="200" ENTITIES="Egrave"/>
+    <x94 UTF8="245" ENTITIES="otilde"/>
+    <x96 UTF8="218" ENTITIES="Uacute"/>
+    <x97 UTF8="249" ENTITIES="ugrave"/>
+    <x98 UTF8="204" ENTITIES="Igrave"/>
+    <x99 UTF8="213" ENTITIES="Otilde"/>
+    <x9A UTF8="220" ENTITIES="Uuml"/>
+    <x9D UTF8="217" ENTITIES="Ugrave"/>
+    <x9F UTF8="211" ENTITIES="Oacute"/>
+    <xA9 UTF8="210" ENTITIES="Ograve"/>
+  </CODEPAGE_860>
+  <SUPPLEMENT_860 COUNT="0"/>
+</CONFIG>
