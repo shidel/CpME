@@ -1,101 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CONFIG CODEPAGES="855">
   <CODEPAGE_855>
-    <xF0 UTF8="8208" ENTITIES="hyphen"/>
-    <x80 UTF8="1106"/>
-    <x81 UTF8="1026"/>
-    <x82 UTF8="1107"/>
-    <x83 UTF8="1027"/>
-    <x84 UTF8="1105"/>
-    <x85 UTF8="1025"/>
-    <x86 UTF8="1108"/>
-    <x87 UTF8="1028"/>
-    <x88 UTF8="1109"/>
-    <x89 UTF8="1029"/>
-    <x8A UTF8="1110"/>
-    <x8B UTF8="1030"/>
-    <x8C UTF8="1111"/>
-    <x8D UTF8="1031"/>
-    <x8E UTF8="1112"/>
-    <x8F UTF8="1032"/>
-    <x90 UTF8="1113"/>
-    <x91 UTF8="1033"/>
-    <x92 UTF8="1114"/>
-    <x93 UTF8="1034"/>
-    <x94 UTF8="1115"/>
-    <x95 UTF8="1035"/>
-    <x96 UTF8="1116"/>
-    <x97 UTF8="1036"/>
-    <x98 UTF8="1118"/>
-    <x99 UTF8="1038"/>
-    <x9A UTF8="1119"/>
-    <x9B UTF8="1039"/>
-    <x9C UTF8="1102"/>
-    <x9D UTF8="1070"/>
-    <x9E UTF8="1098"/>
-    <x9F UTF8="1066"/>
-    <xA0 UTF8="1072"/>
-    <xA1 UTF8="1040"/>
-    <xA2 UTF8="1073"/>
-    <xA3 UTF8="1041"/>
-    <xA4 UTF8="1094"/>
-    <xA5 UTF8="1062"/>
-    <xA6 UTF8="1076"/>
-    <xA7 UTF8="1044"/>
-    <xA8 UTF8="1077"/>
-    <xA9 UTF8="1045"/>
-    <xAA UTF8="1092"/>
-    <xAB UTF8="1060"/>
-    <xAC UTF8="1075"/>
-    <xAD UTF8="1043"/>
-    <xB5 UTF8="1093"/>
-    <xB6 UTF8="1061"/>
-    <xB7 UTF8="1080"/>
-    <xB8 UTF8="1048"/>
-    <xBD UTF8="1081"/>
-    <xBE UTF8="1049"/>
-    <xC6 UTF8="1082"/>
-    <xC7 UTF8="1050"/>
-    <xCF UTF8="164"/>
-    <xD0 UTF8="1083"/>
-    <xD1 UTF8="1051"/>
-    <xD2 UTF8="1084"/>
-    <xD3 UTF8="1052"/>
-    <xD4 UTF8="1085"/>
-    <xD5 UTF8="1053"/>
-    <xD6 UTF8="1086"/>
-    <xD7 UTF8="1054"/>
-    <xD8 UTF8="1087"/>
-    <xDD UTF8="1055"/>
-    <xE0 UTF8="1071"/>
-    <xE1 UTF8="1088"/>
-    <xE2 UTF8="1056"/>
-    <xE3 UTF8="1089"/>
-    <xE4 UTF8="1057"/>
-    <xE5 UTF8="1090"/>
-    <xE6 UTF8="1058"/>
-    <xE7 UTF8="1091"/>
-    <xE8 UTF8="1059"/>
-    <xE9 UTF8="1078"/>
-    <xEA UTF8="1046"/>
-    <xEB UTF8="1074"/>
-    <xEC UTF8="1042"/>
-    <xED UTF8="1100"/>
-    <xEE UTF8="1068"/>
-    <xEF UTF8="8470"/>
-    <xF1 UTF8="1099"/>
-    <xF2 UTF8="1067"/>
-    <xF3 UTF8="1079"/>
-    <xF4 UTF8="1047"/>
-    <xF5 UTF8="1096"/>
-    <xF6 UTF8="1064"/>
-    <xF7 UTF8="1101"/>
-    <xF8 UTF8="1069"/>
-    <xF9 UTF8="1097"/>
-    <xFA UTF8="1065"/>
-    <xFB UTF8="1095"/>
-    <xFC UTF8="1063"/>
-    <xFD UTF8="167"/>
+    <xF0 UTF8="8208" ENTITIES="shy"/>
+    <x80 UTF8="1106" ENTITIES="djcy"/>
+    <x81 UTF8="1026" ENTITIES="DJcy"/>
+    <x82 UTF8="1107" ENTITIES="gjcy"/>
+    <x83 UTF8="1027" ENTITIES="GJcy"/>
+    <x84 UTF8="1105" ENTITIES="iocy"/>
+    <x85 UTF8="1025" ENTITIES="IOcy"/>
+    <x86 UTF8="1108" ENTITIES="jukcy"/>
+    <x87 UTF8="1028" ENTITIES="Jukcy"/>
+    <x88 UTF8="1109" ENTITIES="dscy"/>
+    <x89 UTF8="1029" ENTITIES="DScy"/>
+    <x8A UTF8="1110" ENTITIES="iukcy"/>
+    <x8B UTF8="1030" ENTITIES="Iukcy"/>
+    <x8C UTF8="1111" ENTITIES="yicy"/>
+    <x8D UTF8="1031" ENTITIES="YIcy"/>
+    <x8E UTF8="1112" ENTITIES="jsercy"/>
+    <x8F UTF8="1032" ENTITIES="Jsercy"/>
+    <x90 UTF8="1113" ENTITIES="ljcy"/>
+    <x91 UTF8="1033" ENTITIES="LJcy"/>
+    <x92 UTF8="1114" ENTITIES="njcy"/>
+    <x93 UTF8="1034" ENTITIES="NJcy"/>
+    <x94 UTF8="1115" ENTITIES="tshcy"/>
+    <x95 UTF8="1035" ENTITIES="TSHcy"/>
+    <x96 UTF8="1116" ENTITIES="kjcy"/>
+    <x97 UTF8="1036" ENTITIES="KJcy"/>
+    <x98 UTF8="1118" ENTITIES="ubrcy"/>
+    <x99 UTF8="1038" ENTITIES="Ubrcy"/>
+    <x9A UTF8="1119" ENTITIES="dzcy"/>
+    <x9B UTF8="1039" ENTITIES="DZcy"/>
+    <x9C UTF8="1102" ENTITIES="yucy"/>
+    <x9D UTF8="1070" ENTITIES="YUcy"/>
+    <x9E UTF8="1098" ENTITIES="hardcy"/>
+    <x9F UTF8="1066" ENTITIES="HARDcy"/>
+    <xA0 UTF8="1072" ENTITIES="acy"/>
+    <xA1 UTF8="1040" ENTITIES="Acy"/>
+    <xA2 UTF8="1073" ENTITIES="bcy"/>
+    <xA3 UTF8="1041" ENTITIES="Bcy"/>
+    <xA4 UTF8="1094" ENTITIES="tscy"/>
+    <xA5 UTF8="1062" ENTITIES="TScy"/>
+    <xA6 UTF8="1076" ENTITIES="dcy"/>
+    <xA7 UTF8="1044" ENTITIES="Dcy"/>
+    <xA8 UTF8="1077" ENTITIES="iecy"/>
+    <xA9 UTF8="1045" ENTITIES="IEcy"/>
+    <xAA UTF8="1092" ENTITIES="fcy"/>
+    <xAB UTF8="1060" ENTITIES="Fcy"/>
+    <xAC UTF8="1075" ENTITIES="gcy"/>
+    <xAD UTF8="1043" ENTITIES="Gcy"/>
+    <xB5 UTF8="1093" ENTITIES="khcy"/>
+    <xB6 UTF8="1061" ENTITIES="KHcy"/>
+    <xB7 UTF8="1080" ENTITIES="icy"/>
+    <xB8 UTF8="1048" ENTITIES="Icy"/>
+    <xBD UTF8="1081" ENTITIES="jcy"/>
+    <xBE UTF8="1049" ENTITIES="Jcy"/>
+    <xC6 UTF8="1082" ENTITIES="kcy"/>
+    <xC7 UTF8="1050" ENTITIES="Kcy"/>
+    <xCF UTF8="164" ENTITIES="curren"/>
+    <xD0 UTF8="1083" ENTITIES="lcy"/>
+    <xD1 UTF8="1051" ENTITIES="Lcy"/>
+    <xD2 UTF8="1084" ENTITIES="mcy"/>
+    <xD3 UTF8="1052" ENTITIES="Mcy"/>
+    <xD4 UTF8="1085" ENTITIES="ncy"/>
+    <xD5 UTF8="1053" ENTITIES="Ncy"/>
+    <xD6 UTF8="1086" ENTITIES="ocy"/>
+    <xD7 UTF8="1054" ENTITIES="Ocy"/>
+    <xD8 UTF8="1087" ENTITIES="pcy"/>
+    <xDD UTF8="1055" ENTITIES="Pcy"/>
+    <xE0 UTF8="1071" ENTITIES="YAcy"/>
+    <xE1 UTF8="1088" ENTITIES="rcy"/>
+    <xE2 UTF8="1056" ENTITIES="Rcy"/>
+    <xE3 UTF8="1089" ENTITIES="scy"/>
+    <xE4 UTF8="1057" ENTITIES="Scy"/>
+    <xE5 UTF8="1090" ENTITIES="tcy"/>
+    <xE6 UTF8="1058" ENTITIES="Tcy"/>
+    <xE7 UTF8="1091" ENTITIES="ucy"/>
+    <xE8 UTF8="1059" ENTITIES="Ucy"/>
+    <xE9 UTF8="1078" ENTITIES="zhcy"/>
+    <xEA UTF8="1046" ENTITIES="ZHcy"/>
+    <xEB UTF8="1074" ENTITIES="vcy"/>
+    <xEC UTF8="1042" ENTITIES="Vcy"/>
+    <xED UTF8="1100" ENTITIES="softcy"/>
+    <xEE UTF8="1068" ENTITIES="SOFTcy"/>
+    <xEF UTF8="8470" ENTITIES="numero"/>
+    <xF1 UTF8="1099" ENTITIES="ycy"/>
+    <xF2 UTF8="1067" ENTITIES="Ycy"/>
+    <xF3 UTF8="1079" ENTITIES="zcy"/>
+    <xF4 UTF8="1047" ENTITIES="Zcy"/>
+    <xF5 UTF8="1096" ENTITIES="shcy"/>
+    <xF6 UTF8="1064" ENTITIES="SHcy"/>
+    <xF7 UTF8="1101" ENTITIES="ecy"/>
+    <xF8 UTF8="1069" ENTITIES="Ecy"/>
+    <xF9 UTF8="1097" ENTITIES="shchcy"/>
+    <xFA UTF8="1065" ENTITIES="SHCHcy"/>
+    <xFB UTF8="1095" ENTITIES="chcy"/>
+    <xFC UTF8="1063" ENTITIES="CHcy"/>
+    <xFD UTF8="167" ENTITIES="sect"/>
+    <x7F UTF8="8962"/>
+    <xC8 UTF8="9562" ENTITIES="boxUR"/>
+    <xC9 UTF8="9556" ENTITIES="boxDR"/>
+    <xDE UTF8="9616"/>
+    <xDF UTF8="9600" ENTITIES="uhblk"/>
+    <xFE UTF8="9632"/>
   </CODEPAGE_855>
   <SUPPLEMENT_855 COUNT="0"/>
 </CONFIG>

@@ -40,7 +40,7 @@
     <xED UTF8="221" ENTITIES="Yacute"/>
     <xEE UTF8="175" ENTITIES="strns"/>
     <xEF UTF8="180" ENTITIES="acute"/>
-    <xF0 UTF8="8208" ENTITIES="hyphen"/>
+    <xF0 UTF8="8208" ENTITIES="shy"/>
     <xF2 UTF8="819"/>
     <xF3 UTF8="190" ENTITIES="frac34"/>
     <xF4 UTF8="182" ENTITIES="para"/>
@@ -49,6 +49,7 @@
     <xF9 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
     <xFB UTF8="185" ENTITIES="sup1"/>
     <xFC UTF8="179" ENTITIES="sup3"/>
+    <xFE UTF8="9632"/>
   </CODEPAGE_850>
   <SUPPLEMENT_850 COUNT="6">
     <x0000 UTF8="8364" ENTITIES="euro"/>

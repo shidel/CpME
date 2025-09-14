@@ -1,7 +1,7 @@
 object fMain: TfMain
-  Left = 640
+  Left = 1342
   Height = 452
-  Top = 655
+  Top = 759
   Width = 774
   Caption = 'Codepage Mapping Editor'
   ClientHeight = 452
@@ -230,7 +230,6 @@ object fMain: TfMain
           Height = 204
           Top = 164
           Width = 123
-          Align = alClient
           Center = True
           Proportional = True
           Stretch = True
@@ -321,15 +320,35 @@ object fMain: TfMain
             Caption = 'HTML &Entity'
             FocusControl = eEntity
           end
-          object eEntity: TEdit
+          object pEntity: TPanel
             Left = 0
             Height = 22
             Top = 126
             Width = 107
             Align = alTop
             BorderSpacing.Top = 4
+            BevelOuter = bvNone
+            ClientHeight = 22
+            ClientWidth = 107
             TabOrder = 2
-            OnChange = eEntityChange
+            object eEntity: TEdit
+              Left = 0
+              Height = 22
+              Top = 0
+              Width = 82
+              Align = alClient
+              BorderSpacing.Right = 2
+              TabOrder = 0
+              OnChange = eEntityChange
+            end
+            object sbEntity: TSpeedButton
+              Left = 84
+              Height = 22
+              Top = 0
+              Width = 23
+              Action = aEntityNames
+              Align = alRight
+            end
           end
         end
       end
@@ -387,6 +406,10 @@ object fMain: TfMain
       Caption = 'Move'
       ImageIndex = 4
       OnUpdate = aMoveCharUpdate
+    end
+    object aEntityNames: TAction
+      Caption = '«'
+      OnExecute = aEntityNamesExecute
     end
   end
   object ilFont: TImageList

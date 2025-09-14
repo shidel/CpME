@@ -107,7 +107,7 @@
     <xA6 UTF8="170" ENTITIES="ordf"/>
     <xA7 UTF8="186" ENTITIES="ordm"/>
     <xA8 UTF8="191" ENTITIES="iquest"/>
-    <xA9 UTF8="8976"/>
+    <xA9 UTF8="8976" ENTITIES="bnot"/>
     <xAA UTF8="172" ENTITIES="not"/>
     <xAB UTF8="189" ENTITIES="frac12,half"/>
     <xAC UTF8="188" ENTITIES="frac14"/>
@@ -158,10 +158,10 @@
     <xD9 UTF8="9496" ENTITIES="boxul"/>
     <xDA UTF8="9484" ENTITIES="boxdr"/>
     <xDB UTF8="9608" ENTITIES="block"/>
-    <xDC UTF8="9604"/>
+    <xDC UTF8="9604" ENTITIES="lhblk"/>
     <xDD UTF8="9612"/>
     <xDE UTF8="9616"/>
-    <xDF UTF8="9600"/>
+    <xDF UTF8="9600" ENTITIES="uhblk"/>
     <xE0 UTF8="945" ENTITIES="alpha"/>
     <xE1 UTF8="223" ENTITIES="szlig"/>
     <xE2 UTF8="915" ENTITIES="Gamma"/>

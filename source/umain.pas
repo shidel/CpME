@@ -19,7 +19,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  Menus, ActnList, ExtCtrls, fpImage, PASext, DOScp, DOSfont;
+  Menus, ActnList, ExtCtrls, Buttons, fpImage, PASext, DOScp, DOSfont;
 
 const
   csAscii  = 0;
@@ -36,6 +36,7 @@ type
 
   TfMain = class(TForm)
     aAddChar: TAction;
+    aEntityNames: TAction;
     aMoveChar: TAction;
     aInsertChar: TAction;
     aDeleteChar: TAction;
@@ -57,6 +58,7 @@ type
     lbCodePages: TListBox;
     lvCodePage: TListView;
     mmMain: TMainMenu;
+    pEntity: TPanel;
     pProps: TPanel;
     pEditIndex: TPanel;
     pCharacter: TPanel;
@@ -64,6 +66,7 @@ type
     pLeft: TPanel;
     pClient: TPanel;
     pHeadSpace: TPanel;
+    sbEntity: TSpeedButton;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     sBar: TStatusBar;
@@ -80,6 +83,7 @@ type
     procedure aAddCharUpdate(Sender: TObject);
     procedure aDeleteCharExecute(Sender: TObject);
     procedure aDeleteCharUpdate(Sender: TObject);
+    procedure aEntityNamesExecute(Sender: TObject);
     procedure aInsertCharExecute(Sender: TObject);
     procedure aInsertCharUpdate(Sender: TObject);
     procedure aMoveCharUpdate(Sender: TObject);
@@ -161,6 +165,7 @@ begin
   I:=lvCodePage.ItemIndex;
   CodePages.Active.UTF8[I] := eUTF8.Text;
   lvCodePage.Items[I].SubItems[csUTF8]:=CodePages.Active.UTF8[I];
+  eEntityChange(Sender);
 end;
 
 
@@ -392,6 +397,40 @@ end;
 procedure TfMain.aDeleteCharUpdate(Sender: TObject);
 begin
   aDeleteChar.Enabled := lvCodePage.ItemIndex > 255;
+end;
+
+procedure TfMain.aEntityNamesExecute(Sender: TObject);
+
+  function Populate(C : String) : String;
+  var
+    I, J : integer;
+    L : TStringList;
+    T, E : String;
+
+  begin
+      L := TStringList.Create;
+      L.Duplicates:=dupIgnore;  // Doesn't work on unsorted lists
+      for I := 0 to Codepages.Count - 1 do
+        if Codepages.Active <> CodePages[I] then
+         for J := 0 to CodePages[I].Count - 1 do
+           if Codepages[I].UTF8[J] = C then begin
+             T:=Codepages[I].Entities[J];
+             while T <> '' do begin
+               E := Trim(PopDelim(T, COMMA));
+               if E = '' then continue;
+               if L.IndexOf(E) >= 0 then Continue;
+               L.Add(E);
+             end;
+           end;
+      Result:=Implode(L, COMMA);
+      L.Free;
+  end;
+
+begin
+  if not Assigned(CodePages.Active) then Exit;
+  eEntity.Text:=Populate(eUTF8.Caption);
+  eEntityChange(Sender);
+  eUTF8Change(Sender);
 end;
 
 procedure TfMain.aInsertCharExecute(Sender: TObject);

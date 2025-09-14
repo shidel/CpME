@@ -1,65 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CONFIG CODEPAGES="853">
   <CODEPAGE_853>
-    <xF0 UTF8="8208" ENTITIES="hyphen"/>
-    <xFB UTF8="185"/>
-    <x86 UTF8="265"/>
-    <x8F UTF8="264"/>
-    <x91 UTF8="267"/>
-    <x92 UTF8="266"/>
-    <x98 UTF8="304"/>
-    <x9B UTF8="285"/>
-    <x9D UTF8="284"/>
-    <x9E UTF8="215"/>
-    <x9F UTF8="309"/>
-    <xA6 UTF8="286"/>
-    <xA7 UTF8="287"/>
-    <xA8 UTF8="292"/>
-    <xA9 UTF8="293"/>
-    <xAA UTF8="8364"/>
-    <xAC UTF8="308"/>
-    <xAD UTF8="351"/>
-    <xB5 UTF8="193"/>
-    <xB6 UTF8="194"/>
-    <xB7 UTF8="192"/>
-    <xB8 UTF8="350"/>
-    <xBD UTF8="379"/>
-    <xBE UTF8="380"/>
-    <xC6 UTF8="348"/>
-    <xC7 UTF8="349"/>
-    <xCF UTF8="164"/>
-    <xD0 UTF8="162"/>
-    <xD1 UTF8="165"/>
-    <xD2 UTF8="202"/>
-    <xD3 UTF8="203"/>
-    <xD4 UTF8="200"/>
-    <xD5 UTF8="305"/>
-    <xD6 UTF8="205"/>
-    <xD7 UTF8="206"/>
-    <xD8 UTF8="207"/>
-    <xDD UTF8="163"/>
-    <xDE UTF8="204"/>
-    <xE0 UTF8="211"/>
-    <xE2 UTF8="212"/>
-    <xE3 UTF8="210"/>
-    <xE4 UTF8="288"/>
-    <xE5 UTF8="289"/>
-    <xE7 UTF8="294"/>
-    <xE8 UTF8="295"/>
-    <xE9 UTF8="218"/>
-    <xEA UTF8="219"/>
-    <xEB UTF8="219"/>
-    <xEC UTF8="364"/>
-    <xED UTF8="365"/>
-    <xEE UTF8="183"/>
-    <xEF UTF8="180"/>
-    <xF2 UTF8="8467"/>
-    <xF3 UTF8="329"/>
-    <xF4 UTF8="728"/>
-    <xF7 UTF8="184"/>
-    <xF9 UTF8="168"/>
-    <xFA UTF8="729"/>
-    <xFC UTF8="179"/>
+    <xF0 UTF8="8208" ENTITIES="shy"/>
+    <xFB UTF8="185" ENTITIES="sup1"/>
+    <x86 UTF8="265" ENTITIES="ccirc"/>
+    <x8F UTF8="264" ENTITIES="Ccirc"/>
+    <x91 UTF8="267" ENTITIES="cdot"/>
+    <x92 UTF8="266" ENTITIES="Cdot"/>
+    <x98 UTF8="304" ENTITIES="Idot"/>
+    <x9B UTF8="285" ENTITIES="gcirc"/>
+    <x9D UTF8="284" ENTITIES="Gcirc"/>
+    <x9E UTF8="215" ENTITIES="times"/>
+    <x9F UTF8="309" ENTITIES="jcirc"/>
+    <xA6 UTF8="286" ENTITIES="Gbreve"/>
+    <xA7 UTF8="287" ENTITIES="gbreve"/>
+    <xA8 UTF8="292" ENTITIES="Hcirc"/>
+    <xA9 UTF8="293" ENTITIES="hcirc"/>
+    <xAA UTF8="8364" ENTITIES="euro"/>
+    <xAC UTF8="308" ENTITIES="Jcirc"/>
+    <xAD UTF8="351" ENTITIES="scedil"/>
+    <xB5 UTF8="193" ENTITIES="Aacute"/>
+    <xB6 UTF8="194" ENTITIES="Acirc"/>
+    <xB7 UTF8="192" ENTITIES="Agrave"/>
+    <xB8 UTF8="350" ENTITIES="Scedil"/>
+    <xBD UTF8="379" ENTITIES="Zdot"/>
+    <xBE UTF8="380" ENTITIES="zdot"/>
+    <xC6 UTF8="348" ENTITIES="Scirc"/>
+    <xC7 UTF8="349" ENTITIES="scirc"/>
+    <xCF UTF8="164" ENTITIES="curren"/>
+    <xD0 UTF8="162" ENTITIES="cent"/>
+    <xD1 UTF8="165" ENTITIES="yen"/>
+    <xD2 UTF8="202" ENTITIES="Ecirc"/>
+    <xD3 UTF8="203" ENTITIES="Euml"/>
+    <xD4 UTF8="200" ENTITIES="Egrave"/>
+    <xD5 UTF8="305" ENTITIES="inodot,imath"/>
+    <xD6 UTF8="205" ENTITIES="Iacute"/>
+    <xD7 UTF8="206" ENTITIES="Icirc"/>
+    <xD8 UTF8="207" ENTITIES="Iuml"/>
+    <xDD UTF8="163" ENTITIES="pound"/>
+    <xDE UTF8="204" ENTITIES="Igrave"/>
+    <xE0 UTF8="211" ENTITIES="Oacute"/>
+    <xE2 UTF8="212" ENTITIES="Ocirc"/>
+    <xE3 UTF8="210" ENTITIES="Ograve"/>
+    <xE4 UTF8="288" ENTITIES="Gdot"/>
+    <xE5 UTF8="289" ENTITIES="gdot"/>
+    <xE7 UTF8="294" ENTITIES="Hstrok"/>
+    <xE8 UTF8="295" ENTITIES="hstrok"/>
+    <xE9 UTF8="218" ENTITIES="Uacute"/>
+    <xEA UTF8="219" ENTITIES="Ucirc"/>
+    <xEB UTF8="219" ENTITIES="Ucirc"/>
+    <xEC UTF8="364" ENTITIES="Ubreve"/>
+    <xED UTF8="365" ENTITIES="ubreve"/>
+    <xEE UTF8="183" ENTITIES="centerdot,middot"/>
+    <xEF UTF8="180" ENTITIES="acute,DiacriticalAcute"/>
+    <xF2 UTF8="8467" ENTITIES="ell"/>
+    <xF3 UTF8="329" ENTITIES="napos"/>
+    <xF4 UTF8="728" ENTITIES="breve"/>
+    <xF7 UTF8="184" ENTITIES="cedil,Cedilla"/>
+    <xF9 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
+    <xFA UTF8="729" ENTITIES="dot,DiacriticalDot"/>
+    <xFC UTF8="179" ENTITIES="sup3"/>
+    <x80 UTF8="199" ENTITIES="Ccedil"/>
+    <x81 UTF8="252" ENTITIES="uuml"/>
+    <x82 UTF8="233" ENTITIES="eacute"/>
+    <x83 UTF8="226" ENTITIES="acirc"/>
+    <x84 UTF8="228" ENTITIES="auml"/>
+    <x85 UTF8="224" ENTITIES="agrave"/>
+    <x87 UTF8="231" ENTITIES="ccedil"/>
+    <x88 UTF8="234" ENTITIES="ecirc"/>
+    <x89 UTF8="235" ENTITIES="euml"/>
+    <x8A UTF8="232" ENTITIES="egrave"/>
+    <x8B UTF8="239" ENTITIES="iuml"/>
+    <x8C UTF8="238" ENTITIES="icirc"/>
+    <x8D UTF8="236" ENTITIES="igrave"/>
+    <x8E UTF8="196" ENTITIES="Auml"/>
+    <x90 UTF8="201" ENTITIES="Eacute"/>
+    <x93 UTF8="244" ENTITIES="ocirc"/>
+    <x94 UTF8="246" ENTITIES="ouml"/>
+    <x95 UTF8="242" ENTITIES="ograve"/>
+    <x96 UTF8="251" ENTITIES="ucirc"/>
+    <x97 UTF8="249" ENTITIES="ugrave"/>
+    <x99 UTF8="214" ENTITIES="Ouml"/>
+    <x9A UTF8="220" ENTITIES="Uuml"/>
+    <x9C UTF8="163" ENTITIES="pound"/>
+    <xA0 UTF8="225" ENTITIES="aacute"/>
+    <xA1 UTF8="237" ENTITIES="iacute"/>
+    <xA2 UTF8="243" ENTITIES="oacute"/>
+    <xA3 UTF8="250" ENTITIES="uacute"/>
+    <xA4 UTF8="241" ENTITIES="ntilde"/>
+    <xA5 UTF8="209" ENTITIES="Ntilde"/>
+    <xAB UTF8="189" ENTITIES="frac12,half"/>
+    <xDF UTF8="9600" ENTITIES="uhblk"/>
+    <xE6 UTF8="181" ENTITIES="micro"/>
+    <xF5 UTF8="167" ENTITIES="sect"/>
+    <xF6 UTF8="247" ENTITIES="divide,div"/>
+    <xF8 UTF8="176" ENTITIES="deg"/>
+    <xFD UTF8="178" ENTITIES="sup2"/>
   </CODEPAGE_853>
   <SUPPLEMENT_853 COUNT="0"/>
 </CONFIG>

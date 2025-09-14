@@ -16,63 +16,73 @@
     <xA0 UTF8="970"/>
     <xA1 UTF8="912"/>
     <xA3 UTF8="973"/>
-    <xA4 UTF8="913"/>
-    <xA5 UTF8="914"/>
-    <xA6 UTF8="915"/>
-    <xA7 UTF8="916"/>
-    <xA8 UTF8="917"/>
-    <xA9 UTF8="918"/>
-    <xAA UTF8="919"/>
-    <xAC UTF8="920"/>
-    <xAD UTF8="921"/>
-    <xB5 UTF8="922"/>
-    <xB6 UTF8="923"/>
-    <xB7 UTF8="924"/>
-    <xB8 UTF8="925"/>
-    <xBD UTF8="926"/>
-    <xBE UTF8="927"/>
-    <xC6 UTF8="928"/>
-    <xC7 UTF8="929"/>
-    <xCF UTF8="931"/>
-    <xD0 UTF8="932"/>
-    <xD1 UTF8="933"/>
-    <xD2 UTF8="934"/>
-    <xD3 UTF8="935"/>
-    <xD4 UTF8="936"/>
-    <xD5 UTF8="937"/>
-    <xD6 UTF8="945"/>
-    <xD7 UTF8="946"/>
-    <xD8 UTF8="947"/>
-    <xDD UTF8="948"/>
-    <xDE UTF8="949"/>
-    <xE0 UTF8="950"/>
-    <xE1 UTF8="951"/>
-    <xE2 UTF8="952"/>
-    <xE3 UTF8="953"/>
-    <xE4 UTF8="954"/>
-    <xE5 UTF8="955"/>
-    <xE6 UTF8="956"/>
-    <xE7 UTF8="957"/>
-    <xE8 UTF8="958"/>
-    <xE9 UTF8="959"/>
-    <xEA UTF8="960"/>
-    <xEB UTF8="961"/>
-    <xEC UTF8="963"/>
-    <xED UTF8="962"/>
-    <xEE UTF8="964"/>
+    <xA4 UTF8="913" ENTITIES="Alpha"/>
+    <xA5 UTF8="914" ENTITIES="Beta"/>
+    <xA6 UTF8="915" ENTITIES="Gamma"/>
+    <xA7 UTF8="916" ENTITIES="Delta"/>
+    <xA8 UTF8="917" ENTITIES="Epsilon"/>
+    <xA9 UTF8="918" ENTITIES="Zeta"/>
+    <xAA UTF8="919" ENTITIES="Eta"/>
+    <xAC UTF8="920" ENTITIES="Theta"/>
+    <xAD UTF8="921" ENTITIES="Iota"/>
+    <xB5 UTF8="922" ENTITIES="Kappa"/>
+    <xB6 UTF8="923" ENTITIES="Lambda"/>
+    <xB7 UTF8="924" ENTITIES="Mu"/>
+    <xB8 UTF8="925" ENTITIES="Nu"/>
+    <xBD UTF8="926" ENTITIES="Xi"/>
+    <xBE UTF8="927" ENTITIES="Omicron"/>
+    <xC6 UTF8="928" ENTITIES="Pi"/>
+    <xC7 UTF8="929" ENTITIES="Rho"/>
+    <xCF UTF8="931" ENTITIES="Sigma"/>
+    <xD0 UTF8="932" ENTITIES="Tau"/>
+    <xD1 UTF8="933" ENTITIES="Upsilon"/>
+    <xD2 UTF8="934" ENTITIES="Phi"/>
+    <xD3 UTF8="935" ENTITIES="Chi"/>
+    <xD4 UTF8="936" ENTITIES="Psi"/>
+    <xD5 UTF8="937" ENTITIES="Omega,ohm"/>
+    <xD6 UTF8="945" ENTITIES="alpha"/>
+    <xD7 UTF8="946" ENTITIES="beta"/>
+    <xD8 UTF8="947" ENTITIES="gamma"/>
+    <xDD UTF8="948" ENTITIES="delta"/>
+    <xDE UTF8="949" ENTITIES="epsilon,epsi"/>
+    <xE0 UTF8="950" ENTITIES="zeta"/>
+    <xE1 UTF8="951" ENTITIES="eta"/>
+    <xE2 UTF8="952" ENTITIES="theta"/>
+    <xE3 UTF8="953" ENTITIES="iota"/>
+    <xE4 UTF8="954" ENTITIES="kappa"/>
+    <xE5 UTF8="955" ENTITIES="lambda"/>
+    <xE6 UTF8="956" ENTITIES="mu"/>
+    <xE7 UTF8="957" ENTITIES="nu"/>
+    <xE8 UTF8="958" ENTITIES="xi"/>
+    <xE9 UTF8="959" ENTITIES="omicron"/>
+    <xEA UTF8="960" ENTITIES="pi"/>
+    <xEB UTF8="961" ENTITIES="rho"/>
+    <xEC UTF8="963" ENTITIES="sigma"/>
+    <xED UTF8="962" ENTITIES="sigmaf,sigmav,varsigma"/>
+    <xEE UTF8="964" ENTITIES="tau"/>
     <xEF UTF8="900"/>
-    <xF0 UTF8="8208" ENTITIES="hyphen"/>
-    <xF2 UTF8="965"/>
-    <xF3 UTF8="966"/>
-    <xF4 UTF8="967"/>
-    <xF5 UTF8="167"/>
-    <xF6 UTF8="968"/>
-    <xF7 UTF8="184"/>
-    <xF9 UTF8="168"/>
-    <xFA UTF8="969"/>
+    <xF0 UTF8="8208" ENTITIES="shy"/>
+    <xF2 UTF8="965" ENTITIES="upsilon,upsi"/>
+    <xF3 UTF8="966" ENTITIES="phi,phiv,varphi"/>
+    <xF4 UTF8="967" ENTITIES="chi"/>
+    <xF5 UTF8="167" ENTITIES="sect"/>
+    <xF6 UTF8="968" ENTITIES="psi"/>
+    <xF7 UTF8="184" ENTITIES="cedil,Cedilla"/>
+    <xF9 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
+    <xFA UTF8="969" ENTITIES="omega"/>
     <xFB UTF8="971"/>
     <xFC UTF8="944"/>
     <xFD UTF8="974"/>
+    <x80 UTF8="199" ENTITIES="Ccedil"/>
+    <x81 UTF8="252" ENTITIES="uuml"/>
+    <x82 UTF8="233" ENTITIES="eacute"/>
+    <x83 UTF8="226" ENTITIES="acirc"/>
+    <x84 UTF8="228" ENTITIES="auml"/>
+    <x85 UTF8="224" ENTITIES="agrave"/>
+    <xAB UTF8="189" ENTITIES="frac12,half"/>
+    <xB9 UTF8="9571" ENTITIES="boxVL"/>
+    <xBF UTF8="9488" ENTITIES="boxdl"/>
+    <xF8 UTF8="176" ENTITIES="deg"/>
   </CODEPAGE_851>
   <SUPPLEMENT_851 COUNT="0"/>
 </CONFIG>
