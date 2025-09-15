@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG CODEPAGES="895">
+  <CODEPAGE_895>
+    <x83 UTF8="271" ENTITIES="dcaron"/>
+    <x85 UTF8="270" ENTITIES="Dcaron"/>
+    <x84 UTF8="228" ENTITIES="auml"/>
+    <x86 UTF8="356" ENTITIES="Tcaron"/>
+    <x87 UTF8="269" ENTITIES="ccaron"/>
+    <x88 UTF8="283" ENTITIES="ecaron"/>
+    <x89 UTF8="282" ENTITIES="Ecaron"/>
+    <x8A UTF8="313" ENTITIES="Lacute"/>
+    <x8B UTF8="205" ENTITIES="Iacute"/>
+    <x8D UTF8="314" ENTITIES="lacute"/>
+    <x8C UTF8="318" ENTITIES="lcaron"/>
+    <x8F UTF8="193" ENTITIES="Aacute"/>
+    <x90 UTF8="201" ENTITIES="Eacute"/>
+    <x91 UTF8="382" ENTITIES="zcaron"/>
+    <x92 UTF8="381" ENTITIES="Zcaron"/>
+    <x95 UTF8="211" ENTITIES="Oacute"/>
+    <x96 UTF8="367" ENTITIES="uring"/>
+    <x97 UTF8="218" ENTITIES="Uacute"/>
+    <x98 UTF8="253" ENTITIES="yacute"/>
+    <x9B UTF8="352" ENTITIES="Scaron"/>
+    <x9C UTF8="317" ENTITIES="Lcaron"/>
+    <x9D UTF8="221" ENTITIES="Yacute"/>
+    <x9E UTF8="344" ENTITIES="Rcaron"/>
+    <x9F UTF8="357" ENTITIES="tcaron"/>
+    <xA0 UTF8="225" ENTITIES="aacute"/>
+    <xA4 UTF8="328" ENTITIES="ncaron"/>
+    <xA5 UTF8="327" ENTITIES="Ncaron"/>
+    <xA6 UTF8="366" ENTITIES="Uring"/>
+    <xA7 UTF8="212" ENTITIES="Ocirc"/>
+    <xA8 UTF8="353" ENTITIES="scaron"/>
+    <xA9 UTF8="345" ENTITIES="rcaron"/>
+    <xAA UTF8="341" ENTITIES="racute"/>
+    <xAB UTF8="340" ENTITIES="Racute"/>
+    <xAD UTF8="167" ENTITIES="sect"/>
+    <xC4 UTF8="9472" ENTITIES="boxh,HorizontalLine"/>
+  </CODEPAGE_895>
+  <SUPPLEMENT_895 COUNT="0"/>
+</CONFIG>
