@@ -20,9 +20,10 @@
     <xA4 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
     <xA5 UTF8="184" ENTITIES="cedil,Cedilla"/>
     <xA6 UTF8="179" ENTITIES="sup3"/>
-    <xA7 UTF8="175"/>
+    <xA7 UTF8="175" ENTITIES="strns,macr"/>
     <xA8 UTF8="206" ENTITIES="Icirc"/>
     <xAD UTF8="190" ENTITIES="frac34"/>
+    <xF9 UTF8="8729"/>
   </CODEPAGE_863>
   <SUPPLEMENT_863 COUNT="0"/>
 </CONFIG>
