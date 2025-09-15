@@ -53,6 +53,7 @@
     <xF9 UTF8="168" ENTITIES="uml,Dot,DoubleDot,die"/>
     <xFB UTF8="185" ENTITIES="sup1"/>
     <xFC UTF8="179" ENTITIES="sup3"/>
+    <xE7 ENTITIES="null"/>
   </CODEPAGE_857>
   <SUPPLEMENT_857 COUNT="0"/>
 </CONFIG>
